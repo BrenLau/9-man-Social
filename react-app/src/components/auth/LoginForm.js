@@ -58,6 +58,15 @@ const LoginForm = () => {
         />
         <button type='submit'>Login</button>
       </div>
+      <button
+        className="submit-btn"
+        onClick={() => {
+          setPassword("password");
+          setEmail("demo@aa.io");
+        }}
+      >
+        Demo User
+      </button>
     </form>
   );
 };
