@@ -46,7 +46,7 @@ def seed_teams():
     db.session.commit()
 
 
-def undo_users():
+def undo_teams():
     db.session.execute('TRUNCATE teams RESTART IDENTITY CASCADE;')
     db.session.execute('TRUNCATE teammembers RESTART IDENTITY CASCADE;')
     db.session.commit()
