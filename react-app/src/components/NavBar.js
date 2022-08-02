@@ -24,7 +24,7 @@ const NavBar = () => {
         <li className='navli'>
           <NavLink className='navli' to='/sign-up' exact={true} activeClassName='active'>
             <img className='ball' src="https://pngimg.com/uploads/volleyball/volleyball_PNG1.png"></img>
-            <div className='labell'>Sign up</div>
+            <div className='labell'>SignUp</div>
           </NavLink>
         </li>
         <li className='navli'>
