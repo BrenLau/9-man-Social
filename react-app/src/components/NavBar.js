@@ -7,7 +7,7 @@ import "./NavBar.css"
 const NavBar = () => {
   return (
     <nav className='nav'>
-      <img className='banner' src="https://brensteamupsproject.s3.amazonaws.com/bigger9mansocial.png"></img>
+      <img className='banner' src="https://brensteamupsproject.s3.amazonaws.com/rem.png"></img>
       <ul className='navstuff'>
         <li className='navli'>
           <NavLink className='navli' to='/' exact={true} activeClassName='active'>
