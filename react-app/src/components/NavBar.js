@@ -17,17 +17,20 @@ const NavBar = () => {
         </li>
         <li className='navli'>
           <NavLink className='navli' to='/login' exact={true} activeClassName='active'>
-            Login
+            <img className='ball' src="https://pngimg.com/uploads/volleyball/volleyball_PNG1.png"></img>
+            <div className='labell'>Login</div>
           </NavLink>
         </li>
         <li className='navli'>
           <NavLink className='navli' to='/sign-up' exact={true} activeClassName='active'>
-            Sign-Up
+            <img className='ball' src="https://pngimg.com/uploads/volleyball/volleyball_PNG1.png"></img>
+            <div className='labell'>Sign up</div>
           </NavLink>
         </li>
         <li className='navli'>
           <NavLink className='navli' to='/users' exact={true} activeClassName='active'>
-            Users
+            <img className='ball' src="https://pngimg.com/uploads/volleyball/volleyball_PNG1.png"></img>
+            <div className='labell'>Users</div>
           </NavLink>
         </li>
         <li className='navli'>

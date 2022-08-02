@@ -21,17 +21,19 @@
 .navstuff {
     width: 100%;
     max-width: 1400px;
-
+    height: 50px;
     display: flex;
     padding: 3px;
     position: fixed;
     top: 0px;
     /* left: 30px; */
     margin: 0px;
+    margin-left: 35px;
+    margin-right: 35px;
     margin-top: 15px;
     justify-content: space-around;
-    padding-left: 20px;
-    padding-right: 20px;
+    align-items: center;
+
 }
 
 li {
@@ -46,7 +48,7 @@ li {
 }
 
 .ball {
-    height: 60px;
+    height: 50px;
     position: fixed;
     top: 10px;
     z-index: -1;
@@ -54,9 +56,30 @@ li {
 
 .labell {
     position: fixed;
-    top: 20px;
+    top: 25px;
     background-color: white;
-    border: solid 1px;
-    border-radius: 10px;
+    border: solid 1px black;
+    border-radius: 50px;
+    color: red;
+}
 
+@keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.ball:hover {
+    animation-name: rotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+body {
+    background-color: lightgrey
 }
