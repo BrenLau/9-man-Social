@@ -1,6 +1,6 @@
 const Home = () => {
     return (
-        <h1>9-man Social</h1>
+        <h1>9-man  Social</h1>
     )
 }
 
