@@ -27,7 +27,8 @@ class Team(db.Model):
             "name": self.name,
             "image": self.image,
             "captainId": self.captainId,
-            "descripton": self.description
+            "description": self.description,
+            # "captain": self.captain
         }
 
 

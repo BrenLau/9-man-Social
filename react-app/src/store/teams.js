@@ -15,7 +15,7 @@ export const getTeamsThunk = () => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(getTeams(data.teams))
-        console.log(data.teams)
+        console.log(data)
         return data
     }
 }
@@ -24,7 +24,10 @@ const teams = (state = {}, action) => {
     let newState = {}
     switch (action.type) {
         case GET_TEAMS:
-            newState = { ...state, teams: action.teams }
+            newState = { ...state }
+            action.teams.forEach(team => {
+                newState[team.id] = team
+            })
             return newState
         default:
             return state

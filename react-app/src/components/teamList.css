@@ -10,6 +10,18 @@
     align-items: center;
     text-align: center;
     margin: 3px;
+    text-decoration: none;
+    font-weight: bold;
+    color: red;
+}
+
+.activeteam {
+    background-color: darkgray;
+    color: crimson;
+}
+
+.teamcapsule:hover {
+    background-color: burlywood;
 }
 
 .teamdisplay {

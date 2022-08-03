@@ -1,10 +1,11 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { getTeamsThunk } from "../store/teams"
+import { NavLink } from "react-router-dom"
 import "./teamList.css"
 const TeamList = () => {
     const dispatch = useDispatch()
-    const teams = useSelector(state => state.teams.teams)
+    const teams = useSelector(state => state.teams)
     console.log(teams)
 
     useEffect(() => {
@@ -14,14 +15,14 @@ const TeamList = () => {
     //     return null
     // }
     return (
-        Array.isArray(teams) && <ul className='teamdisplay'>
-            {teams.map(team => {
+        Array.isArray(Object.values(teams)) && <div className='teamdisplay'>
+            {Object.values(teams).map(team => {
                 return (
 
-                    <li className="teamcapsule">{team.name}</li>
+                    <NavLink to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{team.name}</NavLink>
                 )
             })}
-        </ul>
+        </div>
     )
 }
 

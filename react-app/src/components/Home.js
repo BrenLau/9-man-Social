@@ -13,6 +13,7 @@ import { authenticate } from '../store/session';
 import { useSelector } from "react-redux";
 import TeamList from "./teamList";
 import { getTeamsThunk } from "../store/teams"
+import TeamPage from "./TeamPage";
 
 const Home = () => {
     const sessionUser = useSelector(state => state.session.user)
@@ -34,9 +35,9 @@ const Home = () => {
 
         <div id="poles">
             <div className='poles'>
-                <NavLink to='/createNewTeam'>
+                {sessionUser && <NavLink className='createteam' to='/createNewTeam'>
                     Create a team
-                </NavLink>
+                </NavLink>}
                 {sessionUser && <TeamList />}
             </div>
             <Switch>
@@ -55,6 +56,7 @@ const Home = () => {
                 <ProtectedRoute path='/createNewTeam' exact={true}>
                     <CreateTeam />
                 </ProtectedRoute>
+                <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage /></ProtectedRoute>
             </Switch>
             <div className='poles'></div>
         </div>
