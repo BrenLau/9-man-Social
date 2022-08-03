@@ -4,6 +4,7 @@ import { NavLink, useParams } from "react-router-dom"
 import { getTeamsThunk, deleteTeamThunk } from "../store/teams"
 import "./teamList.css"
 import { yourTeamThunk, applyTeamThunk, ourTeamThunk, leaveTeamThunk } from "../store/teammember"
+import PostForm from "./postForm"
 
 const TeamPage = ({ setCurrentTeam, teamMember }) => {
     const dispatch = useDispatch()
@@ -11,6 +12,7 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
 
 
     const [hidden, setHidden] = useState(false)
+    const [makePost, setMakePost] = useState(false)
 
     const user = useSelector(state => state.session.user)
     const teams = useSelector(state => state.teams)
@@ -32,8 +34,7 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
 
     return (
         <div>
-
-            <div>
+            {team && <div>
                 {teamMember === 'none' && <button onClick={async (e) => {
                     await dispatch(applyTeamThunk(user.id, teamId))
                     await dispatch(ourTeamThunk(teamId))
@@ -47,7 +48,8 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
                     setHidden(!hidden)
                 }} >Delete Team</button>}
                 {captain && <NavLink to={`/editteam/${team.id}`}>Edit Team</NavLink>}
-            </div>
+                {team.id === teamMember.teamId && teamMember !== 'none' && <button onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
+            </div>}
             {hidden && <button onClick={async (e) => {
                 e.preventDefault()
                 setHidden(false)
@@ -62,6 +64,7 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
 
             {team && <h1>{team.name}</h1>}
             {team && <div>{team.description}</div>}
+            {makePost && <PostForm setMakePost={setMakePost} />}
         </div>
     )
 }
