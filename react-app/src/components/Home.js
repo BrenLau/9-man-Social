@@ -23,7 +23,6 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
     // const [currentTeam, setCurrentTeam] = useState('')
-    console.log(window.location.pathname)
 
     useEffect(() => {
         console.log(currentTeam)
@@ -32,16 +31,14 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
         }
     }, [currentTeam])
 
-    if (window.location.pathname === '/') setCurrentTeam('')
+
 
     useEffect(() => {
         (async () => {
             await dispatch(authenticate());
             setLoaded(true);
         })();
-    }, [dispatch]);
 
-    useEffect(() => {
         if (sessionUser) {
             dispatch(yourTeamThunk(sessionUser.id))
         }
@@ -54,7 +51,7 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
 
         <div id="poles">
             <div className='poles'>
-                {sessionUser && teamMember === 'none' && <NavLink className='createteam' to='/createNewTeam'>
+                {sessionUser && teamMember === 'none' && <NavLink onClick={() => setCurrentTeam('')} className='createteam' to='/createNewTeam'>
                     Create a team
                 </NavLink>}
                 {sessionUser && <TeamList setCurrentTeam={setCurrentTeam} />}
@@ -85,12 +82,14 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
             {/* _________________________________________________________________________________ */}
 
             <div className='poles'>
-                {sessionUser && <ul className="userlistpole">
-                    {currentTeam && <h2 id='userlisttitle'>Members</h2>}
-                    {currentTeam && Array.isArray(thisTeamMembers) && thisTeamMembers.map(member => (
-                        <li className='liuserpole' key={member.id}><NavLink className='userlinkpole' onClick={() => { setCurrentTeam('') }} to={`/users/${member.id}`} >{member.username}</NavLink></li>
-                    ))}
-                </ul>}
+                <ProtectedRoute path='/teams/:teamId' exact={true}>
+                    {sessionUser && <ul className="userlistpole">
+                        {currentTeam && <h2 id='userlisttitle'>Members</h2>}
+                        {currentTeam && Array.isArray(thisTeamMembers) && thisTeamMembers.map(member => (
+                            <li className='liuserpole' key={member.id}><NavLink className='userlinkpole' onClick={() => { setCurrentTeam('') }} to={`/users/${member.id}`} >{member.username}</NavLink></li>
+                        ))}
+                    </ul>}
+                </ProtectedRoute>
 
             </div>
         </div>
