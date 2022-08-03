@@ -78,35 +78,35 @@ export const getPostsThunk = (teamId) => async (dispatch) => {
     const res = await fetch(`/api/posts/${teamId}`)
     if (res.ok) {
         const data = await res.json()
-        console.log(data)
-        dispatch(getPosts(data))
+        console.log(data.posts)
+        dispatch(getPosts(data.posts))
         return data
     }
 }
 
-const teams = (state = {}, action) => {
+const posts = (state = {}, action) => {
     let newState = {}
     switch (action.type) {
         case GET_POSTS:
-            newState = { ...state }
-            action.teams.forEach(team => {
-                newState[team.id] = team
+
+            action.posts.forEach(post => {
+                newState[post.id] = post
             })
             return newState
         case MAKE_POST:
             newState = { ...state }
-            newState[action.team.id] = action.team
+            newState[action.post.id] = action.post
             return newState
         case UPDATE_POST:
             newState = { ...state }
-            newState[action.team.id] = action.team
+            newState[action.post.id] = action.post
             return newState
         case DELETE_POST:
             newState = { ...state }
-            delete newState[action.team.id]
+            delete newState[action.post.id]
             return newState
         default:
             return state
     }
 }
-export default teams
+export default posts

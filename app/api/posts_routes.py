@@ -17,3 +17,10 @@ def makeAPost():
     db.session.add(newPost)
     db.session.commit()
     return newPost.to_dict()
+
+
+@post_routes.route('/<int:teamId>', methods=['GET'])
+def getPosts(teamId):
+    posts = Post.query.filter(Post.teamId == teamId).all()
+
+    return {"posts": [post.to_dict() for post in posts]}

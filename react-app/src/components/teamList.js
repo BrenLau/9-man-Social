@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { getTeamsThunk } from "../store/teams"
 import { NavLink } from "react-router-dom"
 import "./teamList.css"
+import { getPostsThunk } from "../store/post"
 
 const TeamList = ({ setCurrentTeam }) => {
     const dispatch = useDispatch()
@@ -17,7 +18,10 @@ const TeamList = ({ setCurrentTeam }) => {
             {Object.values(teams).map(team => {
                 return (
 
-                    <NavLink onClick={(e) => { setCurrentTeam(team.id) }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{team.name}</NavLink>
+                    <NavLink onClick={async (e) => {
+                        await setCurrentTeam(team.id)
+                        await dispatch(getPostsThunk(team.id))
+                    }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{team.name}</NavLink>
                 )
             })}
         </div>

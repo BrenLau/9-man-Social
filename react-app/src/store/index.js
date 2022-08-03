@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import teams from './teams'
 import members from './teammember';
+import posts from './post';
 
 const rootReducer = combineReducers({
   session,
   teams,
-  members
+  members,
+  posts
 });
 
 

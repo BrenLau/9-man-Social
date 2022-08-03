@@ -5,6 +5,8 @@ import { getTeamsThunk, deleteTeamThunk } from "../store/teams"
 import "./teamList.css"
 import { yourTeamThunk, applyTeamThunk, ourTeamThunk, leaveTeamThunk } from "../store/teammember"
 import PostForm from "./postForm"
+import PostList from "./postList"
+import { getPostsThunk } from "../store/post"
 
 const TeamPage = ({ setCurrentTeam, teamMember }) => {
     const dispatch = useDispatch()
@@ -38,10 +40,12 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
                 {teamMember === 'none' && <button onClick={async (e) => {
                     await dispatch(applyTeamThunk(user.id, teamId))
                     await dispatch(ourTeamThunk(teamId))
+                    await dispatch(getPostsThunk(teamId))
                 }}>Join Team</button>}
                 {team.id === teamMember.teamId && teamMember !== 'none' && <button onClick={async (e) => {
                     await dispatch(leaveTeamThunk(user.id, teamId))
                     await dispatch(ourTeamThunk(teamId))
+                    await dispatch(getPostsThunk(teamId))
                 }}>Leave Team</button>}
                 {!hidden && captain && <button onClick={(e) => {
                     e.preventDefault()
@@ -55,6 +59,7 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
                 setHidden(false)
                 await dispatch(deleteTeamThunk(teamId))
                 await dispatch(yourTeamThunk(user.id))
+                await dispatch(getPostsThunk(teamId))
             }} >Confirm delete</button>}
             {hidden && <button onClick={(e) => {
                 e.preventDefault()
@@ -65,6 +70,7 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
             {team && <h1>{team.name}</h1>}
             {team && <div>{team.description}</div>}
             {makePost && <PostForm setMakePost={setMakePost} />}
+            <PostList teamMember={teamMember} />
         </div>
     )
 }
