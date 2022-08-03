@@ -1,0 +1,21 @@
+.teamcapsule {
+    background-color: aliceblue;
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    padding: 3px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 3px;
+}
+
+.teamdisplay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+}
