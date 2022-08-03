@@ -1,6 +1,7 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const CHECK_USER = 'sesesefgsefsegfsda'
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -11,6 +12,21 @@ const removeUser = () => ({
   type: REMOVE_USER,
 })
 
+const checkUser = (user) => ({
+  type: CHECK_USER,
+  user
+})
+
+export const checkUserThunk = (userId) => async (dispatch) => {
+  const res = await fetch(`/api/users/${userId}`)
+
+  if (res.ok) {
+    const data = await res.json()
+    console.log(data)
+    await dispatch(checkUser(data))
+    return data
+  }
+}
 const initialState = { user: null };
 
 
@@ -104,6 +120,7 @@ export default function reducer(state = initialState, action) {
       return { user: action.payload }
     case REMOVE_USER:
       return { user: null }
+
     default:
       return state;
   }

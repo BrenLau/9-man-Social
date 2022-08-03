@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, redirect
 from app.models import User
-from app.models.db import Team, db
+from app.models.db import Team, db, TeamMember
 from flask_login import login_required
 
 team_routes = Blueprint('teams', __name__)
@@ -10,7 +10,6 @@ team_routes = Blueprint('teams', __name__)
 @login_required
 def allTeams():
     teams = Team.query.all()
-    print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', teams)
     return {"teams": [team.to_dict() for team in teams]}
 
 
@@ -21,11 +20,20 @@ def createTeam():
     name = data['name']
     description = data['description']
     captainId = data['captainId']
-    print('##########################################',
-          name, description, captainId)
+
     newTeam = Team(name=name, description=description, captainId=captainId)
     db.session.add(newTeam)
     db.session.commit()
+
+    newMember = TeamMember(
+        userId=captainId,
+        teamId=newTeam.id,
+        admin=True,
+        request=True
+    )
+    db.session.add(newMember)
+    db.session.commit()
+
     return newTeam.to_dict()
 
 
@@ -36,11 +44,9 @@ def updateTeam(teamId):
     name = data['name']
     description = data['description']
     captainId = data['captainId']
-    print('##########################################',
-          name, description, captainId)
+
     team = Team.query.get(teamId)
-    print('##########################################',
-          team)
+
     team.name = name
     team.description = description
     db.session.commit()

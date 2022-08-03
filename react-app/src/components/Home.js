@@ -20,11 +20,11 @@ const Home = () => {
     const sessionUser = useSelector(state => state.session.user)
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
+    const [onTeam, setOnTeam] = useState('no')
 
     useEffect(() => {
         (async () => {
             await dispatch(authenticate());
-
             setLoaded(true);
         })();
     }, [dispatch]);

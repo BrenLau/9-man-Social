@@ -16,4 +16,17 @@ def users():
 @login_required
 def user(id):
     user = User.query.get(id)
-    return user.to_dict()
+    print('%%%%%%%%%%%%%%%%%%%%%%%%%%%', user.team.to_dict())
+    return {"user": user.to_dict(), "team": user.team.to_dict()}
+
+
+@user_routes.route('/team/<int:id>')
+@login_required
+def checkteam(id):
+    user = User.query.get(id)
+    print('#########################################', user.team)
+    if user.team:
+        return 'yes'
+    else:
+        return 'no'
+    # print('%%%%%%%%%%%%%%%%%%%%%%%%%%%', user.team.to_dict())
