@@ -78,8 +78,8 @@ export const getTeamsThunk = () => async (dispatch) => {
     const res = await fetch('/api/teams')
     if (res.ok) {
         const data = await res.json()
+        console.log(data.teams)
         dispatch(getTeams(data.teams))
-        console.log(data)
         return data
     }
 }

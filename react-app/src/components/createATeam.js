@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { makeTeamThunk } from '../store/teams';
+import { yourTeamThunk } from '../store/teammember';
 
 const CreateTeam = () => {
     const dispatch = useDispatch()
@@ -29,6 +30,7 @@ const CreateTeam = () => {
             captainId: userId
         }
         await dispatch(makeTeamThunk(data))
+        await dispatch(yourTeamThunk(userId))
         history.push('/')
     }
 

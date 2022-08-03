@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 
-function User() {
+function User({ setCurrentTeam }) {
   const [user, setUser] = useState({});
-  const { userId }  = useParams();
+  const { userId } = useParams();
 
   useEffect(() => {
     if (!userId) {
@@ -20,6 +20,7 @@ function User() {
     return null;
   }
 
+  console.log(user)
   return (
     <ul>
       <li>
@@ -31,6 +32,7 @@ function User() {
       <li>
         <strong>Email</strong> {user.email}
       </li>
+      {user.team && <li><NavLink onClick={() => { setCurrentTeam(user.team.id) }} to={`/teams/${user.team.id}`}>{user.team.name}</NavLink></li>}
     </ul>
   );
 }

@@ -16,8 +16,14 @@ def users():
 @login_required
 def user(id):
     user = User.query.get(id)
-    print('%%%%%%%%%%%%%%%%%%%%%%%%%%%', user.team.to_dict())
-    return {"user": user.to_dict(), "team": user.team.to_dict()}
+    currentUser = user.to_dict()
+    # currentUser.team = user.team.to_dict()
+    teammem = user.team
+    
+    team = teammem[0].team
+    print('this###################################', team)
+    currentUser['team'] = team.to_dict()
+    return currentUser
 
 
 @user_routes.route('/team/<int:id>')

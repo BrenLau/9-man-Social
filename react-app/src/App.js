@@ -11,6 +11,8 @@ import { authenticate } from './store/session';
 import Home from './components/Home'
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const [currentTeam, setCurrentTeam] = useState('')
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,8 +28,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
-      <Home />
+      <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
+      <Home currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
       {/* <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />

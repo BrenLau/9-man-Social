@@ -10,6 +10,7 @@ team_routes = Blueprint('teams', __name__)
 @login_required
 def allTeams():
     teams = Team.query.all()
+    print('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%',teams)
     return {"teams": [team.to_dict() for team in teams]}
 
 
@@ -60,3 +61,26 @@ def deleteTeam(teamId):
     db.session.delete(team)
     db.session.commit()
     return team.to_dict()
+
+@team_routes.route('/member/<int:userId>', methods=['GET'])
+@login_required
+def findYourTeam(userId):
+    teammember = TeamMember.query.filter(TeamMember.userId == userId).all()
+    # print('no team member presented$$$$$$$$$$$$$$$$')
+    print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', teammember)
+
+    # db.session.delete()
+    # db.session.commit()
+    if len(teammember) < 1:
+        print('no team member presented$$$$$$$$$$$$$$$$')
+        return {"none":"none"}
+    if teammember[0]:
+     return teammember[0].to_dict()
+
+@team_routes.route('/members/<int:teamId>', methods=['GET'])
+@login_required
+def findYourMems(teamId):
+    team = Team.query.get(teamId)
+    members = team.members
+    print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$',members)
+    return {"members": [member.user.to_dict() for member in members]}

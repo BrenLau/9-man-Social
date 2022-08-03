@@ -3,7 +3,9 @@ import { useEffect, useState } from "react"
 import { NavLink, useParams } from "react-router-dom"
 import { getTeamsThunk, deleteTeamThunk } from "../store/teams"
 import "./teamList.css"
-const TeamPage = () => {
+import { yourTeamThunk } from "../store/teammember"
+
+const TeamPage = ({ setCurrentTeam }) => {
     const dispatch = useDispatch()
     const { teamId } = useParams()
 
@@ -24,6 +26,7 @@ const TeamPage = () => {
 
     useEffect(() => {
         dispatch(getTeamsThunk())
+        setCurrentTeam(teamId)
     }, [dispatch])
 
     return (
@@ -36,10 +39,11 @@ const TeamPage = () => {
                 }} >Delete Team</button>}
                 {captain && <NavLink to={`/editteam/${team.id}`}>Edit Team</NavLink>}
             </div>
-            {hidden && <button onClick={(e) => {
+            {hidden && <button onClick={async (e) => {
                 e.preventDefault()
                 setHidden(false)
-                dispatch(deleteTeamThunk(teamId))
+                await dispatch(deleteTeamThunk(teamId))
+                await dispatch(yourTeamThunk(user.id))
             }} >Confirm delete</button>}
             {hidden && <button onClick={(e) => {
                 e.preventDefault()

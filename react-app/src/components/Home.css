@@ -20,6 +20,7 @@ body {
     /* justify-content: center; */
     align-items: center;
     flex-direction: column;
+    padding: 2px;
 }
 
 .createteam {
@@ -75,4 +76,53 @@ body {
     justify-self: center;
     align-self: center;
     font-weight: bold;
+}
+
+
+.userlistpole {
+    padding: 2px;
+    margin: 5px;
+}
+
+.userlinkpole {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 4px;
+    background-color: aliceblue;
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+}
+
+.liuserpole {
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
+    width: 100%;
+    max-width: 80%;
+
+}
+
+#userlisttitle {
+    font-size: 20px;
+    background-color: aliceblue;
+    border-radius: 30px;
+    padding: 5px;
+    margin: 2px;
+    margin-bottom: 12px;
+}
+
+#root {
+    width: 100%;
+    max-width: 1400px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
