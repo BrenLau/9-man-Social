@@ -45,3 +45,12 @@ def updateTeam(teamId):
     team.description = description
     db.session.commit()
     return team.to_dict()
+
+
+@team_routes.route('/<int:teamId>', methods=['DELETE'])
+@login_required
+def deleteTeam(teamId):
+    team = Team.query.get(teamId)
+    db.session.delete(team)
+    db.session.commit()
+    return team.to_dict()

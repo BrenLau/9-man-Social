@@ -24,6 +24,26 @@ const editTeam = (team) => {
     }
 }
 
+const deleteTeam = (team) => {
+    return {
+        type: DELETE_TEAMS,
+        team
+    }
+}
+
+export const deleteTeamThunk = (teamId) => async (dispatch) => {
+    const res = await fetch(`/api/teams/${teamId}`, {
+        method: 'DELETE'
+    })
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(deleteTeam(data))
+        console.log(data)
+        return data
+    }
+}
+
 export const editTeamThunk = (data, teamId) => async (dispatch) => {
     console.log(teamId)
     const res = await fetch(`/api/teams/${teamId}`, {
@@ -80,6 +100,10 @@ const teams = (state = {}, action) => {
         case UPDATE_TEAMS:
             newState = { ...state }
             newState[action.team.id] = action.team
+            return newState
+        case DELETE_TEAMS:
+            newState = { ...state }
+            delete newState[action.team.id]
             return newState
         default:
             return state
