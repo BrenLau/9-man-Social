@@ -19,10 +19,10 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
     const sessionUser = useSelector(state => state.session.user)
     const teamMember = useSelector(state => state.members.yourTeam)
     const thisTeamMembers = useSelector(state => state.members.ourTeam)
-    console.log(thisTeamMembers)
+
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
-    // const [currentTeam, setCurrentTeam] = useState('')
+
 
     useEffect(() => {
         console.log(currentTeam)
@@ -76,7 +76,7 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
                     <CreateTeam />
                 </ProtectedRoute>
                 <ProtectedRoute path='/editteam/:teamId' exact={true}><UpdateTeam /></ProtectedRoute>
-                <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage setCurrentTeam={setCurrentTeam} /></ProtectedRoute>
+                <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage setCurrentTeam={setCurrentTeam} teamMember={teamMember} /></ProtectedRoute>
             </Switch>
 
             {/* _________________________________________________________________________________ */}

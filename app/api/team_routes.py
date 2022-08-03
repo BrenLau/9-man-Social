@@ -84,3 +84,24 @@ def findYourMems(teamId):
     members = team.members
     print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$',members)
     return {"members": [member.user.to_dict() for member in members]}
+
+@team_routes.route('/apply', methods=['POST'])
+@login_required
+def applyForMems():
+    data = request.json
+    newmem = TeamMember(userId = data['userId'], teamId = data['teamId'])
+    db.session.add(newmem)
+    db.session.commit()
+    print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$', newmem)
+    return newmem.to_dict()
+
+
+@team_routes.route('/member/<int:userId>/<int:teamId>', methods=['DELETE'])
+@login_required
+def leaveAsMems(userId, teamId):
+    print('@#$%@#$%@#$%@$#%@#$%@#$%@#$%@#$%@$#%@#$%@#$%',userId, teamId)
+    newmem = TeamMember.query.filter(TeamMember.userId == userId, TeamMember.teamId == teamId).all()
+    print('$$$$$$$$$$$$$$$$$$$$$$dasdasdas$$$$$$$$$$$$$$$$$$$$$$', newmem)
+    db.session.delete(newmem[0])
+    db.session.commit()
+    return newmem[0].to_dict()

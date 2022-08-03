@@ -72,11 +72,11 @@ export const yourTeamThunk = (userId) => async (dispatch) => {
     }
 }
 
-export const makeTeamThunk = (data) => async (dispatch) => {
-    const res = await fetch('/api/teams', {
+export const applyTeamThunk = (userId, teamId) => async (dispatch) => {
+    const res = await fetch('/api/teams/apply', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        body: JSON.stringify({ userId, teamId })
     })
 
     if (res.ok) {
@@ -103,8 +103,8 @@ export const editTeamThunk = (data, teamId) => async (dispatch) => {
 }
 
 
-export const deleteTeamThunk = (teamId) => async (dispatch) => {
-    const res = await fetch(`/api/teams/${teamId}`, {
+export const leaveTeamThunk = (userId, teamId) => async (dispatch) => {
+    const res = await fetch(`/api/teams/member/${userId}/${teamId}`, {
         method: 'DELETE'
     })
 
@@ -134,7 +134,7 @@ const members = (state = {}, action) => {
 
         case APPLY_TEAM:
             newState = { ...state }
-            newState[action.team.id] = action.team
+            newState['yourTeam'] = action.mem
             return newState
         case ACCEPT_TEAM:
             newState = { ...state }
@@ -142,7 +142,7 @@ const members = (state = {}, action) => {
             return newState
         case LEAVE_TEAM:
             newState = { ...state }
-            delete newState[action.team.id]
+            newState['yourTeam'] = 'none'
             return newState
         default:
             return state

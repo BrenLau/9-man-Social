@@ -3,11 +3,12 @@ import { useEffect, useState } from "react"
 import { NavLink, useParams } from "react-router-dom"
 import { getTeamsThunk, deleteTeamThunk } from "../store/teams"
 import "./teamList.css"
-import { yourTeamThunk } from "../store/teammember"
+import { yourTeamThunk, applyTeamThunk, ourTeamThunk, leaveTeamThunk } from "../store/teammember"
 
-const TeamPage = ({ setCurrentTeam }) => {
+const TeamPage = ({ setCurrentTeam, teamMember }) => {
     const dispatch = useDispatch()
     const { teamId } = useParams()
+
 
     const [hidden, setHidden] = useState(false)
 
@@ -33,6 +34,14 @@ const TeamPage = ({ setCurrentTeam }) => {
         <div>
 
             <div>
+                {teamMember === 'none' && <button onClick={async (e) => {
+                    await dispatch(applyTeamThunk(user.id, teamId))
+                    await dispatch(ourTeamThunk(teamId))
+                }}>Join Team</button>}
+                {team.id === teamMember.teamId && teamMember !== 'none' && <button onClick={async (e) => {
+                    await dispatch(leaveTeamThunk(user.id, teamId))
+                    await dispatch(ourTeamThunk(teamId))
+                }}>Leave Team</button>}
                 {!hidden && captain && <button onClick={(e) => {
                     e.preventDefault()
                     setHidden(!hidden)
