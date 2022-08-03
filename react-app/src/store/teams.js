@@ -17,6 +17,29 @@ const makeTeam = (team) => {
     }
 }
 
+const editTeam = (team) => {
+    return {
+        type: UPDATE_TEAMS,
+        team
+    }
+}
+
+export const editTeamThunk = (data, teamId) => async (dispatch) => {
+    console.log(teamId)
+    const res = await fetch(`/api/teams/${teamId}`, {
+        method: 'PUT',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(editTeam(data))
+        console.log(data)
+        return data
+    }
+}
+
 export const makeTeamThunk = (data) => async (dispatch) => {
     const res = await fetch('/api/teams', {
         method: 'POST',
@@ -49,6 +72,14 @@ const teams = (state = {}, action) => {
             action.teams.forEach(team => {
                 newState[team.id] = team
             })
+            return newState
+        case MAKE_TEAMS:
+            newState = { ...state }
+            newState[action.team.id] = action.team
+            return newState
+        case UPDATE_TEAMS:
+            newState = { ...state }
+            newState[action.team.id] = action.team
             return newState
         default:
             return state

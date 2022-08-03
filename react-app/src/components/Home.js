@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import TeamList from "./teamList";
 import { getTeamsThunk } from "../store/teams"
 import TeamPage from "./TeamPage";
+import UpdateTeam from "./updateTeam";
 
 const Home = () => {
     const sessionUser = useSelector(state => state.session.user)
@@ -56,6 +57,7 @@ const Home = () => {
                 <ProtectedRoute path='/createNewTeam' exact={true}>
                     <CreateTeam />
                 </ProtectedRoute>
+                <ProtectedRoute path='/editteam/:teamId' exact={true}><UpdateTeam /></ProtectedRoute>
                 <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage /></ProtectedRoute>
             </Switch>
             <div className='poles'></div>

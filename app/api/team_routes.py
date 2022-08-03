@@ -1,11 +1,13 @@
 from flask import Blueprint, jsonify, request, redirect
 from app.models import User
 from app.models.db import Team, db
+from flask_login import login_required
 
 team_routes = Blueprint('teams', __name__)
 
 
 @team_routes.route('')
+@login_required
 def allTeams():
     teams = Team.query.all()
     print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@', teams)
@@ -13,6 +15,7 @@ def allTeams():
 
 
 @team_routes.route('', methods=['POST'])
+@login_required
 def createTeam():
     data = request.json
     name = data['name']
@@ -24,3 +27,21 @@ def createTeam():
     db.session.add(newTeam)
     db.session.commit()
     return newTeam.to_dict()
+
+
+@team_routes.route('/<int:teamId>', methods=['PUT'])
+@login_required
+def updateTeam(teamId):
+    data = request.json
+    name = data['name']
+    description = data['description']
+    captainId = data['captainId']
+    print('##########################################',
+          name, description, captainId)
+    team = Team.query.get(teamId)
+    print('##########################################',
+          team)
+    team.name = name
+    team.description = description
+    db.session.commit()
+    return team.to_dict()

@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { makeTeamThunk } from '../store/teams';
+import { useHistory, useParams } from 'react-router-dom';
+import { editTeamThunk } from '../store/teams';
 
-const CreateTeam = () => {
+const UpdateTeam = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const userId = useSelector(state => state.session.user.id)
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [errs, setErrs] = useState([])
+
+    const { teamId } = useParams()
 
     useEffect(() => {
         const errors = []
@@ -28,7 +30,7 @@ const CreateTeam = () => {
             description,
             captainId: userId
         }
-        await dispatch(makeTeamThunk(data))
+        await dispatch(editTeamThunk(data, teamId))
         history.push('/')
     }
 
@@ -43,4 +45,4 @@ const CreateTeam = () => {
     )
 }
 
-export default CreateTeam
+export default UpdateTeam
