@@ -37,3 +37,42 @@ body {
 .createteam:hover {
     background-color: burlywood;
 }
+
+.errorsdivs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: red;
+    margin: 5px;
+}
+
+.createateamform {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputcreate {
+    border-radius: 30px;
+    margin: 10px;
+    background-color: ghostwhite;
+}
+
+.labelforcreateteam {
+    margin: 3px;
+}
+
+#submitcreateteam {
+    border-radius: 30px;
+    width: 90px;
+    align-self: center;
+}
+
+#submitcreateteam:hover {
+    background-color: aliceblue;
+}
+
+#h1forcreateteam {
+    justify-self: center;
+    align-self: center;
+    font-weight: bold;
+}

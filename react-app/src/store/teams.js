@@ -10,6 +10,27 @@ const getTeams = (teams) => {
     }
 }
 
+const makeTeam = (team) => {
+    return {
+        type: MAKE_TEAMS,
+        team
+    }
+}
+
+export const makeTeamThunk = (data) => async (dispatch) => {
+    const res = await fetch('/api/teams', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(makeTeam(data))
+        return data
+    }
+}
+
 export const getTeamsThunk = () => async (dispatch) => {
     const res = await fetch('/api/teams')
     if (res.ok) {
