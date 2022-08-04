@@ -38,14 +38,14 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
         teamId && <div id='teamPage'>
             {team && <div>
                 {teamMember === 'none' && <button onClick={async (e) => {
-                    await dispatch(applyTeamThunk(user.id, teamId))
-                    await dispatch(ourTeamThunk(teamId))
-                    await dispatch(getPostsThunk(teamId))
+                    await dispatch(applyTeamThunk(user.id, parseInt(teamId)))
+                    await dispatch(ourTeamThunk(parseInt(teamId)))
+                    await dispatch(getPostsThunk(parseInt(teamId)))
                 }}>Join Team</button>}
                 {team.id === teamMember.teamId && teamMember !== 'none' && <button onClick={async (e) => {
-                    await dispatch(leaveTeamThunk(user.id, teamId))
-                    await dispatch(ourTeamThunk(teamId))
-                    await dispatch(getPostsThunk(teamId))
+                    await dispatch(leaveTeamThunk(user.id, parseInt(teamId)))
+                    await dispatch(ourTeamThunk(parseInt(teamId)))
+                    await dispatch(getPostsThunk(parseInt(teamId)))
                 }}>Leave Team</button>}
                 {!hidden && captain && <button onClick={(e) => {
                     e.preventDefault()
@@ -57,9 +57,9 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
             {hidden && <button onClick={async (e) => {
                 e.preventDefault()
                 setHidden(false)
-                await dispatch(deleteTeamThunk(teamId))
+                await dispatch(deleteTeamThunk(parseInt(teamId)))
                 await dispatch(yourTeamThunk(user.id))
-                await dispatch(getPostsThunk(teamId))
+                await dispatch(getPostsThunk(parseInt(teamId)))
             }} >Confirm delete</button>}
             {hidden && <button onClick={(e) => {
                 e.preventDefault()

@@ -26,3 +26,20 @@ def getPosts(teamId):
     posts = Post.query.filter(Post.teamId == teamId).all()
 
     return {"posts": [post.to_dict() for post in posts]}
+
+@post_routes.route('/one/<int:postId>', methods=['GET'])
+@login_required
+def getOnePost(postId):
+    post = Post.query.get(postId)
+
+    return post.to_dict()
+
+@post_routes.route('/each/<int:postId>', methods=['PUT'])
+@login_required
+def editOnePost(postId):
+    post = Post.query.get(postId)
+    post.title = request.json['title']
+    post.content = request.json['content']
+    db.session.commit()
+
+    return post.to_dict()

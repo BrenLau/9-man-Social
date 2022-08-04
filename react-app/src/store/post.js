@@ -2,6 +2,14 @@ const GET_POSTS = "getallpostspls"
 const MAKE_POST = "makeanewgfdsagteampls"
 const UPDATE_POST = "changeteamsfsdfdspls"
 const DELETE_POST = "thistegfdagdfsaamsucks,imout"
+const ONEPOST = 'justonepostpls'
+
+const getOnePost = (post) => {
+    return {
+        type: ONEPOST,
+        post
+    }
+}
 
 const getPosts = (posts) => {
     return {
@@ -31,6 +39,16 @@ const deletePost = (post) => {
     }
 }
 
+export const getOnePostThunk = (postId) => async (dispatch) => {
+    const res = await fetch(`/api/posts/one/${postId}`)
+    if (res.ok) {
+        const data = await res.json()
+        console.log(data)
+        dispatch(getOnePost(data))
+        return data
+    }
+}
+
 export const deletePostThunk = (teamId) => async (dispatch) => {
     const res = await fetch(`/api/teams/${teamId}`, {
         method: 'DELETE'
@@ -44,9 +62,9 @@ export const deletePostThunk = (teamId) => async (dispatch) => {
     }
 }
 
-export const editPostThunk = (data, teamId) => async (dispatch) => {
-    console.log(teamId)
-    const res = await fetch(`/api/teams/${teamId}`, {
+export const editPostThunk = (data, postId) => async (dispatch) => {
+    console.log(postId)
+    const res = await fetch(`/api/posts/each/${postId}`, {
         method: 'PUT',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -104,6 +122,9 @@ const posts = (state = {}, action) => {
         case DELETE_POST:
             newState = { ...state }
             delete newState[action.post.id]
+            return newState
+        case ONEPOST:
+            newState[action.post.id] = action.post
             return newState
         default:
             return state

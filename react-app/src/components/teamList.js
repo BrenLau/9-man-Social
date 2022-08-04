@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { getTeamsThunk } from "../store/teams"
-import { NavLink } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import "./teamList.css"
 import { getPostsThunk } from "../store/post"
 
@@ -9,6 +9,7 @@ const TeamList = ({ setCurrentTeam }) => {
     const dispatch = useDispatch()
     const teams = useSelector(state => state.teams)
 
+    const { teamId } = useParams()
     useEffect(() => {
         dispatch(getTeamsThunk())
     }, [dispatch])

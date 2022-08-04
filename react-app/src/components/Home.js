@@ -14,6 +14,8 @@ import TeamList from "./teamList";
 import TeamPage from "./TeamPage";
 import UpdateTeam from "./updateTeam";
 import { yourTeamThunk, ourTeamThunk } from "../store/teammember";
+import EditPostForm from "./editPost";
+import Post from "./post";
 
 const Home = ({ currentTeam, setCurrentTeam }) => {
     const sessionUser = useSelector(state => state.session.user)
@@ -77,6 +79,7 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
                 </ProtectedRoute>
                 <ProtectedRoute path='/editteam/:teamId' exact={true}><UpdateTeam /></ProtectedRoute>
                 <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage setCurrentTeam={setCurrentTeam} teamMember={teamMember} /></ProtectedRoute>
+                <ProtectedRoute path='/post/:postId' exact={true}><Post teamMember={teamMember} /></ProtectedRoute>
             </Switch>
 
             {/* _________________________________________________________________________________ */}

@@ -3,15 +3,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { editTeamThunk } from '../store/teams';
 
-const UpdateTeam = () => {
+const UpdateTeam = ({ nam, desc }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const userId = useSelector(state => state.session.user.id)
+    const teams = useSelector(state => state.teams)
+
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [errs, setErrs] = useState([])
-
     const { teamId } = useParams()
+    const team = teams[parseInt(teamId)]
+
+    if (team) {
+        if (userId !== team.captainId) {
+            history.push('/')
+        }
+    }
 
     useEffect(() => {
         const errors = []
@@ -31,12 +39,12 @@ const UpdateTeam = () => {
             captainId: userId
         }
         await dispatch(editTeamThunk(data, teamId))
-        history.push('/')
+        history.push(`/teams/${teamId}`)
     }
 
     return (
         <form onSubmit={handleSubmit} className='createateamform'>
-            <h1 id='h1forcreateteam' >Create a Team</h1>
+            <h1 id='h1forcreateteam' >Edit Team</h1>
             {errs && errs.map(err => <div className='errorsdivs'>{err}</div>)}
             <label className='labelforcreateteam'>Team Name<input className='inputcreate' onChange={(e) => { setName(e.target.value) }} type='text' value={name}></input></label>
             <label className='labelforcreateteam'>Description<input className='inputcreate' onChange={(e) => { setDescription(e.target.value) }} type='text' value={description}></input></label>
