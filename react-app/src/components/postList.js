@@ -19,7 +19,11 @@ const PostList = ({ teamMember }) => {
     }, [dispatch, teamId])
     console.log(teamMember)
 
-
+    if (Object.values(posts).length === 0) {
+        return (
+            <h3 className='posttitle'>No Posts Yet</h3>
+        )
+    }
     return (
         posts && Object.values(posts).map(post => (
             <NavLink to={`/post/${post.id}`} key={post.id} className="eachPost">
