@@ -14,7 +14,16 @@ const UpdateTeam = ({ nam, desc }) => {
     const [errs, setErrs] = useState([])
     const { teamId } = useParams()
     const team = teams[parseInt(teamId)]
+    console.log(team)
+    let captainId;
+    if (team) {
+        captainId = team.captainId
+    }
 
+    if (captainId) {
+
+        console.log(captainId)
+    }
     if (team) {
         if (userId !== team.captainId) {
             history.push('/')
@@ -43,7 +52,7 @@ const UpdateTeam = ({ nam, desc }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='createateamform'>
+        captainId === userId && <form onSubmit={handleSubmit} className='createateamform'>
             <h1 id='h1forcreateteam' >Edit Team</h1>
             {errs && errs.map(err => <div className='errorsdivs'>{err}</div>)}
             <label className='labelforcreateteam'>Team Name<input className='inputcreate' onChange={(e) => { setName(e.target.value) }} type='text' value={name}></input></label>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import './loginform.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -14,7 +15,7 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      setErrors('Email or Password incorrect');
     }
   };
 
@@ -31,42 +32,46 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <form className='loginform' onSubmit={onLogin}>
+      <div className='logindiv'>
+        <div className='errordiv'>
+          <h2>Log In</h2>
+
+          <div className='eacherrordiv'>{errors}</div>
+
+        </div>
+
+        <div>
+          <label htmlFor='email'>Email*: </label>
+          <input
+            name='email'
+            type='text'
+            placeholder='Email'
+            value={email}
+            onChange={updateEmail}
+          />
+        </div>
+        <div>
+          <label htmlFor='password'>Password*: </label>
+          <input
+            name='password'
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={updatePassword}
+          />
+        </div>
+        <button className="submit-btn" type='submit'>Login</button>
+        <button
+          className="submit-btn"
+          onClick={() => {
+            setPassword("password");
+            setEmail("demo@aa.io");
+          }}
+        >
+          Demo User
+        </button>
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-      <button
-        className="submit-btn"
-        onClick={() => {
-          setPassword("password");
-          setEmail("demo@aa.io");
-        }}
-      >
-        Demo User
-      </button>
     </form>
   );
 };
