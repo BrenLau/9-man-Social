@@ -49,8 +49,8 @@ export const getOnePostThunk = (postId) => async (dispatch) => {
     }
 }
 
-export const deletePostThunk = (teamId) => async (dispatch) => {
-    const res = await fetch(`/api/teams/${teamId}`, {
+export const deletePostThunk = (postId) => async (dispatch) => {
+    const res = await fetch(`/api/posts/each/${postId}`, {
         method: 'DELETE'
     })
 

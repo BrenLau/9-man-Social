@@ -1,11 +1,12 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
-import { NavLink, useParams } from "react-router-dom"
-import { getOnePostThunk } from "../store/post"
+import { NavLink, useParams, useHistory } from "react-router-dom"
+import { getOnePostThunk, deletePostThunk } from "../store/post"
 import './postList.css'
 import EditPostForm from "./editPost"
 
 const Post = ({ teamMember }) => {
+    const history = useHistory()
     const dispatch = useDispatch()
     const { postId } = useParams()
 
@@ -31,6 +32,12 @@ const Post = ({ teamMember }) => {
 
 
             {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button onClick={() => { setHidden(!hidden) }}>Edit</button>}
+            {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button onClick={async () => {
+                await dispatch(deletePostThunk(post.id))
+                setHidden(!hidden)
+                history.push(`/teams/${post.teamId}`)
+            }}>Delete</button>}
+
             {hidden && post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <EditPostForm titl={post.title} conten={post.content} setHidden={setHidden} />}
 
         </div>

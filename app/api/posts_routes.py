@@ -43,3 +43,11 @@ def editOnePost(postId):
     db.session.commit()
 
     return post.to_dict()
+
+@post_routes.route('/each/<int:postId>', methods=['DELETE'])
+@login_required
+def delOnePost(postId):
+    post = Post.query.get(postId)
+    db.session.delete(post)
+    db.session.commit()
+    return post.to_dict()
