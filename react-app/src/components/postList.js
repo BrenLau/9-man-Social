@@ -21,13 +21,10 @@ const PostList = ({ teamMember }) => {
 
 
     return (
-        Object.values(posts) && Object.values(posts).map(post => (
+        posts && Object.values(posts).map(post => (
             <NavLink to={`/post/${post.id}`} key={post.id} className="eachPost">
-                {/* {teamMember.teamId === parseInt(teamId) && user.id === post.userId && <EditPostForm />} */}
-
-                {/* {teamMember.teamId === parseInt(teamId) && user.id === post.userId && <NavLink to={`/editpost/${post.id}`}>Edit</NavLink>} */}
-                <h3>{post.title}</h3>
-                <div>{post.content}</div>
+                <h3 className='posttitle'>{post.title}</h3>
+                <div className="desc">{post.content}</div>
             </NavLink>
         ))
     )

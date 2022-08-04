@@ -70,7 +70,10 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
             {team && <h1>{team.name}</h1>}
             {team && <div>{team.description}</div>}
             {makePost && <PostForm setMakePost={setMakePost} />}
-            <PostList teamMember={teamMember} />
+            <div id='postListId'>
+                <PostList teamMember={teamMember} />
+            </div>
+
         </div>
     )
 }
