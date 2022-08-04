@@ -27,19 +27,21 @@ const Post = ({ teamMember }) => {
 
     return (
         <div className="postContainer">
-            {post && <h1>{post.title}</h1>}
-            {post && <div>{post.content}</div>}
 
+            <div>
+                {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button onClick={() => { setHidden(!hidden) }}>Edit</button>}
+                {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button onClick={async () => {
 
-            {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button onClick={() => { setHidden(!hidden) }}>Edit</button>}
-            {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button onClick={async () => {
-                await dispatch(deletePostThunk(post.id))
-                setHidden(!hidden)
-                history.push(`/teams/${post.teamId}`)
-            }}>Delete</button>}
+                    await dispatch(deletePostThunk(post.id))
+                    setHidden(!hidden)
+                    history.push(`/teams/${post.teamId}`)
+                }}>Delete</button>}
+            </div>
 
             {hidden && post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <EditPostForm titl={post.title} conten={post.content} setHidden={setHidden} />}
 
+            {post && <h1 className="h1post">{post.title}</h1>}
+            {post && <div className="divpost">{post.content}</div>}
         </div>
     )
 }

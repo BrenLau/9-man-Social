@@ -10,6 +10,7 @@ const TeamList = ({ setCurrentTeam }) => {
     const teams = useSelector(state => state.teams)
 
     const { teamId } = useParams()
+
     useEffect(() => {
         dispatch(getTeamsThunk())
     }, [dispatch])

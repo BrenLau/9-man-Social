@@ -70,7 +70,7 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
             {team && <div>{team.description}</div>}
             {makePost && <PostForm setMakePost={setMakePost} />}
             <div id='postListId'>
-                {team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
+                {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
                 <PostList teamMember={teamMember} />
             </div>
 
