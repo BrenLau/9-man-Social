@@ -10,6 +10,12 @@
     margin: 20px;
     width: 100%;
     text-decoration: none;
+    color: black;
+}
+
+.eachPost:hover {
+    background-color: aliceblue;
+    color: white;
 }
 
 #teamPage {
@@ -39,6 +45,7 @@
     overflow-x: hidden;
     scrollbar-width: none;
     box-shadow: inset 0 0 10px #000000;
+    background-color: darkgray;
 }
 
 #postListId::-webkit-scrollbar {

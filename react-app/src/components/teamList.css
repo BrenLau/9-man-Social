@@ -31,3 +31,25 @@
     align-items: center;
     padding: 3px;
 }
+
+.teampagebuttons {
+    position: relative;
+    border-radius: 20px;
+    top: 2px;
+    right: 2px;
+    width: 80px;
+    background-color: whitesmoke;
+}
+
+.teampagebuttons:hover {
+    background-color: aliceblue;
+    border: solid 1px;
+}
+
+.buttondivs {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: end;
+    align-items: flex-end;
+    width: 100%;
+}

@@ -33,26 +33,25 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
         dispatch(getTeamsThunk())
         setCurrentTeam(teamId)
     }, [dispatch])
-
+    if (!teamId) return null
     return (
         teamId && <div id='teamPage'>
-            {team && <div>
-                {teamMember === 'none' && <button onClick={async (e) => {
+            {team && <div className="buttondivs">
+                {teamMember === 'none' && <button className='teampagebuttons' onClick={async (e) => {
                     await dispatch(applyTeamThunk(user.id, parseInt(teamId)))
                     await dispatch(ourTeamThunk(parseInt(teamId)))
                     await dispatch(getPostsThunk(parseInt(teamId)))
                 }}>Join Team</button>}
-                {team.id === teamMember.teamId && teamMember !== 'none' && <button onClick={async (e) => {
+                {team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={async (e) => {
                     await dispatch(leaveTeamThunk(user.id, parseInt(teamId)))
                     await dispatch(ourTeamThunk(parseInt(teamId)))
                     await dispatch(getPostsThunk(parseInt(teamId)))
                 }}>Leave Team</button>}
-                {!hidden && captain && <button onClick={(e) => {
+                {!hidden && captain && <button className='teampagebuttons' onClick={(e) => {
                     e.preventDefault()
                     setHidden(!hidden)
                 }} >Delete Team</button>}
                 {captain && <NavLink to={`/editteam/${team.id}`}>Edit Team</NavLink>}
-                {team.id === teamMember.teamId && teamMember !== 'none' && <button onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
             </div>}
             {hidden && <button onClick={async (e) => {
                 e.preventDefault()
@@ -71,6 +70,7 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
             {team && <div>{team.description}</div>}
             {makePost && <PostForm setMakePost={setMakePost} />}
             <div id='postListId'>
+                {team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
                 <PostList teamMember={teamMember} />
             </div>
 
