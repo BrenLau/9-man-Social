@@ -6,6 +6,7 @@ from flask_login import login_required
 post_routes = Blueprint('posts', __name__)
 
 @post_routes.route('', methods=['POST'])
+@login_required
 def makeAPost():
     data = request.json
     userId = data['userId']
@@ -20,6 +21,7 @@ def makeAPost():
 
 
 @post_routes.route('/<int:teamId>', methods=['GET'])
+@login_required
 def getPosts(teamId):
     posts = Post.query.filter(Post.teamId == teamId).all()
 

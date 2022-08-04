@@ -38,8 +38,8 @@ const CreateTeam = () => {
         <form onSubmit={handleSubmit} className='createateamform'>
             <h1 id='h1forcreateteam' >Create a Team</h1>
             {errs && errs.map(err => <div className='errorsdivs'>{err}</div>)}
-            <label className='labelforcreateteam'>Team Name<input className='inputcreate' onChange={(e) => { setName(e.target.value) }} type='text' value={name}></input></label>
-            <label className='labelforcreateteam'>Description<input className='inputcreate' onChange={(e) => { setDescription(e.target.value) }} type='text' value={description}></input></label>
+            <label className='labelforcreateteam'>Team Name*<input className='inputcreate' onChange={(e) => { setName(e.target.value) }} type='text' value={name}></input></label>
+            <label className='labelforcreateteam'>Description*<input className='inputcreate' onChange={(e) => { setDescription(e.target.value) }} type='text' value={description}></input></label>
             <button disabled={errs.length > 0} id='submitcreateteam' >Submit</button>
         </form>
     )

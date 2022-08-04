@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { NavLink, useParams } from "react-router-dom"
 import { getPostsThunk } from "../store/post"
+import './postList.css'
+
 const PostList = ({ teamMember }) => {
     const dispatch = useDispatch()
     const { teamId } = useParams()
@@ -20,7 +22,7 @@ const PostList = ({ teamMember }) => {
     return (
         Object.values(posts) && Object.values(posts).map(post => (
             <div className="eachPost">
-                <div>{post.title}</div>
+                <h3>{post.title}</h3>
                 <div>{post.content}</div>
             </div>
         ))

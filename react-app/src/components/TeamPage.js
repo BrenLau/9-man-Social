@@ -35,7 +35,7 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
     }, [dispatch])
 
     return (
-        <div>
+        teamId && <div id='teamPage'>
             {team && <div>
                 {teamMember === 'none' && <button onClick={async (e) => {
                     await dispatch(applyTeamThunk(user.id, teamId))

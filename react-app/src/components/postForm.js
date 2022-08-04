@@ -43,8 +43,8 @@ const PostForm = ({ setMakePost }) => {
             {errors.length > 0 && errors.map(error => (
                 <div>{error}</div>
             ))}
-            <div><label>Title<input value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
-            <div><label>Content<input value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
+            <div><label>Title*<input value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
+            <div><label>Content*<input value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
             <div><label>Public<input onChange={(e) => { setPublicc(e.target.checked) }} type='checkbox'></input></label></div>
             <button disabled={errors.length > 0}  >Post</button>
         </form>

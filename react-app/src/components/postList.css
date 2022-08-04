@@ -1,0 +1,19 @@
+.eachPost {
+    background-color: azure;
+    border: solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 100%;
+}
+
+#teamPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
