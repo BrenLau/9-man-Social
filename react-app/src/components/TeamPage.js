@@ -33,25 +33,25 @@ const TeamPage = ({ setCurrentTeam, teamMember }) => {
         dispatch(getTeamsThunk())
         setCurrentTeam(teamId)
     }, [dispatch])
-    if (!teamId) return null
+    if (!team) return null
     return (
-        teamId && <div id='teamPage'>
+        team.id && <div id='teamPage'>
             {team && <div className="buttondivs">
                 {teamMember === 'none' && <button className='teampagebuttons' onClick={async (e) => {
-                    await dispatch(applyTeamThunk(user.id, parseInt(teamId)))
-                    await dispatch(ourTeamThunk(parseInt(teamId)))
-                    await dispatch(getPostsThunk(parseInt(teamId)))
+                    await dispatch(applyTeamThunk(user.id, team.id))
+                    await dispatch(ourTeamThunk(team.id))
+                    await dispatch(getPostsThunk(team.id))
                 }}>Join Team</button>}
-                {team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={async (e) => {
-                    await dispatch(leaveTeamThunk(user.id, parseInt(teamId)))
-                    await dispatch(ourTeamThunk(parseInt(teamId)))
-                    await dispatch(getPostsThunk(parseInt(teamId)))
+                {team.captainId !== user.id && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={async (e) => {
+                    await dispatch(leaveTeamThunk(user.id, (team.id)))
+                    await dispatch(ourTeamThunk((team.id)))
+                    await dispatch(getPostsThunk((team.id)))
                 }}>Leave Team</button>}
                 {!hidden && captain && <button className='teampagebuttons' onClick={(e) => {
                     e.preventDefault()
                     setHidden(!hidden)
                 }} >Delete Team</button>}
-                {captain && <NavLink to={`/editteam/${team.id}`}>Edit Team</NavLink>}
+                {captain && <NavLink className='teampagebuttons' to={`/editteam/${team.id}`}>Edit Team</NavLink>}
             </div>}
             {hidden && <button onClick={async (e) => {
                 e.preventDefault()

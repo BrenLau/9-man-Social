@@ -39,6 +39,18 @@
     right: 2px;
     width: 80px;
     background-color: whitesmoke;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    height: 36px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .teampagebuttons:hover {

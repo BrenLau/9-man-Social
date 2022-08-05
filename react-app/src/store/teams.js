@@ -70,7 +70,14 @@ export const makeTeamThunk = (data) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(makeTeam(data))
-        return data
+        return null
+    } else if (res.status < 500) {
+        const data = await res.json()
+        if (data.errors) {
+            return data.errors
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 
@@ -78,10 +85,10 @@ export const getTeamsThunk = () => async (dispatch) => {
     const res = await fetch('/api/teams')
     if (res.ok) {
         const data = await res.json()
-        console.log(data.teams)
         dispatch(getTeams(data.teams))
-        return data
+        return null
     }
+
 }
 
 const teams = (state = {}, action) => {
