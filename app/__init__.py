@@ -5,17 +5,62 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 
+#AWS-S3 ______________________________________________________________________________
+
+import boto3
+import botocore
+import uuid
+
+ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
+
+def allowed_file(filename):
+    return "." in filename and \
+           filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def get_unique_filename(filename):
+    ext = filename.rsplit(".", 1)[1].lower()
+    unique_filename = uuid.uuid4().hex
+    return f"{unique_filename}.{ext}"
+
+BUCKET_NAME = os.environ.get("S3_BUCKET")
+S3_LOCATION = f"http://{BUCKET_NAME}.s3.amazonaws.com/"
+
+def upload_file_to_s3(file, acl="public-read"):
+    try:
+        s3.upload_fileobj(
+            file,
+            BUCKET_NAME,
+            file.filename,
+            ExtraArgs={
+                "ACL": acl,
+                "ContentType": file.content_type
+            }
+        )
+    except Exception as e:
+        # in case the our s3 upload fails
+        return {"errors": str(e)}
+
+    return {"url": f"{S3_LOCATION}{file.filename}"}
+#AWS-S3 ______________________________________________________________________________
+
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.team_routes import team_routes
 from .api.posts_routes import post_routes
+from .api.image_routes import image_routes
 
 from .seeds import seed_commands
 
 from .config import Config
 
 app = Flask(__name__)
+
+s3 = boto3.client(
+   "s3",
+   aws_access_key_id=os.environ.get("S3_KEY"),
+   aws_secret_access_key=os.environ.get("S3_SECRET")
+)
 
 # Setup login manager
 login = LoginManager(app)
@@ -35,6 +80,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(team_routes, url_prefix='/api/teams')
 app.register_blueprint(post_routes, url_prefix='/api/posts')
+app.register_blueprint(image_routes, url_prefix='/api/images')
 
 db.init_app(app)
 Migrate(app, db)

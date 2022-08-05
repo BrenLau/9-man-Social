@@ -12,10 +12,12 @@
     text-decoration: none;
     color: black;
     height: fit-content;
+    opacity: 70%;
 }
 
 .eachPost:hover {
     background-color: aliceblue;
+    opacity: 100%;
     /* color: white; */
 }
 
@@ -39,9 +41,9 @@
 }
 
 #postListId {
+
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     margin-top: 30px;
     align-items: center;
     height: 50vh;
@@ -52,6 +54,9 @@
     scrollbar-width: none;
     box-shadow: inset 0 0 10px #000000;
     background-color: darkgray;
+    max-height: 600px;
+    border-radius: 12px;
+    background-size: cover;
 }
 
 #postListId::-webkit-scrollbar {

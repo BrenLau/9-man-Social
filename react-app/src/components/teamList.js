@@ -5,7 +5,7 @@ import { NavLink, useParams } from "react-router-dom"
 import "./teamList.css"
 import { getPostsThunk } from "../store/post"
 
-const TeamList = ({ setCurrentTeam }) => {
+const TeamList = ({ setCurrentTeam, setHidden }) => {
     const dispatch = useDispatch()
     const teams = useSelector(state => state.teams)
 
@@ -23,6 +23,7 @@ const TeamList = ({ setCurrentTeam }) => {
                     <NavLink onClick={async (e) => {
                         await setCurrentTeam(team.id)
                         await dispatch(getPostsThunk(team.id))
+                        await setHidden(false)
                     }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{team.name}</NavLink>
                 )
             })}
