@@ -43,6 +43,8 @@
 .desc {
     overflow: hidden;
     width: 90%;
+    display: flex;
+    justify-content: center;
 }
 
 #postListId {
