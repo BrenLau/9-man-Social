@@ -28,7 +28,6 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
 
 
     useEffect(() => {
-        console.log(currentTeam)
         if (currentTeam) {
             dispatch(ourTeamThunk(currentTeam))
         }
@@ -50,6 +49,7 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
     if (!loaded) {
         return null;
     }
+
     return (
 
         <div id="poles">
@@ -79,7 +79,7 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
                     <CreateTeam />
                 </ProtectedRoute>
                 <ProtectedRoute path='/editteam/:teamId' exact={true}><UpdateTeam /></ProtectedRoute>
-                <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage setHidden={setHidden} hidden={hidden} setCurrentTeam={setCurrentTeam} teamMember={teamMember} /></ProtectedRoute>
+                <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage sessionUser={sessionUser} setHidden={setHidden} hidden={hidden} setCurrentTeam={setCurrentTeam} teamMember={teamMember} /></ProtectedRoute>
                 <ProtectedRoute path='/post/:postId' exact={true}><Post teamMember={teamMember} /></ProtectedRoute>
             </Switch>
 

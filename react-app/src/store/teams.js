@@ -54,7 +54,6 @@ export const deleteTeamThunk = (teamId) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(deleteTeam(data))
-        console.log(data)
         return data
     }
 }
