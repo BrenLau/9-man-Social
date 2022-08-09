@@ -48,6 +48,8 @@ const leaveTeam = (mem) => {
 }
 
 export const ourTeamThunk = (teamId) => async (dispatch) => {
+    console.log(teamId)
+    if (!teamId) return null
     const res = await fetch(`/api/teams/members/${teamId}`)
     if (res.ok) {
         const data = await res.json()
@@ -61,7 +63,7 @@ export const yourTeamThunk = (userId) => async (dispatch) => {
     const res = await fetch(`/api/teams/member/${userId}`)
     if (res.ok) {
         const data = await res.json()
-        console.log(data)
+
         if (data.none === 'none') {
             dispatch(noTeam(data.none))
         }

@@ -2,6 +2,14 @@ const GET_TEAMS = "getallteamspls"
 const MAKE_TEAMS = "makeanewteampls"
 const UPDATE_TEAMS = "changeteamspls"
 const DELETE_TEAMS = "thisteamsucks,imout"
+const UPLOADTEAMIMG = 'uploadteamimg'
+
+const uploadImage = (team) => {
+    return {
+        type: UPLOADTEAMIMG,
+        team
+    }
+}
 
 const getTeams = (teams) => {
     return {
@@ -31,6 +39,13 @@ const deleteTeam = (team) => {
     }
 }
 
+export const uploadTeamImageThunk = (image, teamId) => async (dispatch) => {
+    const res = await fetch(`api/images/team/${teamId}`, {
+        method: 'POST',
+        body: JSON.stringify(image)
+    })
+}
+
 export const deleteTeamThunk = (teamId) => async (dispatch) => {
     const res = await fetch(`/api/teams/${teamId}`, {
         method: 'DELETE'
@@ -39,7 +54,6 @@ export const deleteTeamThunk = (teamId) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(deleteTeam(data))
-        console.log(data)
         return data
     }
 }

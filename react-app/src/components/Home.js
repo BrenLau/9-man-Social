@@ -22,12 +22,12 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
     const teamMember = useSelector(state => state.members.yourTeam)
     const thisTeamMembers = useSelector(state => state.members.ourTeam)
 
+    const [hidden, setHidden] = useState(false)
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
 
 
     useEffect(() => {
-        console.log(currentTeam)
         if (currentTeam) {
             dispatch(ourTeamThunk(currentTeam))
         }
@@ -49,6 +49,7 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
     if (!loaded) {
         return null;
     }
+
     return (
 
         <div id="poles">
@@ -56,7 +57,7 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
                 {sessionUser && teamMember === 'none' && <NavLink onClick={() => setCurrentTeam('')} className='createteam' to='/createNewTeam'>
                     Create a team
                 </NavLink>}
-                {sessionUser && <TeamList setCurrentTeam={setCurrentTeam} />}
+                {sessionUser && <TeamList setHidden={setHidden} setCurrentTeam={setCurrentTeam} />}
             </div>
 
             {/* _____________________________________________________________________ */}
@@ -78,7 +79,7 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
                     <CreateTeam />
                 </ProtectedRoute>
                 <ProtectedRoute path='/editteam/:teamId' exact={true}><UpdateTeam /></ProtectedRoute>
-                <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage setCurrentTeam={setCurrentTeam} teamMember={teamMember} /></ProtectedRoute>
+                <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage sessionUser={sessionUser} setHidden={setHidden} hidden={hidden} setCurrentTeam={setCurrentTeam} teamMember={teamMember} /></ProtectedRoute>
                 <ProtectedRoute path='/post/:postId' exact={true}><Post teamMember={teamMember} /></ProtectedRoute>
             </Switch>
 

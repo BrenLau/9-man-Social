@@ -1,13 +1,15 @@
 .poles {
     border: solid 1px;
-    height: 70vh;
+    height: 80vh;
     width: 18%;
     min-width: 100px;
     background-color: #404040;
 }
 
 body {
-    min-width: 500px
+    min-width: 500px;
+    min-height: fit-content;
+
 }
 
 #poles {

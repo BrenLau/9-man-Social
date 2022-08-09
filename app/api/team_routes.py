@@ -3,6 +3,8 @@ from app.models import User
 from app.models.db import Team, db, TeamMember
 from flask_login import login_required
 from ..forms.createTeamForm import CreateTeamForm
+from app import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
 
 team_routes = Blueprint('teams', __name__)
 
