@@ -1,4 +1,4 @@
-const YOUR_TEAM = "yourallteamspls"
+const YOUR_TEAM = "gfdsgdfsgdsf"
 const APPLY_TEAM = "makeyoruyranewteampls"
 const ACCEPT_TEAM = "changethgfdheamspls"
 const LEAVE_TEAM = "thisteamsuckshgssgfd,imout"
@@ -48,7 +48,7 @@ const leaveTeam = (mem) => {
 }
 
 export const ourTeamThunk = (teamId) => async (dispatch) => {
-    console.log(teamId)
+
     if (!teamId) return null
     const res = await fetch(`/api/teams/members/${teamId}`)
     if (res.ok) {
@@ -104,7 +104,6 @@ export const editTeamThunk = (data, teamId) => async (dispatch) => {
     }
 }
 
-
 export const leaveTeamThunk = (userId, teamId) => async (dispatch) => {
     const res = await fetch(`/api/teams/member/${userId}/${teamId}`, {
         method: 'DELETE'
@@ -113,7 +112,6 @@ export const leaveTeamThunk = (userId, teamId) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(leaveTeam(data))
-        console.log(data)
         return data
     }
 }
@@ -133,7 +131,6 @@ const members = (state = {}, action) => {
             newState = { ...state }
             newState['yourTeam'] = 'none'
             return newState
-
         case APPLY_TEAM:
             newState = { ...state }
             newState['yourTeam'] = action.mem

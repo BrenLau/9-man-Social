@@ -20,10 +20,6 @@ const UpdateTeam = ({ nam, desc }) => {
         captainId = team.captainId
     }
 
-    if (captainId) {
-
-        console.log(captainId)
-    }
     if (team) {
         if (userId !== team.captainId) {
             history.push('/')
