@@ -15,6 +15,7 @@ import TeamPage from "./TeamPage";
 import UpdateTeam from "./updateTeam";
 import { yourTeamThunk, ourTeamThunk } from "../store/teammember";
 import EditPostForm from "./editPost";
+import Splash from "./splash";
 import Post from "./post";
 
 const Home = ({ currentTeam, setCurrentTeam }) => {
@@ -62,6 +63,9 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
 
             {/* _____________________________________________________________________ */}
 
+            <Route path='/' exact={true}>
+                <Splash />
+            </Route>
             <Switch>
                 <Route path='/login' exact={true}>
                     <LoginForm />
