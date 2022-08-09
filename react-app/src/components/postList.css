@@ -17,7 +17,7 @@
 
 .eachPost:hover {
     background-color: aliceblue;
-    opacity: 100%;
+    /* opacity: 100%; */
     /* color: white; */
 }
 
