@@ -5,7 +5,7 @@ import { makeTeamThunk, getTeamsThunk } from '../store/teams';
 import { yourTeamThunk } from '../store/teammember';
 import { uploadTeamImageThunk } from '../store/teams';
 
-const UploadTeam = ({ setUpload }) => {
+const UploadTeam = ({ setUpload, setButton2, setButton3 }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const userId = useSelector(state => state.session.user.id)
@@ -40,6 +40,8 @@ const UploadTeam = ({ setUpload }) => {
         if (res.ok) {
             dispatch(getTeamsThunk())
             setUpload(false)
+            setButton2(true)
+            setButton3(true)
         }
 
 

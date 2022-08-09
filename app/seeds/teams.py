@@ -1,4 +1,4 @@
-from app.models.db import db, Team, TeamMember
+from app.models.db import db, Team, TeamMember, Post
 
 
 def seed_teams():
@@ -45,8 +45,120 @@ def seed_teams():
     db.session.add(six)
     db.session.commit()
 
+    post1 = Post(
+        userId = 2,
+        teamId = 1,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post2 = Post(
+        userId = 3,
+        teamId = 1,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post3 = Post(
+        userId = 4,
+        teamId = 1,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post4 = Post(
+        userId = 5,
+        teamId = 1,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post5 = Post(
+        userId = 6,
+        teamId = 1,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    db.session.add(post1)
+    db.session.add(post2)
+    db.session.add(post3)
+    db.session.add(post4)
+    db.session.add(post5)
+    db.session.commit()
+    
+    post1 = Post(
+        userId = 2,
+        teamId = 2,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post2 = Post(
+        userId = 3,
+        teamId = 2,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post3 = Post(
+        userId = 4,
+        teamId = 2,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post4 = Post(
+        userId = 5,
+        teamId = 2,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post5 = Post(
+        userId = 6,
+        teamId = 2,
+        title = 'This is a post',
+        content= 'This is the description'
+    )    
+    db.session.add(post1)
+    db.session.add(post2)
+    db.session.add(post3)
+    db.session.add(post4)
+    db.session.add(post5)
+    db.session.commit()
+
+    post1 = Post(
+        userId = 2,
+        teamId = 3,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post2 = Post(
+        userId = 3,
+        teamId = 3,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post3 = Post(
+        userId = 4,
+        teamId = 3,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post4 = Post(
+        userId = 5,
+        teamId = 3,
+        title = 'This is a post',
+        content= 'This is the description'
+    )
+    post5 = Post(
+        userId = 6,
+        teamId = 3,
+        title = 'This is a post',
+        content= 'This is the description'
+    )    
+    db.session.add(post1)
+    db.session.add(post2)
+    db.session.add(post3)
+    db.session.add(post4)
+    db.session.add(post5)
+    db.session.commit()
 
 def undo_teams():
     db.session.execute('TRUNCATE teams RESTART IDENTITY CASCADE;')
     db.session.execute('TRUNCATE teammembers RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE posts RESTART IDENTITY CASCADE;')
+
     db.session.commit()

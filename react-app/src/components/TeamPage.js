@@ -17,6 +17,10 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser }) => {
     const [makePost, setMakePost] = useState(false)
     const [upload, setUpload] = useState(false)
 
+    const [button1, setButton1] = useState(true)
+    const [button2, setButton2] = useState(true)
+    const [button3, setButton3] = useState(true)
+
     const user = useSelector(state => state.session.user)
     const teams = useSelector(state => state.teams)
     const teamMember = useSelector(state => state.members.yourTeam)
@@ -51,9 +55,13 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser }) => {
 
     if (teamMember) return (
         team.id && <div id='teamPage' >
-            {team.captainId === user.id && teamMember.teamId === team.id && <div className="upload" >
-                {team.captainId === user.id && teamMember.teamId === team.id && <button onClick={() => setUpload(!upload)}>Upload Image</button>}
-                {upload && <UploadTeam setUpload={setUpload} />}
+            {button1 && team.captainId === user.id && teamMember.teamId === team.id && <div className={upload ? "upload" : null} >
+                {team.captainId === user.id && teamMember.teamId === team.id && <button className='teampagebuttons' onClick={() => {
+                    setUpload(!upload)
+                    setButton2(!button2)
+                    setButton3(!button3)
+                }}>Upload Image</button>}
+                {upload && <UploadTeam setUpload={setUpload} setButton2={setButton2} setButton3={setButton3} />}
             </div>}
             {team && <div className="buttondivs">
                 {teamId && teamMember && teamMember === 'none' && <button className='teampagebuttons' onClick={async (e) => {
@@ -67,23 +75,25 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser }) => {
                     await dispatch(getPostsThunk((team.id)))
                 }}>Leave Team</button>}
 
-                {!hidden && captain && <button className='teampagebuttons' onClick={(e) => {
+                {button2 && !hidden && captain && <button className='teampagebuttons' onClick={(e) => {
                     e.preventDefault()
                     setHidden(!hidden)
+                    setButton1(!button1)
                 }} >Delete Team</button>}
 
-                {captain && <NavLink className='teampagebuttons' to={`/editteam/${team.id}`}>Edit Team</NavLink>}
+                {button3 && captain && <NavLink className='teampagebuttons' to={`/editteam/${team.id}`}>Edit Team</NavLink>}
             </div>}
-            {hidden && user && <button onClick={async (e) => {
+            {hidden && user && <button className='teampagebuttons' onClick={async (e) => {
                 e.preventDefault()
                 setHidden(false)
                 await dispatch(deleteTeamThunk(parseInt(teamId)))
                 await dispatch(yourTeamThunk(user.id))
                 await dispatch(getPostsThunk(parseInt(teamId)))
             }} >Confirm delete</button>}
-            {hidden && <button onClick={(e) => {
+            {hidden && <button className='teampagebuttons' onClick={(e) => {
                 e.preventDefault()
                 setHidden(false)
+                setButton1(!button1)
 
             }} >Cancel</button>}
 

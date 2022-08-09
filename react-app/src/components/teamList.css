@@ -51,11 +51,13 @@
     font-weight: bold;
     height: 36px;
     font-family: 'Courier New', Courier, monospace;
+    margin: 4px;
 }
 
 .teampagebuttons:hover {
     background-color: aliceblue;
     border: solid 1px;
+    cursor: pointer;
 }
 
 .buttondivs {
@@ -64,6 +66,7 @@
     justify-content: end;
     align-items: stretch;
     width: 100%;
+    margin: 5px;
 }
 
 .upload {
@@ -75,7 +78,7 @@
     border: solid 1px black;
     padding: 3px;
     border-radius: 12px;
-    margin: 2px;
+    margin: 5px;
     background-color: darkgray;
     box-shadow: inset 0 0 10px #000000;
 
