@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { makeTeamThunk } from '../store/teams';
+import { makeTeamThunk, getTeamsThunk } from '../store/teams';
 import { yourTeamThunk } from '../store/teammember';
 import { uploadTeamImageThunk } from '../store/teams';
 
-const UploadTeam = () => {
+const UploadTeam = ({ setUpload }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const userId = useSelector(state => state.session.user.id)
@@ -21,7 +21,11 @@ const UploadTeam = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const formData = new FormData();
-        formData.append("image", image[0]);
+        if (image) {
+
+            formData.append("image", image[0]);
+        }
+
 
 
         const res = await fetch(`/api/images/team/${parseInt(teamId)}`, {
@@ -29,16 +33,24 @@ const UploadTeam = () => {
             body: formData,
         });
         if (res) {
-            console.log(await res.json())
+            const data = await res.json()
+            setErrs(data.errors)
         }
+
+        if (res.ok) {
+            dispatch(getTeamsThunk())
+            setUpload(false)
+        }
+
+
     }
 
     return (
         <form onSubmit={handleSubmit} className='createateamform'>
             <h3 id='h3forupload' >Upload Image</h3>
-            {errs && errs.map(err => <div className='errorsdivs'>{err}</div>)}
+            {errs && <div className='errorsdivs'>{errs}</div>}
             <label className='labelforcreateteam'>Image<input type='file' accept="image/*" className='inputcreate' onChange={(e) => { setImage(e.target.files) }}></input></label>
-            <button disabled={errs.length > 0} id='submitcreateteam' >Submit</button>
+            <button id='submitcreateteam' >Submit</button>
         </form>
     )
 }

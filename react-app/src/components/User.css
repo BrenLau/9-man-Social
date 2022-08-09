@@ -1,0 +1,30 @@
+.ulBox {
+    /* border: solid; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    text-align: center;
+    width: 55%;
+}
+
+.teamname {
+    text-decoration: none;
+    font-size: 24px;
+    color: black;
+    border: solid 1px;
+    border-radius: 24px;
+    padding: 3px;
+    background-color: aliceblue;
+    margin: 30px;
+}
+
+.teamli {
+    margin: 30px;
+}
+
+.teamname:hover {
+    background-color: darkgray;
+    color: red;
+    border: black 1px solid;
+}

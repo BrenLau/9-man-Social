@@ -53,7 +53,7 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser }) => {
         team.id && <div id='teamPage' >
             {team.captainId === user.id && teamMember.teamId === team.id && <div className="upload" >
                 {team.captainId === user.id && teamMember.teamId === team.id && <button onClick={() => setUpload(!upload)}>Upload Image</button>}
-                {upload && <UploadTeam />}
+                {upload && <UploadTeam setUpload={setUpload} />}
             </div>}
             {team && <div className="buttondivs">
                 {teamId && teamMember && teamMember === 'none' && <button className='teampagebuttons' onClick={async (e) => {

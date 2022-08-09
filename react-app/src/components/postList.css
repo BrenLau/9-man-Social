@@ -33,6 +33,11 @@
     color: black;
     overflow-wrap: break-word;
     width: 90%;
+    background-color: aliceblue;
+    width: fit-content;
+    opacity: 50%;
+    border-radius: 24px;
+    padding: 5px;
 }
 
 .desc {

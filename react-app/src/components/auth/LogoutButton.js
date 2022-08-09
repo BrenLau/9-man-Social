@@ -8,7 +8,7 @@ const LogoutButton = () => {
     await dispatch(logout());
   };
 
-  return <div onClick={onLogout}><img className='ball' src="https://pngimg.com/uploads/volleyball/volleyball_PNG1.png"></img>
+  return <div className='navli' onClick={onLogout}><img className='ball' src="https://pngimg.com/uploads/volleyball/volleyball_PNG1.png"></img>
     <div className='labell'>Logout</div></div>;
 };
 
