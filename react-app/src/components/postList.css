@@ -12,12 +12,12 @@
     text-decoration: none;
     color: black;
     height: fit-content;
-    opacity: 70%;
+    /* opacity: 70%; */
 }
 
 .eachPost:hover {
     background-color: aliceblue;
-    opacity: 100%;
+    /* opacity: 100%; */
     /* color: white; */
 }
 
@@ -35,7 +35,7 @@
     width: 90%;
     background-color: aliceblue;
     width: fit-content;
-    opacity: 50%;
+    /* opacity: 50%; */
     border-radius: 24px;
     padding: 5px;
 }
