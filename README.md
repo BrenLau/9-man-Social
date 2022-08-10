@@ -1,3 +1,36 @@
+# About
+Nineman Volleyball is a cultural variation of volleyball that is played in China and has migrated over to the United States amongst the asian community. This app is designed to be a place where the nineman community can get together and organize/communicate amongst eachother in one centralized location. Before, members of the community would have to communicate through various means, such as Facebook pages, texting, small websites with tournament hostings, etc. This app will be designed to implement every feature teams would normally use and need, making it much more convenient. 
+
+Live Site: https://ninemansocial.herokuapp.com/
+
+Documentation: https://github.com/BrenLau/9-man-Social/wiki
+## Technologies used
+### Frontend
+Javascript React Redux HTML5 CSS3
+###Backend
+PYthon Flask PostgresQL SQLAlchemy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Flask React Project
 
 This is the starter for the Flask React project.
