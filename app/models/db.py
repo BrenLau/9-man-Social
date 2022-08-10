@@ -64,7 +64,7 @@ class Post(db.Model):
     content = db.Column(db.Text, nullable=False)
     private = db.Column(db.Boolean)
 
-    user = db.relationship("User", back_populates="posts")
+    user = db.relationship("User", back_populates="posts", lazy='joined')
     team = db.relationship("Team", back_populates="posts")
 
     def to_dict(self):

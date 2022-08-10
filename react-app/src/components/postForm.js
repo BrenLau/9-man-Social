@@ -13,7 +13,7 @@ const PostForm = ({ setMakePost }) => {
 
 
     const user = useSelector(state => state.session.user)
-    const teams = useSelector(state => state.teams)
+
 
     useEffect(() => {
         const err = []
@@ -41,7 +41,7 @@ const PostForm = ({ setMakePost }) => {
     return (
         <form onSubmit={handleSubmit}>
             {errors.length > 0 && errors.map(error => (
-                <div>{error}</div>
+                <div key={error}>{error}</div>
             ))}
             <div><label>Title*<input value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
             <div><label>Content*<input value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>

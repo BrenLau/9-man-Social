@@ -106,9 +106,9 @@ const posts = (state = {}, action) => {
     let newState = {}
     switch (action.type) {
         case GET_POSTS:
-
             action.posts.forEach(post => {
-                newState[post.id] = post
+                newState[post[0].id] = post[0]
+                newState[post[0].id].user = post[1]
             })
             return newState
         case MAKE_POST:

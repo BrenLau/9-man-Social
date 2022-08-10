@@ -25,7 +25,9 @@ def makeAPost():
 def getPosts(teamId):
     posts = Post.query.filter(Post.teamId == teamId).all()
 
-    return {"posts": [post.to_dict() for post in posts]}
+    print('PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP',(posts)[0].user)
+
+    return {"posts": [(post.to_dict(), post.user.to_dict()) for post in posts]}
 
 @post_routes.route('/one/<int:postId>', methods=['GET'])
 @login_required
