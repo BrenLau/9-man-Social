@@ -27,6 +27,31 @@ def seed_users():
     db.session.add(wobbie)
 
     db.session.commit()
+    
+    demo = User(
+        username='Lemo', email='lmo@aa.io', password='password')
+    marnie = User(
+        username='poopers', email='marie@aa.io', password='password')
+    bobbie = User(
+        username='boopers', email='bobie@aa.io', password='password')
+    lobbie = User(
+        username='troopers', email='lobie@aa.io', password='password')
+    jobbie = User(
+        username='croppers', email='jobie@aa.io', password='password')
+    pobbie = User(
+        username='koppers', email='pobie@aa.io', password='password')
+    wobbie = User(
+        username='moppers', email='wbbie@aa.io', password='password')
+
+    db.session.add(demo)
+    db.session.add(marnie)
+    db.session.add(bobbie)
+    db.session.add(lobbie)
+    db.session.add(jobbie)
+    db.session.add(pobbie)
+    db.session.add(wobbie)
+
+    db.session.commit()
 
 
 # Uses a raw SQL query to TRUNCATE the users table.

@@ -23,6 +23,7 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 2px;
+    height: 80vh;
 }
 
 .createteam {
@@ -142,4 +143,10 @@ body {
     justify-self: flex-end;
     align-self: flex-end;
 
+}
+
+#linkedindiv {
+    /* justify-self: flex-end; */
+    position: absolute;
+    bottom: 0px;
 }
