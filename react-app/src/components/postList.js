@@ -17,6 +17,7 @@ const PostList = ({ teamMember }) => {
     useEffect(() => {
         dispatch(getPostsThunk(teamId))
     }, [dispatch, teamId])
+    console.log(posts)
     console.log(teamMember)
 
     if (Object.values(posts).length === 0) {
@@ -25,12 +26,21 @@ const PostList = ({ teamMember }) => {
         )
     }
     return (
-        posts && Object.values(posts).map(post => (
+        <>{posts && teamMember.teamId === parseInt(teamId) && Object.values(posts).map(post => (
             <NavLink to={`/post/${post.id}`} key={post.id} className="eachPost">
                 <h3 className='posttitle'>{post.title}</h3>
                 <div className="desc">{post.content}</div>
             </NavLink>
-        ))
+        ))}
+            {posts && teamMember.teamId !== parseInt(teamId) && Object.values(posts).map(post => {
+                if (!post.private) {
+                    return <NavLink to={`/post/${post.id}`} key={post.id} className="eachPost">
+                        <h3 className='posttitle'>{post.title}</h3>
+                        <div className="desc">{post.content}</div>
+                    </NavLink>
+                }
+            })}
+        </>
     )
 }
 
