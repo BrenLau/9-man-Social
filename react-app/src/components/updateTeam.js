@@ -9,12 +9,9 @@ const UpdateTeam = ({ nam, desc }) => {
     const userId = useSelector(state => state.session.user.id)
     const teams = useSelector(state => state.teams)
 
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
     const [errs, setErrs] = useState([])
     const { teamId } = useParams()
     const team = teams[parseInt(teamId)]
-    console.log(team)
     let captainId;
     if (team) {
         captainId = team.captainId
@@ -25,6 +22,8 @@ const UpdateTeam = ({ nam, desc }) => {
             history.push('/')
         }
     }
+    const [name, setName] = useState(team.name)
+    const [description, setDescription] = useState(team.description)
 
     useEffect(() => {
         const errors = []
