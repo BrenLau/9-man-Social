@@ -30,12 +30,12 @@ const NavBar = () => {
             <div className='labell'>SignUp</div>
           </NavLink>
         </li>}
-        {sessionUser && <li className='navli'>
+        {/* {sessionUser && <li className='navli'>
           <NavLink className='navli' to='/users' exact={true} activeClassName='active'>
             <img className='ball' src="https://pngimg.com/uploads/volleyball/volleyball_PNG1.png"></img>
             <div className='labell'>Users</div>
           </NavLink>
-        </li>}
+        </li>} */}
         {sessionUser && <li className='navli'>
           <LogoutButton />
         </li>}
