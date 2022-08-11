@@ -30,9 +30,7 @@ def user(id):
 @login_required
 def checkteam(id):
     user = User.query.get(id)
-    print('#########################################', user.team)
     if user.team:
         return 'yes'
     else:
         return 'no'
-    # print('%%%%%%%%%%%%%%%%%%%%%%%%%%%', user.team.to_dict())
