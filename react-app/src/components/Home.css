@@ -24,6 +24,8 @@ body {
     flex-direction: column;
     padding: 2px;
     height: 80vh;
+    min-height: 80vh;
+
 }
 
 .createteam {
