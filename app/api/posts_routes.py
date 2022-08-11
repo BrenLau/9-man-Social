@@ -17,7 +17,7 @@ def makeAPost():
     newPost = Post(userId = userId, teamId = teamId, title = title, content = content, private = private)
     db.session.add(newPost)
     db.session.commit()
-    return newPost.to_dict()
+    return {"post": [(newPost.to_dict(), newPost.user.to_dict())]}
 
 
 @post_routes.route('/<int:teamId>', methods=['GET'])

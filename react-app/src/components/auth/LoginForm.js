@@ -61,9 +61,9 @@ const LoginForm = () => {
             onChange={updatePassword}
           />
         </div>
-        <button className="submit-btn" type='submit'>Login</button>
+        <button className="teampagebuttons" type='submit'>Login</button>
         <button
-          className="submit-btn"
+          className="teampagebuttons"
           onClick={() => {
             setPassword("password");
             setEmail("demo@aa.io");

@@ -87,7 +87,8 @@ export const makePostThunk = (data) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json()
-        dispatch(makePost(data))
+        console.log(data)
+        dispatch(makePost(data.post))
         return data
     }
 }
@@ -113,7 +114,8 @@ const posts = (state = {}, action) => {
             return newState
         case MAKE_POST:
             newState = { ...state }
-            newState[action.post.id] = action.post
+            newState[action.post[0][0].id] = action.post[0][0]
+            newState[action.post[0][0].id].user = action.post[0][1]
             return newState
         case UPDATE_POST:
             newState = { ...state }

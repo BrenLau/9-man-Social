@@ -16,7 +16,7 @@ def seed_teams():
         name='San Fran Man', captainId=8, image='https://brutalgamer.com/wp-content/uploads/2015/09/Amazing_Spider_Man_2_Camuncoli_Variant.jpg', description='San Fran\'s #1 9-man volleyball team'
     )
     team2 = Team(
-        name='Philly Flyers', captainId=9, image='https://www.treehugger.com/thmb/ofSXAgeKqEemWQszWmCXEa30d8g=/3179x2384/smart/filters:no_upscale()/bald-eagle-flying-117146366-f0a7d09f96ac460eb86e241c40b8c54c.jpg', description='Toronto\'s #1 9-man volleyball team'
+        name='Philly Flyers', captainId=9, description='Toronto\'s #1 9-man volleyball team'
     )
     team3 = Team(
         name='La Hamburgers', captainId=10, image='https://www.atablefullofjoy.com/wp-content/uploads/2018/06/Hamburger-Sliders-Featured.jpg', description='Toronto\'s #1 9-man volleyball team'

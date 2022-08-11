@@ -101,12 +101,18 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser }) => {
             {team && <h1>{team.name}</h1>}
             {team && <div>{team.description}</div>}
             {makePost && <PostForm setMakePost={setMakePost} />}
-            <div id='postListId' style={{
+            {team.image && <div id='postListId' style={{
                 backgroundImage: `url(${team.image})`, backgroundRepeat: 'no-repeat'
             }}>
                 {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
                 <PostList teamMember={teamMember} />
-            </div>
+            </div>}
+            {!team.image && <div id='postListId' style={{
+                backgroundImage: 'none', backgroundRepeat: 'no-repeat'
+            }}>
+                {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
+                <PostList teamMember={teamMember} />
+            </div>}
 
         </div>
     )
