@@ -42,7 +42,7 @@ def makeAPost():
         db.session.add(post)
         db.session.commit()
 
-        return {"post": [(newPost.to_dict(), newPost.user.to_dict())]}
+        return {"post": [(post.to_dict(), post.user.to_dict())]}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
