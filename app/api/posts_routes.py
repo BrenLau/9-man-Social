@@ -61,7 +61,7 @@ def getPosts(teamId):
 def getOnePost(postId):
     post = Post.query.get(postId)
 
-    return {"post": [(pot.to_dict(), pot.user.to_dict()) for pot in post]}
+    return {"post": [(post.to_dict(), post.user.to_dict())]}
 
 @post_routes.route('/each/<int:postId>', methods=['PUT'])
 @login_required

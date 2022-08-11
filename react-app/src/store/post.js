@@ -44,7 +44,7 @@ export const getOnePostThunk = (postId) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         console.log(data)
-        dispatch(getOnePost(data))
+        dispatch(getOnePost(data.post))
         return data
     }
 }
@@ -126,8 +126,8 @@ const posts = (state = {}, action) => {
             delete newState[action.post.id]
             return newState
         case ONEPOST:
-            newState[action.post.id] = action.post
-            newState[action.post.id].user = action.post.user
+            newState[action.post[0][0].id] = action.post[0][0]
+            newState[action.post[0][0].id].user = action.post[0][1]
             return newState
         default:
             return state

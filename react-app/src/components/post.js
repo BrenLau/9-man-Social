@@ -17,13 +17,13 @@ const Post = ({ teamMember }) => {
     const posts = useSelector(state => state.posts)
     const post = posts[postId]
 
-
+    console.log(post)
 
     useEffect(() => {
-        dispatch(getOnePostThunk(parseInt(postId)))
+        dispatch(getOnePostThunk(postId))
     }, [dispatch])
 
-
+    if (!post) return null
 
     return (
         <div className="postContainer">
