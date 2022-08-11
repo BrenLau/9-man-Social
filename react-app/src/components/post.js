@@ -29,8 +29,8 @@ const Post = ({ teamMember }) => {
         <div className="postContainer">
 
             <div>
-                {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button onClick={() => { setHidden(!hidden) }}>Edit</button>}
-                {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button onClick={async () => {
+                {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button className='teampagebuttons' onClick={() => { setHidden(!hidden) }}>Edit</button>}
+                {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button className='teampagebuttons' onClick={async () => {
 
                     await dispatch(deletePostThunk(post.id))
                     setHidden(!hidden)
