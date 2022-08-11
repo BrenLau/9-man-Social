@@ -33,7 +33,6 @@ The home page displays all of the teams on the site, and clicking on each team w
 ## Creating a post
 * Users on a team may create a team post, public or private
 * Users may delete or edit their own posts
-* Team owners may delete any post on their team page
 
 
 
