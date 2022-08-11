@@ -19,6 +19,9 @@ const PostList = ({ teamMember }) => {
         return (
             <h3 className='posttitle'>No Posts Yet</h3>
         )
+    } console.log(posts)
+    if (!posts) {
+        return null
     }
     return (
         <>{posts && teamMember.teamId === parseInt(teamId) && Object.values(posts).map(post => (

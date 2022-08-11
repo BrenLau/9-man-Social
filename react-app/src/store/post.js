@@ -125,6 +125,7 @@ const posts = (state = {}, action) => {
             return newState
         case ONEPOST:
             newState[action.post.id] = action.post
+            newState[action.post.id].user = action.post.user
             return newState
         default:
             return state

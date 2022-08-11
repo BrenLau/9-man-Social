@@ -25,7 +25,7 @@ def makeAPost():
 def getPosts(teamId):
     posts = Post.query.filter(Post.teamId == teamId).all()
 
-    print('PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP',(posts)[0].user)
+
 
     return {"posts": [(post.to_dict(), post.user.to_dict()) for post in posts]}
 
@@ -34,7 +34,7 @@ def getPosts(teamId):
 def getOnePost(postId):
     post = Post.query.get(postId)
 
-    return post.to_dict()
+    return {"post": [(pot.to_dict(), pot.user.to_dict()) for pot in post]}
 
 @post_routes.route('/each/<int:postId>', methods=['PUT'])
 @login_required

@@ -47,6 +47,7 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser }) => {
         if (sessionUser) {
             dispatch(yourTeamThunk(user.id))
         }
+        dispatch(getPostsThunk(parseInt(teamId)))
     }, [dispatch])
     if (!team) return null
 
