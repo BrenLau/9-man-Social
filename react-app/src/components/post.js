@@ -28,7 +28,7 @@ const Post = ({ teamMember }) => {
     return (
         <div className="postContainer">
 
-            <div>
+            <div className="editbuts">
                 {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button className='teampagebuttons' onClick={() => { setHidden(!hidden) }}>Edit</button>}
                 {post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <button className='teampagebuttons' onClick={async () => {
 

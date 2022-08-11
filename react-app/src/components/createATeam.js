@@ -11,6 +11,7 @@ const CreateTeam = () => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [errs, setErrs] = useState([])
+    const [ers, setErrors] = useState()
 
     useEffect(() => {
         const errors = []
@@ -29,7 +30,18 @@ const CreateTeam = () => {
             description,
             captainId: userId
         }
-        await dispatch(makeTeamThunk(data))
+        const team = await dispatch(makeTeamThunk(data))
+        if (team) {
+            const arr = []
+            team.forEach(info => {
+                const split = info.split(':')
+                arr.push(split[1])
+            })
+            setErrors(arr)
+            return
+        }
+
+
         await dispatch(yourTeamThunk(userId))
         history.push('/')
     }
@@ -37,6 +49,7 @@ const CreateTeam = () => {
     return (
         <form onSubmit={handleSubmit} className='createateamform'>
             <h1 id='h1forcreateteam' >Create a Team</h1>
+            {ers && ers.map(err => <div className='errorsdivs'>{err}</div>)}
             {errs && errs.map(err => <div className='errorsdivs'>{err}</div>)}
             <label className='labelforcreateteam'>Team Name*<input className='inputcreate' onChange={(e) => { setName(e.target.value) }} type='text' value={name}></input></label>
             <label className='labelforcreateteam'>Description*<input className='inputcreate' onChange={(e) => { setDescription(e.target.value) }} type='text' value={description}></input></label>

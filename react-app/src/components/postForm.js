@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { NavLink, useParams } from "react-router-dom"
 import { makePostThunk } from "../store/post"
-
+import './teamList.css'
 const PostForm = ({ setMakePost }) => {
     const dispatch = useDispatch()
     const { teamId } = useParams()
@@ -46,7 +46,7 @@ const PostForm = ({ setMakePost }) => {
             <div><label>Title*<input value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
             <div><label>Content*<input value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
             <div><label>Private<input onChange={(e) => { setPublicc(e.target.checked) }} type='checkbox'></input></label></div>
-            <button disabled={errors.length > 0}  >Post</button>
+            <button className='teampagebuttons' disabled={errors.length > 0}  >Post</button>
         </form>
     )
 }
