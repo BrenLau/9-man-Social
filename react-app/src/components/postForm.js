@@ -32,6 +32,7 @@ const PostForm = ({ setMakePost }) => {
         e.preventDefault()
         if (errors.length){
          setSubmitted(true)   
+         return
         }
         const data = {
             title,
