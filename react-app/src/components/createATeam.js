@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { makeTeamThunk } from '../store/teams';
 import { yourTeamThunk } from '../store/teammember';
+import './Home.css'
 
 const CreateTeam = () => {
     const dispatch = useDispatch()
