@@ -24,7 +24,7 @@
     height: 50px;
     display: flex;
     padding: 3px;
-    position: fixed;
+    position: absolute;
     top: 0px;
     /* left: 30px; */
     margin: 0px;
@@ -50,13 +50,13 @@ li {
 .ball {
     height: 10vh;
     max-height: 50px;
-    position: fixed;
+    position: absolute;
     top: 10px;
     z-index: -1;
 }
 
 .labell {
-    position: fixed;
+    position: absolute;
     top: 25px;
     background-color: white;
     border: solid 1px black;
