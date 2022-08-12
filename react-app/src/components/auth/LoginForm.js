@@ -13,6 +13,18 @@ const LoginForm = () => {
 
   const onLogin = async (e) => {
     e.preventDefault();
+    let errors = []
+    if (email.length === 0) {
+      errors.push('Email field must not be empty')
+    }
+
+    if (password.length === 0) {
+      errors.push('Password field must not be empty')
+    }
+    if (errors.length) {
+      setErrors(errors)
+      return
+    }
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors('Email or Password incorrect');
@@ -37,7 +49,8 @@ const LoginForm = () => {
         <div className='errordiv'>
           <h2>Log In</h2>
 
-          <div className='eacherrordiv'>{errors}</div>
+          {!Array.isArray(errors) && <div className='eacherrordiv'>{errors}</div>}
+          {Array.isArray(errors) && <div className='eacherrordiv'>{errors.map(err => <div>{err}</div>)}</div>}
 
         </div>
 
