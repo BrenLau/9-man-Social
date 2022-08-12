@@ -72,6 +72,33 @@ def seed_teams():
     db.session.add(six)
     db.session.commit()
 
+    first = TeamMember(
+        userId=8, teamId=4, admin=True, request=True
+    )
+    sec = TeamMember(
+        userId=9, teamId=5, admin=True, request=True
+    )
+    third = TeamMember(
+        userId=10, teamId=6, admin=True, request=True
+    )
+    four = TeamMember(
+        userId=11, teamId=7, admin=False, request=True
+    )
+    five = TeamMember(
+        userId=12, teamId=8, admin=True, request=True
+    )
+    six = TeamMember(
+        userId=13, teamId=9, admin=True, request=True
+    )
+
+    db.session.add(first)
+    db.session.add(sec)
+    db.session.add(third)
+    db.session.add(four)
+    db.session.add(five)
+    db.session.add(six)
+    db.session.commit()
+
     post1 = Post(
         userId = 2,
         teamId = 1,
