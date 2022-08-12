@@ -10,7 +10,12 @@ const NavBar = () => {
 
   return (
     <nav className='nav'>
-      <img className='banner' src="https://brensteamupsproject.s3.amazonaws.com/rem.png"></img>
+      <div className='banner'>
+        <h1 id='h1title'>
+          9-Man Social
+        </h1>
+        <img className='banner' src="https://ninemansocial.s3.amazonaws.com/plainnetd.png"></img>
+      </div>
       <ul className='navstuff'>
         <li className='navli'>
           <NavLink className='navli' to='/' exact={true} activeClassName='active'>

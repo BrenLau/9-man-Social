@@ -36,6 +36,18 @@
 
 }
 
+#h1title {
+    position: absolute;
+    top: 6vh;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    font-size: 8vh;
+
+}
+
 li {
     list-style-type: none;
 }
