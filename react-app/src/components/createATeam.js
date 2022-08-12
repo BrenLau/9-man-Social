@@ -12,6 +12,7 @@ const CreateTeam = () => {
     const [description, setDescription] = useState('')
     const [errs, setErrs] = useState([])
     const [ers, setErrors] = useState()
+    const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
         const errors = []
@@ -25,6 +26,10 @@ const CreateTeam = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if (errs.length) {
+            setSubmitted(true)
+            return
+        }
         const data = {
             name,
             description,
@@ -50,10 +55,10 @@ const CreateTeam = () => {
         <form onSubmit={handleSubmit} className='createateamform'>
             <h1 id='h1forcreateteam' >Create a Team</h1>
             {ers && ers.map(err => <div className='errorsdivs'>{err}</div>)}
-            {errs && errs.map(err => <div className='errorsdivs'>{err}</div>)}
+            {submitted && errs && errs.map(err => <div className='errorsdivs'>{err}</div>)}
             <label className='labelforcreateteam'>Team Name*<input className='inputcreate' onChange={(e) => { setName(e.target.value) }} type='text' value={name}></input></label>
             <label className='labelforcreateteam'>Description*<input className='inputcreate' onChange={(e) => { setDescription(e.target.value) }} type='text' value={description}></input></label>
-            <button disabled={errs.length > 0} id='submitcreateteam' >Submit</button>
+            <button disabled={submitted && errs.length > 0} id='submitcreateteam' >Submit</button>
         </form>
     )
 }

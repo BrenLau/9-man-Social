@@ -89,11 +89,7 @@ def deleteTeam(teamId):
 @login_required
 def findYourTeam(userId):
     teammember = TeamMember.query.filter(TeamMember.userId == userId).all()
-    # print('no team member presented$$$$$$$$$$$$$$$$')
 
-
-    # db.session.delete()
-    # db.session.commit()
     if len(teammember) < 1:
 
         return {"none":"none"}

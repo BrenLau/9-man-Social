@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import './loginform.css'
+import { yourTeamThunk } from '../../store/teammember';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -26,8 +27,10 @@ const LoginForm = () => {
       return
     }
     const data = await dispatch(login(email, password));
-    if (data) {
+    if (data.errors) {
       setErrors('Email or Password incorrect');
+    } else {
+      dispatch(yourTeamThunk(data.id))
     }
   };
 

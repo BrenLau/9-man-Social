@@ -1,11 +1,10 @@
 import "./Home.css"
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, NavLink, Route, Switch, useParams } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './auth/LoginForm';
 import SignUpForm from './auth/SignUpForm';
 import ProtectedRoute from './auth/ProtectedRoute';
-import UsersList from './UsersList';
 import User from './User';
 import CreateTeam from "./createATeam";
 import { authenticate } from '../store/session';
@@ -14,7 +13,6 @@ import TeamList from "./teamList";
 import TeamPage from "./TeamPage";
 import UpdateTeam from "./updateTeam";
 import { yourTeamThunk, ourTeamThunk } from "../store/teammember";
-import EditPostForm from "./editPost";
 import Splash from "./splash";
 import Post from "./post";
 
@@ -22,7 +20,6 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
     const sessionUser = useSelector(state => state.session.user)
     const teamMember = useSelector(state => state.members.yourTeam)
     const thisTeamMembers = useSelector(state => state.members.ourTeam)
-
     const [hidden, setHidden] = useState(false)
     const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
@@ -51,6 +48,7 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
         return null;
     }
 
+
     return (
 
         <div id="poles">
@@ -77,9 +75,6 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
                 <Route path='/sign-up' exact={true}>
                     <SignUpForm />
                 </Route>
-                {/* <ProtectedRoute path='/users' exact={true} >
-                    <UsersList />
-                </ProtectedRoute> */}
                 <ProtectedRoute path='/users/:userId' exact={true} >
                     <User setCurrentTeam={setCurrentTeam} />
                 </ProtectedRoute>

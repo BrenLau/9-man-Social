@@ -59,7 +59,6 @@ export const deleteTeamThunk = (teamId) => async (dispatch) => {
 }
 
 export const editTeamThunk = (data, teamId) => async (dispatch) => {
-    console.log(teamId)
     const res = await fetch(`/api/teams/${teamId}`, {
         method: 'PUT',
         headers: { "Content-Type": "application/json" },
@@ -69,7 +68,6 @@ export const editTeamThunk = (data, teamId) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(editTeam(data))
-        console.log(data)
         return data
     }
 }
