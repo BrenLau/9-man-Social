@@ -43,7 +43,6 @@ export const getOnePostThunk = (postId) => async (dispatch) => {
     const res = await fetch(`/api/posts/one/${postId}`)
     if (res.ok) {
         const data = await res.json()
-        console.log(data)
         dispatch(getOnePost(data.post))
         return data
     }
@@ -57,7 +56,6 @@ export const deletePostThunk = (postId) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(deletePost(data))
-        console.log(data)
         return data
     }
 }
@@ -73,7 +71,6 @@ export const editPostThunk = (data, postId) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(editPost(data))
-        console.log(data)
         return data
     }
 }
@@ -97,7 +94,6 @@ export const getPostsThunk = (teamId) => async (dispatch) => {
     const res = await fetch(`/api/posts/${teamId}`)
     if (res.ok) {
         const data = await res.json()
-        console.log(data.posts)
         dispatch(getPosts(data.posts))
         return data
     }
