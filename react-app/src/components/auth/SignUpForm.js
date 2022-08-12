@@ -13,9 +13,14 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const [front, setFront] = useState([])
+  const [submitted, setSubmitted] = useState(false)
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    if (front.length > 0) {
+      setSubmitted(true)
+      return
+    }
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
@@ -65,7 +70,7 @@ const SignUpForm = () => {
         <h2>Sign Up</h2>
 
         <div className='errordiv'>
-          {front.length > 0 && front.map(err => (
+          {submitted && front.length > 0 && front.map(err => (
             <div className='eacherrordiv'>{err}</div>
           ))}
           {errors.map((error, ind) => (
@@ -109,7 +114,7 @@ const SignUpForm = () => {
             required={true}
           ></input>
         </div>
-        <button disabled={front.length} type='submit'>Sign Up</button>
+        <button className='submit-btn' disabled={submitted && front.length} type='submit'>Sign Up</button>
       </div>
     </form>
   );

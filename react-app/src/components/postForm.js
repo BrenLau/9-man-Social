@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import { NavLink, useParams } from "react-router-dom"
 import { makePostThunk } from "../store/post"
 import './teamList.css'
+import './postList.css'
+import './Home.css'
 const PostForm = ({ setMakePost }) => {
     const dispatch = useDispatch()
     const { teamId } = useParams()
@@ -17,9 +19,11 @@ const PostForm = ({ setMakePost }) => {
 
     useEffect(() => {
         const err = []
-        if (!title.length) err.push('Title must not be empty')
-        if (title.length > 50) err.push('Title must not contain over 50 characters')
-        if (!content.length) err.push('Content must not be empty')
+        const reg = title.replaceAll(' ', '')
+
+        if (!reg.length) err.push('Title must not be empty')
+        if (reg.length > 50) err.push('Title must not contain over 50 characters')
+        if (!content.replaceAll(' ', '').length) err.push('Content must not be empty')
         setErrors(err)
     }, [title, content, publicc])
 
@@ -39,9 +43,9 @@ const PostForm = ({ setMakePost }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="editPostForm" onSubmit={handleSubmit}>
             {errors.length > 0 && errors.map(error => (
-                <div key={error}>{error}</div>
+                <div className='errorsdivs' key={error}>{error}</div>
             ))}
             <div><label>Title*<input value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
             <div><label>Content*<input value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
