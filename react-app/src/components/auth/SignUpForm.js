@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { yourTeamThunk } from '../../store/teammember';
 import './loginform.css'
 
 const SignUpForm = () => {
@@ -23,13 +24,19 @@ const SignUpForm = () => {
     }
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
-      if (data) {
+      console.log(data)
+      if (data.errors) {
         const arr = []
         data.forEach(info => {
           const split = info.split(':')
           arr.push(split[1])
         })
         setErrors(arr)
+      } else {
+        if (data.id) {
+          dispatch(yourTeamThunk(data.id))
+
+        }
       }
     }
   };

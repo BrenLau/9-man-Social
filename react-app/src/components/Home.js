@@ -29,7 +29,7 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
         if (currentTeam) {
             dispatch(ourTeamThunk(currentTeam))
         }
-    }, [currentTeam])
+    }, [dispatch, currentTeam])
 
 
 
@@ -56,6 +56,9 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
                 {sessionUser && teamMember === 'none' && <NavLink onClick={() => setCurrentTeam('')} className='createteam' to='/createNewTeam'>
                     Create a team
                 </NavLink>}
+                {sessionUser && teamMember && teamMember !== 'none' && <NavLink className='createteam' to={`/teams/${teamMember.teamId}`} onClick={(e) => {
+                    setCurrentTeam(teamMember.teamId)
+                }}>Your Team</NavLink>}
                 {sessionUser && <TeamList setHidden={setHidden} setCurrentTeam={setCurrentTeam} />}
                 <div id='linkedindiv'>
                     <a id="linkedin" href="https://www.linkedin.com/in/brendan-lau-b6952919a/"><img className="linkedinimg" src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png'></img></a>
