@@ -27,7 +27,7 @@ const SignUpForm = () => {
       console.log(data)
       if (data.errors) {
         const arr = []
-        data.forEach(info => {
+        data.errors.forEach(info => {
           const split = info.split(':')
           arr.push(split[1])
         })
