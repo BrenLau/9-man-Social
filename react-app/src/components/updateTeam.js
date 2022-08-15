@@ -48,11 +48,14 @@ const UpdateTeam = ({ nam, desc }) => {
 
     return (
         captainId === userId && <form onSubmit={handleSubmit} className='createateamform'>
-            <h1 id='h1forcreateteam' >Edit Team</h1>
-            {errs && errs.map(err => <div className='errorsdivs'>{err}</div>)}
-            <label className='labelforcreateteam'>Team Name<input className='inputcreate' onChange={(e) => { setName(e.target.value) }} type='text' value={name}></input></label>
-            <label className='labelforcreateteam'>Description<input className='inputcreate' onChange={(e) => { setDescription(e.target.value) }} type='text' value={description}></input></label>
-            <button disabled={errs.length > 0} id='submitcreateteam' >Submit</button>
+            <div className='creatediv'>
+
+                <h1 id='h1forcreateteam' >Edit Team</h1>
+                {errs && errs.map(err => <div className='errorsdivs'>{err}</div>)}
+                <label className='labelforcreateteam'>Team Name<input className='inputcreate' onChange={(e) => { setName(e.target.value) }} type='text' value={name}></input></label>
+                <label className='labelforcreateteam'>Description<input className='inputcreate' onChange={(e) => { setDescription(e.target.value) }} type='text' value={description}></input></label>
+                <button disabled={errs.length > 0} id='submitcreateteam' >Submit</button>
+            </div>
         </form>
     )
 }
