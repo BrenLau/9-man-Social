@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { makeTeamThunk, getTeamsThunk } from '../store/teams';
 import { yourTeamThunk } from '../store/teammember';
 import { uploadTeamImageThunk } from '../store/teams';
+import './teamList.css'
 
 const UploadTeam = ({ setUpload, setButton2, setButton3 }) => {
     const dispatch = useDispatch()
