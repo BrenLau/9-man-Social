@@ -48,7 +48,7 @@ const UploadTeam = ({ setUpload, setButton2, setButton3 }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='createateamform'>
+        <form onSubmit={handleSubmit} className=''>
             <h3 id='h3forupload' >Upload Image</h3>
             {errs && <div className='errorsdivs'>{errs}</div>}
             <label className='labelforcreateteam'>Image<input type='file' accept="image/*" className='inputcreate' onChange={(e) => { setImage(e.target.files) }}></input></label>
