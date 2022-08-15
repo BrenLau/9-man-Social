@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { NavLink, useParams, useHistory } from "react-router-dom"
-import { editPostThunk, getPostsThunk } from "../store/post"
+import { editPostThunk, getPostsThunk, getOnePostThunk } from "../store/post"
 import './teamList.css'
 
 const EditPostForm = ({ titl, conten, setHidden }) => {
@@ -24,7 +24,7 @@ const EditPostForm = ({ titl, conten, setHidden }) => {
     }
 
     useEffect(() => {
-        dispatch(getPostsThunk())
+        dispatch(getOnePostThunk(parseInt(postId)))
     })
 
     useEffect(() => {
@@ -53,7 +53,6 @@ const EditPostForm = ({ titl, conten, setHidden }) => {
             ))}
             <div><label>Title*<input value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
             <div><label>Content*<input value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
-            {/* <div><label>Public<input onChange={(e) => { setPublicc(e.target.checked) }} type='checkbox'></input></label></div> */}
             <button disabled={errors.length > 0} className='teampagebuttons'>Post</button>
         </form>
     )

@@ -167,5 +167,6 @@
     border: solid 1px;
     box-shadow: 0 0 10px #000000;
     overflow-wrap: break-word;
-
+    max-width: 25vh;
+    flex-wrap: wrap;
 }

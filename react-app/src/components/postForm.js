@@ -12,6 +12,7 @@ const PostForm = ({ setMakePost }) => {
     const [content, setContent] = useState('')
     const [publicc, setPublicc] = useState(false)
     const [errors, setErrors] = useState([])
+    const [submitted, setSubmitted] = useState(false)
 
 
     const user = useSelector(state => state.session.user)
@@ -29,6 +30,10 @@ const PostForm = ({ setMakePost }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if (errors.length){
+         setSubmitted(true)   
+         return
+        }
         const data = {
             title,
             content,
@@ -44,13 +49,13 @@ const PostForm = ({ setMakePost }) => {
 
     return (
         <form className="editPostForm" onSubmit={handleSubmit}>
-            {errors.length > 0 && errors.map(error => (
+            {submitted && errors.length > 0 && errors.map(error => (
                 <div className='errorsdivs' key={error}>{error}</div>
             ))}
             <div><label>Title*<input value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
             <div><label>Content*<input value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
             <div><label>Private<input onChange={(e) => { setPublicc(e.target.checked) }} type='checkbox'></input></label></div>
-            <button className='teampagebuttons' disabled={errors.length > 0}  >Post</button>
+            <button className='teampagebuttons' disabled={submitted && errors.length > 0}  >Post</button>
         </form>
     )
 }
