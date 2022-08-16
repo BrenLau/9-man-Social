@@ -13,7 +13,7 @@
 }
 
 body {
-    min-width: 500px;
+    min-width: 1000px;
     min-height: fit-content;
 
 }
@@ -119,6 +119,14 @@ body {
     margin: 3px;
     width: 100%;
     max-width: 80%;
+
+}
+
+@media screen and (max-width:1200px) {
+    .liuserpole {
+        font-size: 9px;
+        max-width: 110px;
+    }
 
 }
 
