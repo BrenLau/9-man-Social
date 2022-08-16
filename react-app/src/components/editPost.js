@@ -4,6 +4,7 @@ import { NavLink, useParams, useHistory } from "react-router-dom"
 import { editPostThunk, getPostsThunk, getOnePostThunk } from "../store/post"
 import './teamList.css'
 import './Home.css'
+
 const EditPostForm = ({ titl, conten, setHidden }) => {
     const history = useHistory()
     const dispatch = useDispatch()
@@ -29,9 +30,11 @@ const EditPostForm = ({ titl, conten, setHidden }) => {
 
     useEffect(() => {
         const err = []
-        if (!title.length) err.push('Title must not be empty')
+        const reg = title.replaceAll(' ', '')
+
+        if (!reg.length) err.push('Title must not be empty')
         if (title.length > 50) err.push('Title must not contain over 50 characters')
-        if (!content.length) err.push('Content must not be empty')
+        if (!content.replaceAll(' ', '').length) err.push('Content must not be empty')
         setErrors(err)
     }, [title, content, publicc])
 
