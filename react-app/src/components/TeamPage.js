@@ -80,6 +80,7 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser }) => {
                     e.preventDefault()
                     setHidden(!hidden)
                     setButton1(!button1)
+                    setButton3(!button3)
                 }} >Delete Team</button>}
 
                 {button3 && captain && <NavLink className='teampagebuttons' to={`/editteam/${team.id}`}>Edit Team</NavLink>}
@@ -94,7 +95,8 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser }) => {
             {hidden && <button className='teampagebuttons' onClick={(e) => {
                 e.preventDefault()
                 setHidden(false)
-                setButton1(!button1)
+                setButton1(true)
+                setButton3(true)
 
             }} >Cancel</button>}
 

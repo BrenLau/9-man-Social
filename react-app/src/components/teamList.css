@@ -72,7 +72,8 @@
 .buttondivs {
     display: flex;
     /* flex-direction: column; */
-    justify-content: end;
+
+    justify-content: space-between;
     align-items: stretch;
     width: 100%;
     margin: 5px;
