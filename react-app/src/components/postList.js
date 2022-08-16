@@ -13,15 +13,14 @@ const PostList = ({ teamMember }) => {
     useEffect(() => {
         dispatch(getPostsThunk(teamId))
     }, [dispatch, teamId])
-    console.log(posts)
-    console.log(thisTeamMembers)
+
+
     let currentMems
     if (thisTeamMembers) {
         currentMems = thisTeamMembers.map(mem => {
             return mem.id
         })
     }
-    console.log(currentMems)
 
     if (Object.values(posts).length === 0) {
         return (

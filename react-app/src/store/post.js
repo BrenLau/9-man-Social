@@ -61,7 +61,6 @@ export const deletePostThunk = (postId) => async (dispatch) => {
 }
 
 export const editPostThunk = (data, postId) => async (dispatch) => {
-    console.log(postId)
     const res = await fetch(`/api/posts/each/${postId}`, {
         method: 'PUT',
         headers: { "Content-Type": "application/json" },
@@ -84,7 +83,6 @@ export const makePostThunk = (data) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json()
-        console.log(data)
         dispatch(makePost(data.post))
         return data
     }

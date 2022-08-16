@@ -24,7 +24,7 @@ const SignUpForm = () => {
     }
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
-      console.log(data)
+
       if (data.errors) {
         const arr = []
         data.errors.forEach(info => {
