@@ -85,7 +85,7 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
                     <CreateTeam />
                 </ProtectedRoute>
                 <ProtectedRoute path='/editteam/:teamId' exact={true}><UpdateTeam /></ProtectedRoute>
-                <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage sessionUser={sessionUser} setHidden={setHidden} hidden={hidden} setCurrentTeam={setCurrentTeam} teamMember={teamMember} /></ProtectedRoute>
+                <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage thisTeamMembers={thisTeamMembers} sessionUser={sessionUser} setHidden={setHidden} hidden={hidden} setCurrentTeam={setCurrentTeam} teamMember={teamMember} /></ProtectedRoute>
                 <ProtectedRoute path='/post/:postId' exact={true}><Post teamMember={teamMember} /></ProtectedRoute>
             </Switch>
 

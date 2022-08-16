@@ -9,7 +9,7 @@ import PostList from "./postList"
 import { getPostsThunk } from "../store/post"
 import UploadTeam from "./uploadImage"
 
-const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser }) => {
+const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMembers }) => {
     const dispatch = useDispatch()
     const { teamId } = useParams()
 
@@ -107,7 +107,7 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser }) => {
                 backgroundImage: `url(${team.image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
             }}>
                 {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
-                <PostList teamMember={teamMember} />
+                <PostList thisTeamMembers={thisTeamMembers} teamMember={teamMember} />
             </div>}
             {!team.image && <div id='postListId' style={{
                 backgroundImage: 'none', backgroundRepeat: 'no-repeat'

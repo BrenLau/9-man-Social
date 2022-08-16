@@ -7,20 +7,28 @@ import './postList.css'
 const PostList = ({ teamMember }) => {
     const dispatch = useDispatch()
     const { teamId } = useParams()
+    const thisTeamMembers = useSelector(state => state.members.ourTeam)
 
     const posts = useSelector(state => state.posts)
     useEffect(() => {
         dispatch(getPostsThunk(teamId))
     }, [dispatch, teamId])
-
-
+    console.log(posts)
+    console.log(thisTeamMembers)
+    let currentMems
+    if (thisTeamMembers) {
+        currentMems = thisTeamMembers.map(mem => {
+            return mem.id
+        })
+    }
+    console.log(currentMems)
 
     if (Object.values(posts).length === 0) {
         return (
             <h3 className='posttitle'>No Posts Yet</h3>
         )
     }
-    if (!posts) {
+    if (!posts && !currentMems) {
         return null
     }
     return (
@@ -29,19 +37,26 @@ const PostList = ({ teamMember }) => {
                 <div>{post.private ? 'private' : 'public'}</div>
                 <h3 className='posttitle'>{post.title}</h3>
                 <div className="desc">{post.content}</div>
-                <div className="desc">posted by: {post.user.username}</div>
+                {currentMems && currentMems.includes(post.userId) && <div className="desc">posted by: {post.user.username}</div>}
+                {currentMems && !currentMems.includes(post.userId) && <div className="desc">posted by former member: {post.user.username}</div>}
+
             </NavLink>
-        ))}
-            {posts && teamMember.teamId !== parseInt(teamId) && Object.values(posts).map(post => {
-                if (!post.private) {
-                    return <NavLink to={`/post/${post.id}`} key={post.id} className="eachPost">
-                        <div>{post.private ? 'private' : 'public'}</div>
-                        <h3 className='posttitle'>{post.title}</h3>
-                        <div className="desc">{post.content}</div>
-                        <div className="desc">posted by: {post.user.username}</div>
-                    </NavLink>
-                }
-            })}
+        ))
+        }
+            {
+                posts && teamMember.teamId !== parseInt(teamId) && Object.values(posts).map(post => {
+                    if (!post.private) {
+                        return <NavLink to={`/post/${post.id}`} key={post.id} className="eachPost">
+                            <div>{post.private ? 'private' : 'public'}</div>
+                            <h3 className='posttitle'>{post.title}</h3>
+                            <div className="desc">{post.content}</div>
+                            {currentMems && currentMems.includes(post.userId) && <div className="desc">posted by: {post.user.username}</div>}
+                            {currentMems && !currentMems.includes(post.userId) && <div className="desc">posted by former member: {post.user.username}</div>}
+
+                        </NavLink>
+                    }
+                })
+            }
         </>
     )
 }
