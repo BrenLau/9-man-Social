@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { NavLink, useParams, useHistory } from "react-router-dom"
 import { editPostThunk, getPostsThunk, getOnePostThunk } from "../store/post"
 import './teamList.css'
-
+import './Home.css'
 const EditPostForm = ({ titl, conten, setHidden }) => {
     const history = useHistory()
     const dispatch = useDispatch()
@@ -49,7 +49,7 @@ const EditPostForm = ({ titl, conten, setHidden }) => {
     return (
         <form className='editPostForm' onSubmit={handleSubmit}>
             {errors.length > 0 && errors.map(error => (
-                <div>{error}</div>
+                <div className="errorsdivs">{error}</div>
             ))}
             <div><label>Title*<input value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
             <div><label>Content*<input value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
