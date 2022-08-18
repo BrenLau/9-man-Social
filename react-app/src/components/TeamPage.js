@@ -101,7 +101,7 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMemb
             }} >Cancel</button>}
 
             {team && <h1>{team.name}</h1>}
-            {team && <div>{team.description}</div>}
+            {team && <div id='descriptionid'>{team.description}</div>}
             {makePost && <PostForm setMakePost={setMakePost} />}
             {team.image && <div id='postListId' style={{
                 backgroundImage: `url(${team.image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
