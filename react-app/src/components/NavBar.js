@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import "./NavBar.css"
 import { useSelector } from "react-redux";
@@ -14,7 +14,7 @@ const NavBar = () => {
 
       <div className='bannerdiv'>
 
-        <div className='banner'><img className='logo' src={logo}></img></div>
+        <div className='banner'><Route exact path='/'><img className='logo' src={logo}></img></Route></div>
       </div>
 
       <ul className='navstuff'>
