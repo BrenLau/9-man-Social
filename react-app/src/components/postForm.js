@@ -23,7 +23,7 @@ const PostForm = ({ setMakePost }) => {
         const reg = title.replaceAll(' ', '')
 
         if (!reg.length) err.push('Title must not be empty')
-        if (title.length > 50) err.push('Title must not contain over 50 characters')
+        if (title.length > 40) err.push('Title must not contain over 40 characters')
         if (!content.replaceAll(' ', '').length) err.push('Content must not be empty')
         setErrors(err)
     }, [title, content, publicc])

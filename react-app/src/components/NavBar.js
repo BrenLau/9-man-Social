@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import "./NavBar.css"
 import { useSelector } from "react-redux";
+import logo from "./Logo.png"
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -11,11 +12,9 @@ const NavBar = () => {
   return (
     <nav className='nav'>
 
-      <div className='banner'>
-        <h1 id='h1title'>
-          9-Man Social
-        </h1>
-        <img className='banner' src="https://ninemansocial.s3.amazonaws.com/plainnetd.png"></img>
+      <div className='bannerdiv'>
+
+        <div className='banner'><img className='logo' src={logo}></img></div>
       </div>
 
       <ul className='navstuff'>

@@ -1,12 +1,33 @@
 .banner {
     height: 20%;
+    height: 500px;
     width: 100%;
     position: sticky;
     margin: 0;
     top: 0px;
     max-height: 30vh;
     max-width: 1400px;
+    min-height: 200px;
     z-index: -2;
+    background-image: url("https://ninemansocial.s3.amazonaws.com/plainnetd.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    position: relative;
+    top: 5%;
+    height: 20%;
+    min-height: 50px;
+}
+
+.bannerdiv {
+    height: 100%;
+    width: 100%;
+
 }
 
 .nav {
@@ -16,6 +37,7 @@
     align-items: center;
     max-width: 1400px;
     min-width: 1000px;
+    height: 20%;
 }
 
 .navstuff {
@@ -34,11 +56,12 @@
     justify-content: space-around;
     align-items: center;
 
+
 }
 
 #h1title {
     position: absolute;
-    top: 0px;
+    top: 20px;
     display: flex;
     height: 100%;
     justify-content: center;
@@ -72,13 +95,13 @@ li {
     height: 10vh;
     max-height: 50px;
     position: absolute;
-    top: 10px;
+    top: 5px;
     z-index: 1;
 }
 
 .labell {
     position: absolute;
-    top: 25px;
+    top: 20px;
     background-color: white;
     border: solid 1px black;
     border-radius: 50px;
@@ -102,8 +125,4 @@ li {
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     cursor: pointer;
-}
-
-body {
-    background-color: #a9a9a9
 }
