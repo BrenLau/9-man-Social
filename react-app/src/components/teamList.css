@@ -3,19 +3,20 @@
     border-radius: 20px;
     width: fit-content;
     height: fit-content;
-    padding: 3px;
+    padding: 5px;
     font-size: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 3px;
+    margin: 5px;
     text-decoration: none;
     font-weight: bold;
     color: red;
     overflow: hidden;
     max-width: 100%;
-
+    border: solid .1px black;
+    min-width: 90%;
 }
 
 @media screen and (max-width:1200px) {
