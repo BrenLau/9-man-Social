@@ -168,4 +168,5 @@
     overflow-wrap: break-word;
     max-width: 25vh;
     flex-wrap: wrap;
+    margin: 5px;
 }

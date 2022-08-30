@@ -2,14 +2,16 @@
     border: solid 1px;
     height: 80vh;
     width: 18%;
-    background-color: #404040;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(187, 187, 187, 1) 0%, rgba(97, 102, 103, 1) 50%);
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 2px;
     height: 80vh;
     min-height: 80vh;
-    min-width: 120px
+    min-width: 120px;
+    border-radius: 2px;
 }
 
 body {
