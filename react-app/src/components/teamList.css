@@ -20,6 +20,27 @@
     background-color: #110f0f;
 }
 
+.teamcapsules {
+    background-color: aliceblue;
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    color: whitesmoke;
+    overflow: hidden;
+    max-width: 90%;
+    /* border: solid .1px black; */
+    min-width: 90%;
+}
+
 @media screen and (max-width:1200px) {
     .teamcapsule {
         font-size: 9px;

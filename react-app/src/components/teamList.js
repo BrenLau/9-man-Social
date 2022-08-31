@@ -25,7 +25,7 @@ const TeamList = ({ setCurrentTeam, setHidden }) => {
                         await setCurrentTeam(team.id)
                         await dispatch(getPostsThunk(team.id))
                         await setHidden(false)
-                    }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule"></NavLink>
+                    }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsules"></NavLink>
                 )
                 if (team) return (
                     <NavLink onClick={async (e) => {
