@@ -33,6 +33,9 @@ function App() {
         <Route exact path='/teams/:teamId'>
           <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
         </Route>
+        <Route exact path='/post/:postId'>
+          <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
+        </Route>
         <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
 
       </Switch>

@@ -104,12 +104,15 @@ const posts = (state = {}, action) => {
             action.posts.forEach(post => {
                 newState[post[0].id] = post[0]
                 newState[post[0].id].user = post[1]
+                newState[post[0].id].team = post[2]
+
             })
             return newState
         case MAKE_POST:
             newState = { ...state }
             newState[action.post[0][0].id] = action.post[0][0]
             newState[action.post[0][0].id].user = action.post[0][1]
+            newState[action.post[0][0].id].team = action.post[0][2]
             return newState
         case UPDATE_POST:
             newState = { ...state }
@@ -122,6 +125,7 @@ const posts = (state = {}, action) => {
         case ONEPOST:
             newState[action.post[0][0].id] = action.post[0][0]
             newState[action.post[0][0].id].user = action.post[0][1]
+            newState[action.post[0][0].id].team = action.post[0][2]
             return newState
         default:
             return state

@@ -42,7 +42,7 @@ def makeAPost():
         db.session.add(post)
         db.session.commit()
 
-        return {"post": [(post.to_dict(), post.user.to_dict())]}
+        return {"post": [(post.to_dict(), post.user.to_dict(), post.team.to_dict())]}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
@@ -54,14 +54,14 @@ def getPosts(teamId):
 
 
 
-    return {"posts": [(post.to_dict(), post.user.to_dict()) for post in posts]}
+    return {"posts": [(post.to_dict(), post.user.to_dict(), post.team.to_dict()) for post in posts]}
 
 @post_routes.route('/one/<int:postId>', methods=['GET'])
 @login_required
 def getOnePost(postId):
     post = Post.query.get(postId)
 
-    return {"post": [(post.to_dict(), post.user.to_dict())]}
+    return {"post": [(post.to_dict(), post.user.to_dict(), post.team.to_dict())]}
 
 @post_routes.route('/each/<int:postId>', methods=['PUT'])
 @login_required

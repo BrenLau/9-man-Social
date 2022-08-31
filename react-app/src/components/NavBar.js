@@ -8,11 +8,14 @@ import logo from "./Logo.png"
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
-  const { teamId } = useParams()
+  const { teamId, postId } = useParams()
 
   const teams = useSelector((state) => state.teams)
   const team = teams[parseInt(teamId)]
-  console.log(team)
+
+  const posts = useSelector((state) => state.posts)
+  const post = posts[parseInt(postId)]
+
   return (
     <nav className='nav'>
 
@@ -22,6 +25,7 @@ const NavBar = () => {
           <Switch>
             <Route exact path='/'><img className='logo' src={logo}></img></Route>
             <Route exact path='/teams/:teamId'>{team && <h1 id='h1title'>{team.name}</h1>}</Route>
+            <Route exact path='/post/:postId'>{post && <h1 id='h1title'>{post.team.name}</h1>}</Route>
           </Switch>
         </div>
       </div>
