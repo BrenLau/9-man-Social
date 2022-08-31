@@ -1,22 +1,23 @@
 .teamcapsule {
     background-color: aliceblue;
-    border-radius: 20px;
-    width: fit-content;
-    height: fit-content;
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
     padding: 5px;
     font-size: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 5px;
+    margin: 8px;
     text-decoration: none;
     font-weight: bold;
-    color: red;
+    color: whitesmoke;
     overflow: hidden;
-    max-width: 100%;
-    border: solid .1px black;
+    max-width: 90%;
+    /* border: solid .1px black; */
     min-width: 90%;
+    background-color: #110f0f;
 }
 
 @media screen and (max-width:1200px) {
@@ -30,10 +31,13 @@
 .activeteam {
     background-color: darkgray;
     color: crimson;
+    border: solid 1px whitesmoke;
+    box-shadow: 2px 2px 2px #ccc;
 }
 
 .teamcapsule:hover {
-    background-color: burlywood;
+    background-color: lightgrey;
+    color: black;
 }
 
 .teamdisplay {
