@@ -63,9 +63,10 @@ const SignUpForm = () => {
     if (password !== repeatPassword) errors.push('Password and confirm password must match')
     if (!password) errors.push('Password cannot be empty')
     if (!repeatPassword) errors.push('Confirm Password cannot be empty')
+    if (!email.length) errors.push('Email must be not be empty')
 
     setFront(errors)
-  }, [username, password, repeatPassword])
+  }, [username, password, repeatPassword, email])
 
   if (user) {
     return <Redirect to='/' />;
