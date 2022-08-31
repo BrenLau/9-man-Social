@@ -134,5 +134,7 @@
 #descriptionid {
     flex-wrap: wrap;
     overflow-wrap: break-word;
-    max-width: 90%;
+    width: 100%;
+    max-width: 100%;
+    background-color: blue;
 }
