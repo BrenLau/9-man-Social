@@ -28,7 +28,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
+      <Switch>
+
+        <Route exact path='/teams/:teamId'>
+          <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
+        </Route>
+        <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
+
+      </Switch>
       <Home currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
       {/* <Switch>
         <Route path='/login' exact={true}>
