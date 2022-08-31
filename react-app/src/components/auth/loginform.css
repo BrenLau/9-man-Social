@@ -1,8 +1,8 @@
 .loginform {
     display: flex;
     flex-direction: column;
-    height: 70vh;
-    width: 70%;
+    height: 80vh;
+    width: 96.8%;
     justify-content: center;
     align-items: center;
     background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a7b2ad36-f84f-499d-86a7-128dfb4be96e/daci8ez-52cd179f-112a-491a-acce-4e6ca57105b9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E3YjJhZDM2LWY4NGYtNDk5ZC04NmE3LTEyOGRmYjRiZTk2ZVwvZGFjaThlei01MmNkMTc5Zi0xMTJhLTQ5MWEtYWNjZS00ZTZjYTU3MTA1YjkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.N4YgaFo82QavBaqBws39gJkBWdV2i73MTBCLO8lAGQ8);
@@ -19,6 +19,7 @@
     border: solid 1px black;
     border-radius: 24px;
     padding: 10px;
+    opacity: .92;
 }
 
 input {

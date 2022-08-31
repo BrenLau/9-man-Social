@@ -9,7 +9,6 @@ const TeamList = ({ setCurrentTeam, setHidden }) => {
     const dispatch = useDispatch()
     const teams = useSelector(state => state.teams)
 
-    const { teamId } = useParams()
 
     useEffect(() => {
         dispatch(getTeamsThunk())

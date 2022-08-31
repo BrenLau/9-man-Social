@@ -1,16 +1,15 @@
 .poles {
-    border: solid 1px;
+    /* border: solid 1px; */
     height: 80vh;
-    width: 8%;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(120deg, rgba(2, 0, 36, 1) 0%, rgba(187, 187, 187, 1) 0%, rgba(97, 102, 103, 1) 50%);
+    width: 30px;
+    background: linear-gradient(to right, rgba(2, 0, 36, 1) 0%, rgba(187, 187, 187, 1) 0%, rgba(97, 102, 103, 1) 50%);
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 2px;
     min-height: 80vh;
-    min-width: 80px;
-    border-radius: 2px;
+    min-width: 10px;
+    border-radius: 3px;
 }
 
 body {
@@ -19,7 +18,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(108, 108, 108);
+    background-color: rgb(181, 176, 176)
 }
 
 #poles {
