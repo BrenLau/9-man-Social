@@ -18,15 +18,21 @@ const TeamList = ({ setCurrentTeam, setHidden }) => {
     return (
         Array.isArray(Object.values(teams)) && <div className='teamdisplay'>
             {Object.values(teams).map(team => {
-                return (
-
+                if (team.image) return (
                     <NavLink style={{
                         backgroundImage: `url(${team.image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
                     }} onClick={async (e) => {
                         await setCurrentTeam(team.id)
                         await dispatch(getPostsThunk(team.id))
                         await setHidden(false)
-                    }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{!team.image && team.name.split(' ')[0][0] + (team.name.split(' ')[1] && team.name.split(' ')[1][0])}</NavLink>
+                    }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{team.name}</NavLink>
+                )
+                if (team) return (
+                    <NavLink onClick={async (e) => {
+                        await setCurrentTeam(team.id)
+                        await dispatch(getPostsThunk(team.id))
+                        await setHidden(false)
+                    }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{team.name}</NavLink>
                 )
             })}
         </div>
