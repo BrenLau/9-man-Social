@@ -1,6 +1,6 @@
 .poles {
     border: solid 1px;
-    height: 70vh;
+    height: 80vh;
     width: 8%;
     background: rgb(2, 0, 36);
     background: linear-gradient(120deg, rgba(2, 0, 36, 1) 0%, rgba(187, 187, 187, 1) 0%, rgba(97, 102, 103, 1) 50%);
@@ -8,7 +8,7 @@
     align-items: center;
     flex-direction: column;
     padding: 2px;
-    min-height: 70vh;
+    min-height: 80vh;
     min-width: 80px;
     border-radius: 2px;
 }
@@ -170,6 +170,8 @@ body {
 
 #linkedindiv {
     /* justify-self: flex-end; */
+    display: flex;
+    flex-direction: column;
     position: absolute;
     bottom: 0px;
 }
