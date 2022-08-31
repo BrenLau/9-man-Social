@@ -25,7 +25,7 @@ const NavBar = () => {
           <Switch>
             <Route exact path='/'><><img className='logo' src={logo}></img><h2 id='splashh2'>A place where the nineman community can get together to organize and communicate amongst eachother in one centralized location.</h2></></Route>
             <Route exact path='/teams/:teamId'>{team && <h1 id='h1title'>{team.name}</h1>}</Route>
-            <Route exact path='/post/:postId'>{post && <h1 id='h1title'>{post.team.name}</h1>}</Route>
+            <Route exact path='/post/:postId'>{post && <><h1 id='h1title'>{post.team.name}</h1><div id='descriptionid'>{post.team.description}</div></>}</Route>
           </Switch>
         </div>
       </div>

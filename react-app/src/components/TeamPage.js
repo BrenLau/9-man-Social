@@ -56,7 +56,7 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMemb
 
     if (teamMember) return (
         team.id && <div id='teamPage' >
-            {team && <div id='descriptionid'>{team.description}</div>}
+
             {button1 && team.captainId === user.id && teamMember.teamId === team.id && <div className={upload ? "upload" : null} >
                 {team.captainId === user.id && teamMember.teamId === team.id && <button className='teampagebuttons' onClick={() => {
                     setUpload(!upload)

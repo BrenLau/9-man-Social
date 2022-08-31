@@ -132,9 +132,14 @@
 }
 
 #descriptionid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-    overflow-wrap: break-word;
-    width: 100%;
-    max-width: 100%;
-    background-color: blue;
+    overflow-wrap: anywhere;
+    width: 98%;
+    max-width: 1230px;
+    height: fit-content;
+    position: absolute;
+    bottom: 10%;
 }
