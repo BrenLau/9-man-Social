@@ -71,7 +71,10 @@
     margin: 0px;
 
     font-size: 7.5vw;
-
+    background: -webkit-linear-gradient(120deg, rgb(251, 0, 0), rgb(165, 70, 70) 60%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 @media screen and (min-width: 1600px) {

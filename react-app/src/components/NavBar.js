@@ -21,7 +21,7 @@ const NavBar = () => {
         <div className='banner'>
           <Switch>
             <Route exact path='/'><img className='logo' src={logo}></img></Route>
-            <Route exact path='/teams/:teamId'><h1>{team.name}</h1></Route>
+            <Route exact path='/teams/:teamId'>{team && <h1 id='h1title'>{team.name}</h1>}</Route>
           </Switch>
         </div>
       </div>
