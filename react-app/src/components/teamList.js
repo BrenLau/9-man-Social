@@ -26,7 +26,7 @@ const TeamList = ({ setCurrentTeam, setHidden }) => {
                         await setCurrentTeam(team.id)
                         await dispatch(getPostsThunk(team.id))
                         await setHidden(false)
-                    }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{!team.image && team.name.split(' ')[0][0] + team.name.split(' ')[1][0]}</NavLink>
+                    }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{!team.image && team.name.split(' ')[0][0] + (team.name.split(' ')[1] && team.name.split(' ')[1][0])}</NavLink>
                 )
             })}
         </div>
