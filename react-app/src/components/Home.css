@@ -1,6 +1,6 @@
 .poles {
     border: solid 1px;
-    height: 80vh;
+    height: 70vh;
     width: 8%;
     background: rgb(2, 0, 36);
     background: linear-gradient(120deg, rgba(2, 0, 36, 1) 0%, rgba(187, 187, 187, 1) 0%, rgba(97, 102, 103, 1) 50%);
@@ -8,8 +8,7 @@
     align-items: center;
     flex-direction: column;
     padding: 2px;
-    height: 80vh;
-    min-height: 80vh;
+    min-height: 70vh;
     min-width: 80px;
     border-radius: 2px;
 }

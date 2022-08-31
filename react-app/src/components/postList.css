@@ -154,19 +154,20 @@
 }
 
 #splashh2 {
-    position: absolute;
     justify-self: center;
     align-self: center;
     z-index: 2;
-    width: 25vh;
-    background-color: aquamarine;
+    width: 95vw;
+    background-color: grey;
     border-radius: 24px;
     padding: 5px;
     opacity: .7;
     border: solid 1px;
     box-shadow: 0 0 10px #000000;
     overflow-wrap: break-word;
-    max-width: 25vh;
+    max-width: 95vw;
     flex-wrap: wrap;
     margin: 5px;
+    position: relative;
+    bottom: -20px;
 }
