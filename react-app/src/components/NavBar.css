@@ -97,6 +97,7 @@ li {
     cursor: pointer;
     height: 10vh;
     max-height: 50px;
+    min-height: 30px;
     position: absolute;
     top: 5px;
     z-index: 1;

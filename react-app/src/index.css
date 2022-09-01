@@ -12,6 +12,7 @@ body {
     align-items: center;
     height: 80vh;
     height: 100vh;
+    min-width: 80px;
     width: 10vw;
     max-width: 160px;
 
@@ -40,7 +41,9 @@ body {
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
+    min-width: 80px;
     width: 10vw;
+
     max-width: 160px;
     background-color: #2d2b2b;
     /* margin-left: 20px; */

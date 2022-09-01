@@ -58,8 +58,8 @@ function App() {
         </div>
         <div className='lastdiv'>
           <ProtectedRoute path='/teams/:teamId' exact={true}>
+            {sessionUser && currentTeam && <h2 id='userlisttitle'>Members</h2>}
             {sessionUser && <ul className="userlistpole">
-              {currentTeam && <h2 id='userlisttitle'>Members</h2>}
               {currentTeam && Array.isArray(thisTeamMembers) && thisTeamMembers.map(member => (
                 <li className='liuserpole' key={member.id}><NavLink className='userlinkpole' onClick={() => { setCurrentTeam('') }} to={`/users/${member.id}`} >{member.username}</NavLink></li>
               ))}
