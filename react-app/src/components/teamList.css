@@ -53,7 +53,7 @@
     background-color: darkgray;
     color: crimson;
     border: solid 1px whitesmoke;
-    box-shadow: 2px 2px 2px #ccc;
+    box-shadow: 0px 0px 5px #ccc;
 }
 
 .teamcapsule:hover {
@@ -67,8 +67,8 @@
     /* justify-content: center; */
     align-items: center;
     padding: 3px;
-    height: 90vh;
-    max-height: 90vh;
+    height: 100%;
+    /* max-height: 90vh; */
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-width: none;
@@ -105,7 +105,10 @@
     display: flex;
     flex-direction: column;
     margin: 30px;
-
+    margin-top: 5px;
+    align-self: flex-start;
+    background-color: #2d2b2b;
+    height: 100vw;
 }
 
 .teampagebuttons:hover {
