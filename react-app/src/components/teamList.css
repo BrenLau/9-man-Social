@@ -108,7 +108,7 @@
     margin-top: 5px;
     align-self: flex-start;
     background-color: #2d2b2b;
-    height: 100vw;
+    max-height: 100vw;
 }
 
 .teampagebuttons:hover {

@@ -53,14 +53,6 @@ const Home = ({ currentTeam, setCurrentTeam, sessionUser, teamMember, thisTeamMe
         <>
             <div id="poles">
                 <div className='poles'>
-                    {/* {sessionUser && teamMember === 'none' && <NavLink onClick={() => setCurrentTeam('')} className='createteam' to='/createNewTeam'>
-                        Create a team
-                    </NavLink>}
-                    {sessionUser && teamMember && teamMember !== 'none' && <NavLink className='createteam' to={`/teams/${teamMember.teamId}`} onClick={(e) => {
-                        setCurrentTeam(teamMember.teamId)
-                    }}>Your Team</NavLink>}
-                    {sessionUser && <TeamList setHidden={setHidden} setCurrentTeam={setCurrentTeam} />} */}
-
                 </div>
 
                 {/* _____________________________________________________________________ */}
@@ -89,18 +81,18 @@ const Home = ({ currentTeam, setCurrentTeam, sessionUser, teamMember, thisTeamMe
                 {/* _________________________________________________________________________________ */}
 
                 <div className='poles'>
-                    <ProtectedRoute path='/teams/:teamId' exact={true}>
+                    {/* <ProtectedRoute path='/teams/:teamId' exact={true}>
                         {sessionUser && <ul className="userlistpole">
                             {currentTeam && <h2 id='userlisttitle'>Members</h2>}
                             {currentTeam && Array.isArray(thisTeamMembers) && thisTeamMembers.map(member => (
                                 <li className='liuserpole' key={member.id}><NavLink className='userlinkpole' onClick={() => { setCurrentTeam('') }} to={`/users/${member.id}`} >{member.username}</NavLink></li>
                             ))}
                         </ul>}
-                    </ProtectedRoute>
-                    <div id='linkedindiv'>
+                    </ProtectedRoute> */}
+                    {/* <div id='linkedindiv'>
                         <a id="linkedin" href="https://www.linkedin.com/in/brendan-lau-b6952919a/"><img className="linkedinimg" src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png'></img></a>
                         <a id="linkedin" href="https://github.com/BrenLau"><img className="linkedinimg" src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'></img></a>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

@@ -38,26 +38,40 @@ function App() {
         <div className='teamlistnewdiv'>
 
           {sessionUser && <TeamList teamMember={teamMember} sessionUser={sessionUser} setHidden={setHidden} setCurrentTeam={setCurrentTeam} />}
-          <div>
+        </div>
+        <div id='length'>
 
-            <Switch>
+          <Switch>
 
-              <Route exact path='/teams/:teamId'>
-                <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
-              </Route>
-              <Route exact path='/post/:postId'>
-                <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
-              </Route>
+            <Route exact path='/teams/:teamId'>
               <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
+            </Route>
+            <Route exact path='/post/:postId'>
+              <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
+            </Route>
+            <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
 
-            </Switch>
-            <Home currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} sessionUser={sessionUser} teamMember={teamMember}
-              thisTeamMembers={thisTeamMembers} hidden={hidden} setHidden={setHidden} loaded={loaded} setLoaded={setLoaded}
-            />
+          </Switch>
+          <Home currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} sessionUser={sessionUser} teamMember={teamMember}
+            thisTeamMembers={thisTeamMembers} hidden={hidden} setHidden={setHidden} loaded={loaded} setLoaded={setLoaded}
+          />
+        </div>
+        <div className='lastdiv'>
+          <ProtectedRoute path='/teams/:teamId' exact={true}>
+            {sessionUser && <ul className="userlistpole">
+              {currentTeam && <h2 id='userlisttitle'>Members</h2>}
+              {currentTeam && Array.isArray(thisTeamMembers) && thisTeamMembers.map(member => (
+                <li className='liuserpole' key={member.id}><NavLink className='userlinkpole' onClick={() => { setCurrentTeam('') }} to={`/users/${member.id}`} >{member.username}</NavLink></li>
+              ))}
+            </ul>}
+          </ProtectedRoute>
+          <div id='linkedindiv'>
+            <a id="linkedin" href="https://www.linkedin.com/in/brendan-lau-b6952919a/"><img className="linkedinimg" src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png'></img></a>
+            <a id="linkedin" href="https://github.com/BrenLau"><img className="linkedinimg" src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'></img></a>
           </div>
-
         </div>
       </div>
+
     </BrowserRouter>
   );
 }
