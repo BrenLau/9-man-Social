@@ -16,12 +16,12 @@ import { yourTeamThunk, ourTeamThunk } from "../store/teammember";
 import Splash from "./splash";
 import Post from "./post";
 
-const Home = ({ currentTeam, setCurrentTeam }) => {
-    const sessionUser = useSelector(state => state.session.user)
-    const teamMember = useSelector(state => state.members.yourTeam)
-    const thisTeamMembers = useSelector(state => state.members.ourTeam)
-    const [hidden, setHidden] = useState(false)
-    const [loaded, setLoaded] = useState(false);
+const Home = ({ currentTeam, setCurrentTeam, sessionUser, teamMember, thisTeamMembers, hidden, setHidden, loaded, setLoaded }) => {
+    // const sessionUser = useSelector(state => state.session.user)
+    // const teamMember = useSelector(state => state.members.yourTeam)
+    // const thisTeamMembers = useSelector(state => state.members.ourTeam)
+    // const [hidden, setHidden] = useState(false)
+    // const [loaded, setLoaded] = useState(false);
     const dispatch = useDispatch();
 
 
@@ -53,13 +53,13 @@ const Home = ({ currentTeam, setCurrentTeam }) => {
         <>
             <div id="poles">
                 <div className='poles'>
-                    {sessionUser && teamMember === 'none' && <NavLink onClick={() => setCurrentTeam('')} className='createteam' to='/createNewTeam'>
+                    {/* {sessionUser && teamMember === 'none' && <NavLink onClick={() => setCurrentTeam('')} className='createteam' to='/createNewTeam'>
                         Create a team
                     </NavLink>}
                     {sessionUser && teamMember && teamMember !== 'none' && <NavLink className='createteam' to={`/teams/${teamMember.teamId}`} onClick={(e) => {
                         setCurrentTeam(teamMember.teamId)
                     }}>Your Team</NavLink>}
-                    {sessionUser && <TeamList setHidden={setHidden} setCurrentTeam={setCurrentTeam} />}
+                    {sessionUser && <TeamList setHidden={setHidden} setCurrentTeam={setCurrentTeam} />} */}
 
                 </div>
 
