@@ -57,15 +57,23 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMemb
     if (teamMember) return (
         team.id && <div id='teamPage' >
 
-            {button1 && team.captainId === user.id && teamMember.teamId === team.id && <div className={upload ? "upload" : null} >
+            {/* {button1 && team.captainId === user.id && teamMember.teamId === team.id && <div className={upload ? "upload" : null} >
                 {team.captainId === user.id && teamMember.teamId === team.id && <button className='teampagebuttons' onClick={() => {
                     setUpload(!upload)
                     setButton2(!button2)
                     setButton3(!button3)
                 }}>Upload Image</button>}
                 {upload && <UploadTeam setUpload={setUpload} setButton2={setButton2} setButton3={setButton3} />}
-            </div>}
+            </div>} */}
             {team && <div className="buttondivs">
+                {button1 && team.captainId === user.id && teamMember.teamId === team.id && <div className={upload ? "upload" : null} >
+                    {team.captainId === user.id && teamMember.teamId === team.id && <button className='teampagebuttons' onClick={() => {
+                        setUpload(!upload)
+                        setButton2(!button2)
+                        setButton3(!button3)
+                    }}>Upload Image</button>}
+                    {upload && <UploadTeam setUpload={setUpload} setButton2={setButton2} setButton3={setButton3} />}
+                </div>}
                 {teamId && teamMember && teamMember === 'none' && <button className='teampagebuttons' onClick={async (e) => {
                     await dispatch(applyTeamThunk(user.id, team.id))
                     await dispatch(ourTeamThunk(team.id))
