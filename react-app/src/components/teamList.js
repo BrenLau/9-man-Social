@@ -22,7 +22,7 @@ const TeamList = ({ setCurrentTeam, setHidden, teamMember, sessionUser }) => {
             {sessionUser && teamMember && teamMember !== 'none' && <NavLink className='createteam' to={`/teams/${teamMember.teamId}`} onClick={(e) => {
                 setCurrentTeam(teamMember.teamId)
             }}>Your Team</NavLink>}
-            {Array.isArray(Object.values(teams)) && <div className='teamdisplay'>
+            {Array.isArray(Object.values(teams)) && <div id='teamdisplay'>
                 {Object.values(teams).map(team => {
                     if (team.image) return (
 

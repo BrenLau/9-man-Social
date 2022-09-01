@@ -1,8 +1,25 @@
+#teamdisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3px;
+    height: 100%;
+    max-height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+#teamdisplay::-webkit-scrollbar {
+    display: none;
+    /* for Chrome, Safari, and Opera */
+}
+
 .teamcapsule {
-    background-color: aliceblue;
     border-radius: 50px;
     width: 50px;
     height: 50px;
+    min-height: 50px;
     padding: 5px;
     font-size: 12px;
     display: flex;
@@ -14,17 +31,18 @@
     font-weight: bold;
     color: whitesmoke;
     overflow: hidden;
+    min-width: 50px;
     max-width: 100%;
-    /* border: solid .1px black; */
-    /* min-width: 90%; */
+
     background-color: #110f0f;
 }
 
 .teamcapsules {
-    background-color: aliceblue;
     border-radius: 50px;
     width: 50px;
     height: 50px;
+    min-height: 50px;
+    min-width: 50px;
     padding: 5px;
     font-size: 12px;
     display: flex;
@@ -36,9 +54,7 @@
     font-weight: bold;
     color: whitesmoke;
     overflow: hidden;
-    max-width: 90%;
-    /* border: solid .1px black; */
-    /* min-width: 90%; */
+
 }
 
 @media screen and (max-width:1200px) {
@@ -59,25 +75,16 @@
 .teamcapsule:hover {
     background-color: lightgrey;
     color: black;
+    box-shadow: 0 0 3px red;
 }
 
-.teamdisplay {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    padding: 3px;
-    height: 100%;
-    /* max-height: 90vh; */
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scrollbar-width: none;
+.teamcapsules:hover {
+    background-color: lightgrey;
+    color: black;
+    box-shadow: 0 0 3px red;
+
 }
 
-.teamdisplay::-webkit-scrollbar {
-    display: none;
-    /* for Chrome, Safari, and Opera */
-}
 
 .teampagebuttons {
     position: relative;

@@ -32,7 +32,7 @@
 }
 
 .nav {
-    width: 100%;
+    width: 70vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,7 +44,7 @@
 .navstuff {
     width: 100%;
     position: absolute;
-    max-width: 1000px;
+    max-width: 70vw;
     height: 10%;
     display: flex;
     padding: 0px;
