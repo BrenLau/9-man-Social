@@ -40,12 +40,12 @@ const NavBar = () => {
             <div className='labell'>Home</div>
           </NavLink>
         </li>
-        <li className='navli'>
+        {sessionUser && <li className='navli'>
           <NavLink className='navli' to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
             <img className='ball' src="https://pngimg.com/uploads/volleyball/volleyball_PNG1.png"></img>
             <div className='labell'>Profile</div>
           </NavLink>
-        </li>
+        </li>}
         {!sessionUser && <li className='navli'>
           <NavLink className='navli' to='/login' exact={true} activeClassName='active'>
             <img className='ball' src="https://pngimg.com/uploads/volleyball/volleyball_PNG1.png"></img>
