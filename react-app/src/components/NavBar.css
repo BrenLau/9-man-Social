@@ -75,6 +75,7 @@
     margin: 0px;
     font-size: 3.5em;
     background: -webkit-linear-gradient(120deg, rgb(251, 0, 0), rgb(165, 70, 70) 60%);
+    color: red;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
