@@ -23,7 +23,7 @@
     position: relative;
     top: 10%;
     height: 20%;
-    min-height: 50px;
+    min-height: 30px;
     max-width: 90%;
 }
 
@@ -84,6 +84,21 @@
     #h1title {
         font-size: 50px;
     }
+
+}
+
+@media screen and (max-height: 1000px) {
+    #h1title {
+        font-size: 50px;
+    }
+
+    .logo {
+        height: 10px;
+    }
+
+    #splashh2 {
+        font-size: 12px;
+    }
 }
 
 li {
@@ -101,7 +116,7 @@ li {
     cursor: pointer;
     height: 10vh;
     max-height: 50px;
-    min-height: 30px;
+    min-height: 20px;
     position: absolute;
     top: 5px;
     z-index: 1;
@@ -109,7 +124,7 @@ li {
 
 .labell {
     position: absolute;
-    top: 20px;
+    top: 5vh;
     background-color: white;
     border: solid 1px black;
     border-radius: 50px;
