@@ -26,10 +26,26 @@ input {
     border-radius: 30px;
     padding: 5px;
     margin: 2px;
+    width: 100%;
+}
+
+#signuph2 {
+    margin: 3px;
+}
+
+.divforinputs {
+    width: 90%;
+    margin-top: 6px;
 }
 
 .submit-btn {
     border-radius: 5px;
+    width: 100%;
+    margin-top: 6px;
+    background: darkgrey;
+    color: black;
+    font-weight: bold;
+    height: 26px;
 }
 
 .submit-btn:hover {

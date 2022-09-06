@@ -50,14 +50,14 @@ const LoginForm = () => {
     <form className='loginform' onSubmit={onLogin}>
       <div className='logindiv'>
         <div className='errordiv'>
-          <h2>Log In</h2>
+          <h2 id='signuph2'>Log In</h2>
 
           {!Array.isArray(errors) && <div className='eacherrordiv'>{errors}</div>}
           {Array.isArray(errors) && <div className='eacherrordiv'>{errors.map(err => <div>{err}</div>)}</div>}
 
         </div>
 
-        <div>
+        <div className='divforinputs'>
           <label htmlFor='email'>Email*: </label>
           <input
             name='email'
@@ -67,7 +67,7 @@ const LoginForm = () => {
             onChange={updateEmail}
           />
         </div>
-        <div>
+        <div className='divforinputs'>
           <label htmlFor='password'>Password*: </label>
           <input
             name='password'
@@ -77,9 +77,9 @@ const LoginForm = () => {
             onChange={updatePassword}
           />
         </div>
-        <button className="teampagebuttons" type='submit'>Login</button>
+        <button className="submit-btn" type='submit'>Login</button>
         <button
-          className="teampagebuttons"
+          className="submit-btn"
           onClick={() => {
             setPassword("password");
             setEmail("demo@aa.io");

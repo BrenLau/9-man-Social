@@ -75,7 +75,7 @@ const SignUpForm = () => {
   return (
     <form className='loginform' onSubmit={onSignUp}>
       <div className='logindiv'>
-        <h2>Sign Up</h2>
+        <h2 id='signuph2'>Sign Up</h2>
 
         <div className='errordiv'>
           {submitted && front.length > 0 && front.map(err => (
@@ -85,7 +85,7 @@ const SignUpForm = () => {
             <div className='eacherrordiv' key={ind}>{Object.values(error)}</div>
           ))}
         </div>
-        <div>
+        <div className='divforinputs'>
           <label>User Name*</label>
           <input
             type='text'
@@ -94,7 +94,7 @@ const SignUpForm = () => {
             value={username}
           ></input>
         </div>
-        <div>
+        <div className='divforinputs'>
           <label>Email*</label>
           <input
             type='text'
@@ -103,7 +103,7 @@ const SignUpForm = () => {
             value={email}
           ></input>
         </div>
-        <div>
+        <div className='divforinputs'>
           <label>Password*</label>
           <input
             type='password'
@@ -112,7 +112,7 @@ const SignUpForm = () => {
             value={password}
           ></input>
         </div>
-        <div>
+        <div className='divforinputs'>
           <label>Confirm Password*</label>
           <input
             type='password'
