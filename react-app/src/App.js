@@ -71,7 +71,7 @@ function App() {
             </ul>}
           </ProtectedRoute>
           <div id='linkedindiv'>
-            {teamMember && currentTeam.captainId !== sessionUser.id && currentTeam == teamMember.teamId && teamMember !== 'none' && <button className='leaveteam' onClick={async (e) => {
+            {sessionUser && teamMember && currentTeam.captainId !== sessionUser.id && currentTeam == teamMember.teamId && teamMember !== 'none' && <button className='leaveteam' onClick={async (e) => {
               await dispatch(leaveTeamThunk(sessionUser.id, currentTeam))
               await dispatch(ourTeamThunk(currentTeam))
               await dispatch(getPostsThunk((currentTeam)))

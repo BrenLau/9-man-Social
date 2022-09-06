@@ -2,21 +2,36 @@
     /* border: solid; */
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: space-evenly; */
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    width: 55%;
+    width: 50%;
+    height: 30%;
+    margin: 0;
+    border: solid 1px black;
+    background-color: darkgray;
+    border-radius: 24px;
+    padding: 20px;
+    margin: 20px;
 }
 
 .teamname {
     text-decoration: none;
-    font-size: 24px;
+    font-size: 16px;
     color: black;
     border: solid 1px;
     border-radius: 24px;
-    padding: 3px;
+    padding: 10px;
     background-color: aliceblue;
     margin: 30px;
+
+}
+
+.ulBoxdiv {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .teamli {
@@ -24,7 +39,7 @@
 }
 
 .teamname:hover {
-    background-color: darkgray;
+    background-color: grey;
     color: red;
     border: black 1px solid;
 }

@@ -21,20 +21,25 @@ function User({ setCurrentTeam }) {
     return null;
   }
 
-
+  console.log(user)
   return (
-    <ul className='ulBox'>
-      <li>
-        <strong>User Id</strong> {userId}
-      </li>
-      <li>
-        <strong>Username</strong> {user.username}
-      </li>
-      <li>
-        <strong>Email</strong> {user.email}
-      </li>
-      {user.team && <li className='teamli'><NavLink className='teamname' onClick={() => { setCurrentTeam(user.team.id) }} to={`/teams/${user.team.id}`}>{user.team.name}</NavLink></li>}
-    </ul>
+    <div className='ulBoxdiv' style={{
+      backgroundImage: `url(${user.team ? user.team.image : 'none'})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
+    }} >
+
+      <ul className='ulBox'>
+        <li>
+          <strong>User Id</strong> {userId}
+        </li>
+        <li>
+          <strong>Username</strong> {user.username}
+        </li>
+        <li>
+          <strong>Email</strong> {user.email}
+        </li>
+        {user.team && <li className='teamli'><NavLink className='teamname' onClick={() => { setCurrentTeam(user.team.id) }} to={`/teams/${user.team.id}`}>{user.team.name}</NavLink></li>}
+      </ul>
+    </div>
   );
 }
 export default User;
