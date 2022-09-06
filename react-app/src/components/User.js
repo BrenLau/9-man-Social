@@ -21,7 +21,7 @@ function User({ setCurrentTeam }) {
     return null;
   }
 
-  console.log(user)
+
   return (
     <div className='ulBoxdiv' style={{
       backgroundImage: `url(${user.team ? user.team.image : 'none'})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'

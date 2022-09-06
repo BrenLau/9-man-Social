@@ -17,12 +17,12 @@ def users():
 def user(id):
     user = User.query.get(id)
     currentUser = user.to_dict()
+    if (user.team):
+        teammem = user.team
+        
+        team = teammem[0].team
 
-    teammem = user.team
-    
-    team = teammem[0].team
-
-    currentUser['team'] = team.to_dict()
+        currentUser['team'] = team.to_dict()
     return currentUser
 
 
