@@ -75,19 +75,27 @@
 }
 
 .h1post {
-    width: 90%;
+    width: 99%;
     overflow-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(122, 122, 122);
+    margin: 0;
+    height: 10%;
+    min-height: 36px;
+    align-items: center;
+    box-shadow: 0 0 9px rgba(0, 0, 0, .5);
 }
 
 .divpost {
     padding: 5px;
     overflow-wrap: break-word;
-    width: 90%;
+    width: 98.5%;
     overflow-y: scroll;
     overflow-x: hidden;
     box-shadow: inset 0 0 10px #000000;
     background-color: darkgray;
-    height: 80%;
+    height: 90%;
 }
 
 .postContainer {

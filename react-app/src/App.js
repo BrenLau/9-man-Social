@@ -9,6 +9,8 @@ import { authenticate } from './store/session';
 import Home from './components/Home'
 import TeamList from './components/teamList';
 import './index.css'
+import { leaveTeamThunk, ourTeamThunk } from './store/teammember'
+import { getPostsThunk } from './store/post'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -18,6 +20,8 @@ function App() {
   const thisTeamMembers = useSelector(state => state.members.ourTeam)
   const [hidden, setHidden] = useState(false)
 
+  console.log(teamMember)
+  console.log(currentTeam)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,6 +42,7 @@ function App() {
         <div className='teamlistnewdiv'>
 
           {sessionUser && <TeamList teamMember={teamMember} sessionUser={sessionUser} setHidden={setHidden} setCurrentTeam={setCurrentTeam} />}
+
         </div>
         <div id='length'>
 
@@ -66,6 +71,11 @@ function App() {
             </ul>}
           </ProtectedRoute>
           <div id='linkedindiv'>
+            {teamMember && currentTeam.captainId !== sessionUser.id && currentTeam == teamMember.teamId && teamMember !== 'none' && <button className='leaveteam' onClick={async (e) => {
+              await dispatch(leaveTeamThunk(sessionUser.id, currentTeam))
+              await dispatch(ourTeamThunk(currentTeam))
+              await dispatch(getPostsThunk((currentTeam)))
+            }}>Leave Team</button>}
             <a id="linkedin" href="https://www.linkedin.com/in/brendan-lau-b6952919a/"><img className="linkedinimg" src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png'></img></a>
             <a id="linkedin" href="https://github.com/BrenLau"><img className="linkedinimg" src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'></img></a>
           </div>
