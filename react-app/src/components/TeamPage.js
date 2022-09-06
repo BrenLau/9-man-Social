@@ -70,11 +70,11 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMemb
                     await dispatch(ourTeamThunk(team.id))
                     await dispatch(getPostsThunk(team.id))
                 }}>Join Team</button>}
-                {team.captainId !== user.id && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={async (e) => {
+                {/* {team.captainId !== user.id && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={async (e) => {
                     await dispatch(leaveTeamThunk(user.id, team.id))
                     await dispatch(ourTeamThunk(team.id))
                     await dispatch(getPostsThunk((team.id)))
-                }}>Leave Team</button>}
+                }}>Leave Team</button>} */}
 
                 {button2 && !hidden && captain && <button className='teampagebuttons' onClick={(e) => {
                     e.preventDefault()
