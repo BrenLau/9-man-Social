@@ -52,8 +52,8 @@ const PostForm = ({ setMakePost }) => {
             {submitted && errors.length > 0 && errors.map(error => (
                 <div className='errorsdivs' key={error}>{error}</div>
             ))}
-            <div><label>Title*<input value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
-            <div><label>Content*<input value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
+            <div><label>Title*<input className='inputcreate' value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
+            <div><label>Content*<input className='inputcreate' value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
             <div><label>Private<input onChange={(e) => { setPublicc(e.target.checked) }} type='checkbox'></input></label></div>
             <button className='teampagebuttons' disabled={submitted && errors.length > 0}  >Post</button>
         </form>

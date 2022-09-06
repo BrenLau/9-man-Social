@@ -11,6 +11,7 @@ import TeamList from './components/teamList';
 import './index.css'
 import { leaveTeamThunk, ourTeamThunk } from './store/teammember'
 import { getPostsThunk } from './store/post'
+import { applyTeamThunk } from './store/teammember'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -19,6 +20,7 @@ function App() {
   const teamMember = useSelector(state => state.members.yourTeam)
   const thisTeamMembers = useSelector(state => state.members.ourTeam)
   const [hidden, setHidden] = useState(false)
+
 
   console.log(teamMember)
   console.log(currentTeam)
@@ -76,6 +78,14 @@ function App() {
               await dispatch(ourTeamThunk(currentTeam))
               await dispatch(getPostsThunk((currentTeam)))
             }}>Leave Team</button>}
+            <ProtectedRoute path='/teams/:teamId'>
+              {sessionUser && teamMember && teamMember === 'none' && <button className='leaveteam' onClick={async (e) => {
+                await dispatch(applyTeamThunk(sessionUser.id, currentTeam))
+                await dispatch(ourTeamThunk(currentTeam))
+                await dispatch(getPostsThunk(currentTeam))
+                console.log('helo')
+              }}>Join Team</button>}
+            </ProtectedRoute>
             <a id="linkedin" href="https://www.linkedin.com/in/brendan-lau-b6952919a/"><img className="linkedinimg" src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png'></img></a>
             <a id="linkedin" href="https://github.com/BrenLau"><img className="linkedinimg" src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'></img></a>
           </div>

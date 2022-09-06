@@ -65,11 +65,11 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMemb
                     }}>Upload Image</button>}
                     {upload && <UploadTeam setUpload={setUpload} setButton2={setButton2} setButton3={setButton3} />}
                 </div>}
-                {teamId && teamMember && teamMember === 'none' && <button className='teampagebuttons' onClick={async (e) => {
+                {/* {teamId && teamMember && teamMember === 'none' && <button className='teampagebuttons' onClick={async (e) => {
                     await dispatch(applyTeamThunk(user.id, team.id))
                     await dispatch(ourTeamThunk(team.id))
                     await dispatch(getPostsThunk(team.id))
-                }}>Join Team</button>}
+                }}>Join Team</button>} */}
                 {/* {team.captainId !== user.id && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={async (e) => {
                     await dispatch(leaveTeamThunk(user.id, team.id))
                     await dispatch(ourTeamThunk(team.id))

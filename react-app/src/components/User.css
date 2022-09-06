@@ -7,12 +7,14 @@
     text-align: center;
     width: 50%;
     height: 30%;
+    min-height: 150px;
     margin: 0;
     border: solid 1px black;
     background-color: darkgray;
     border-radius: 24px;
     padding: 20px;
-    margin: 20px;
+    margin: 12.5%;
+    opacity: .9;
 }
 
 .teamname {

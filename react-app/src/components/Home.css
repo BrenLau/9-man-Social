@@ -79,6 +79,7 @@ body {
 .inputcreate {
     border-radius: 30px;
     margin: 10px;
+    width: 90%;
     background-color: ghostwhite;
 }
 
@@ -88,12 +89,18 @@ body {
 
 #submitcreateteam {
     border-radius: 30px;
-    width: 90px;
+    width: 90%;
     align-self: center;
+    background-color: #a9a9a9;
+    margin: 12px 0;
+    height: 28px;
+    font-weight: bold;
+    color: whitesmoke;
 }
 
 #submitcreateteam:hover {
     background-color: aliceblue;
+    color: black;
 }
 
 #h1forcreateteam {
