@@ -112,6 +112,37 @@
     height: 35%;
 }
 
+.divforposts {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.backlink {
+    text-decoration: none;
+    color: red;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 12px;
+    padding: 6px;
+    position: static;
+    width: 40px;
+    height: 18px;
+
+
+}
+
+.h3fordesc {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 5px;
+}
+
 .postContainer {
     width: 100%;
     display: flex;

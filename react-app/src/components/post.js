@@ -35,11 +35,15 @@ const Post = ({ teamMember }) => {
                     history.push(`/teams/${post.teamId}`)
                 }}>Delete</button>}
             </div>
-
             {hidden && post && teamMember && teamMember.teamId === post.teamId && user.id === post.userId && <EditPostForm titl={post.title} conten={post.content} setHidden={setHidden} />}
 
             {post && <h1 className="h1post">{post.title}</h1>}
-            {post && <div className="divpost">{post.content}</div>}
+            {post && <div className="divpost">
+                <div className="divforposts">
+                    <NavLink className='backlink' to={`/teams/${post.team.id}`}>Back</NavLink>
+                    <h3 className="h3fordesc">posted by: {post.user.username}</h3>
+                </div>
+                {post.content}</div>}
         </div>
     )
 }
