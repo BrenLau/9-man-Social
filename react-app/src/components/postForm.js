@@ -55,16 +55,19 @@ const PostForm = ({ setMakePost, upload, setUpload, setCurrentTeam, makePost, se
             <div><label>Title*<input className='inputcreate' value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
             <div><label>Content*<input className='inputcreate' value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
             <div><label>Private<input onChange={(e) => { setPublicc(e.target.checked) }} type='checkbox'></input></label></div>
-            <button className='teampagebuttons' disabled={submitted && errors.length > 0}  >Post</button>
-            <button className='teampagebuttons' onClick={() => {
-                setMakePost(false)
-                setHidden(false)
-                setButton1(true)
-                setButton2(true)
-                setButton3(true)
-                setMakePost(false)
-            }}>Cancel</button>
+            <div className="postbuttons">
 
+                <button className='teampagebuttons' disabled={submitted && errors.length > 0}  >Post</button>
+                <button className='teampagebuttons' onClick={() => {
+                    setMakePost(false)
+                    setHidden(false)
+                    setButton1(true)
+                    setButton2(true)
+                    setButton3(true)
+                    setMakePost(false)
+                }}>Cancel</button>
+
+            </div>
         </form>
     )
 }

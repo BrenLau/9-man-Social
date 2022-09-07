@@ -90,6 +90,13 @@
 
 }
 
+.postbuttons {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 .divpost {
 
     padding: 10px 2.5vw;
