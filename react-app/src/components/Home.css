@@ -29,6 +29,7 @@ body {
     z-index: -1;
     background-color: #a9a9a9;
     height: 70vh;
+    min-width: 70vw;
 }
 
 
