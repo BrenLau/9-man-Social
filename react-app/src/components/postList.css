@@ -54,7 +54,7 @@
     align-items: center;
     height: 100%;
     width: 95.2%;
-    max-width: 79vw;
+    /* max-width: 79vw; */
     padding: 20px;
     overflow-y: scroll;
     overflow-x: hidden;
