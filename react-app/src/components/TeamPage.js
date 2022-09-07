@@ -101,13 +101,13 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMemb
             }} >Cancel</button>}
 
             {makePost && <PostForm setMakePost={setMakePost} />}
-            {team.image && <div id='postListId' style={{
+            {team.image && <div className='postListId' style={{
                 backgroundImage: `url(${team.image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
             }}>
                 {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
                 <PostList thisTeamMembers={thisTeamMembers} teamMember={teamMember} />
             </div>}
-            {!team.image && <div id='postListId' style={{
+            {!team.image && <div className='postListId' style={{
                 backgroundImage: 'none', backgroundRepeat: 'no-repeat'
             }}>
                 {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
