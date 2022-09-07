@@ -16,12 +16,7 @@ import { yourTeamThunk, ourTeamThunk } from "../store/teammember";
 import Splash from "./splash";
 import Post from "./post";
 
-const Home = ({ currentTeam, setCurrentTeam, sessionUser, teamMember, thisTeamMembers, hidden, setHidden, loaded, setLoaded }) => {
-    // const sessionUser = useSelector(state => state.session.user)
-    // const teamMember = useSelector(state => state.members.yourTeam)
-    // const thisTeamMembers = useSelector(state => state.members.ourTeam)
-    // const [hidden, setHidden] = useState(false)
-    // const [loaded, setLoaded] = useState(false);
+const Home = ({ upload, setUpload, currentTeam, setCurrentTeam, sessionUser, teamMember, thisTeamMembers, hidden, setHidden, loaded, setLoaded, button1, setButton1, button2, setButton2, button3, setButton3, makePost, setMakePost }) => {
     const dispatch = useDispatch();
 
 
@@ -74,25 +69,13 @@ const Home = ({ currentTeam, setCurrentTeam, sessionUser, teamMember, thisTeamMe
                         <CreateTeam />
                     </ProtectedRoute>
                     <ProtectedRoute path='/editteam/:teamId' exact={true}><UpdateTeam /></ProtectedRoute>
-                    <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage thisTeamMembers={thisTeamMembers} sessionUser={sessionUser} setHidden={setHidden} hidden={hidden} setCurrentTeam={setCurrentTeam} teamMember={teamMember} /></ProtectedRoute>
+                    <ProtectedRoute path='/teams/:teamId' exact={true}><TeamPage upload={upload} setUpload={setUpload} makePost={makePost} setMakePost={setMakePost} thisTeamMembers={thisTeamMembers} sessionUser={sessionUser} setHidden={setHidden} hidden={hidden} setCurrentTeam={setCurrentTeam} teamMember={teamMember} button1={button1} setButton1={setButton1} button2={button2} setButton2={setButton2} button3={button3} setButton3={setButton3} /></ProtectedRoute>
                     <ProtectedRoute path='/post/:postId' exact={true}><Post teamMember={teamMember} /></ProtectedRoute>
                 </Switch>
 
                 {/* _________________________________________________________________________________ */}
 
                 <div className='poles'>
-                    {/* <ProtectedRoute path='/teams/:teamId' exact={true}>
-                        {sessionUser && <ul className="userlistpole">
-                            {currentTeam && <h2 id='userlisttitle'>Members</h2>}
-                            {currentTeam && Array.isArray(thisTeamMembers) && thisTeamMembers.map(member => (
-                                <li className='liuserpole' key={member.id}><NavLink className='userlinkpole' onClick={() => { setCurrentTeam('') }} to={`/users/${member.id}`} >{member.username}</NavLink></li>
-                            ))}
-                        </ul>}
-                    </ProtectedRoute> */}
-                    {/* <div id='linkedindiv'>
-                        <a id="linkedin" href="https://www.linkedin.com/in/brendan-lau-b6952919a/"><img className="linkedinimg" src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png'></img></a>
-                        <a id="linkedin" href="https://github.com/BrenLau"><img className="linkedinimg" src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'></img></a>
-                    </div> */}
                 </div>
             </div>
         </>

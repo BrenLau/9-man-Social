@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
-import { NavLink, useParams } from "react-router-dom"
+import { NavLink, useParams, useHistory } from "react-router-dom"
 import { getTeamsThunk, deleteTeamThunk } from "../store/teams"
 import "./teamList.css"
 import { yourTeamThunk, applyTeamThunk, ourTeamThunk, leaveTeamThunk } from "../store/teammember"
@@ -9,17 +9,12 @@ import PostList from "./postList"
 import { getPostsThunk } from "../store/post"
 import UploadTeam from "./uploadImage"
 
-const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMembers }) => {
+const TeamPage = ({ upload, setUpload, makePost, setMakePost, setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMembers, setButton1, button1, setButton2, button2, setButton3, button3 }) => {
     const dispatch = useDispatch()
     const { teamId } = useParams()
+    const history = useHistory()
 
-
-    const [makePost, setMakePost] = useState(false)
-    const [upload, setUpload] = useState(false)
-
-    const [button1, setButton1] = useState(true)
-    const [button2, setButton2] = useState(true)
-    const [button3, setButton3] = useState(true)
+    // const [upload, setUpload] = useState(false)
 
     const user = useSelector(state => state.session.user)
     const teams = useSelector(state => state.teams)
@@ -62,25 +57,18 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMemb
                         setUpload(!upload)
                         setButton2(!button2)
                         setButton3(!button3)
+                        setMakePost(false)
                     }}>Upload Image</button>}
                     {upload && <UploadTeam setUpload={setUpload} setButton2={setButton2} setButton3={setButton3} />}
                 </div>}
-                {/* {teamId && teamMember && teamMember === 'none' && <button className='teampagebuttons' onClick={async (e) => {
-                    await dispatch(applyTeamThunk(user.id, team.id))
-                    await dispatch(ourTeamThunk(team.id))
-                    await dispatch(getPostsThunk(team.id))
-                }}>Join Team</button>} */}
-                {/* {team.captainId !== user.id && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={async (e) => {
-                    await dispatch(leaveTeamThunk(user.id, team.id))
-                    await dispatch(ourTeamThunk(team.id))
-                    await dispatch(getPostsThunk((team.id)))
-                }}>Leave Team</button>} */}
 
                 {button2 && !hidden && captain && <button className='teampagebuttons' onClick={(e) => {
                     e.preventDefault()
                     setHidden(!hidden)
                     setButton1(!button1)
                     setButton3(!button3)
+                    setMakePost(false)
+
                 }} >Delete Team</button>}
 
                 {button3 && captain && <NavLink className='teampagebuttons' to={`/editteam/${team.id}`}>Edit Team</NavLink>}
@@ -91,12 +79,17 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMemb
                 await dispatch(deleteTeamThunk(parseInt(teamId)))
                 await dispatch(yourTeamThunk(user.id))
                 await dispatch(getPostsThunk(parseInt(teamId)))
+                setMakePost(false)
+
+                history.push('/')
             }} >Confirm delete</button>}
             {hidden && <button className='teampagebuttons' onClick={(e) => {
                 e.preventDefault()
                 setHidden(false)
                 setButton1(true)
                 setButton3(true)
+                setMakePost(false)
+
 
             }} >Cancel</button>}
 
@@ -104,13 +97,24 @@ const TeamPage = ({ setCurrentTeam, hidden, setHidden, sessionUser, thisTeamMemb
             {team.image && <div className='postListId' style={{
                 backgroundImage: `url(${team.image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
             }}>
-                {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
+                {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => {
+                    setMakePost(!makePost)
+                    setButton1(!button1)
+                    setButton2(!button2)
+                    setButton3(!button3)
+                }}>Make Post</button>}
                 <PostList thisTeamMembers={thisTeamMembers} teamMember={teamMember} />
             </div>}
             {!team.image && <div className='postListId' style={{
                 backgroundImage: 'none', backgroundRepeat: 'no-repeat'
             }}>
-                {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => { setMakePost(!makePost) }}>Make Post</button>}
+                {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => {
+                    setMakePost(!makePost)
+                    setButton1(!button1)
+                    setButton2(!button2)
+                    setButton3(!button3)
+
+                }}>Make Post</button>}
                 <PostList teamMember={teamMember} />
             </div>}
 

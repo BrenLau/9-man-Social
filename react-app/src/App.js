@@ -20,8 +20,11 @@ function App() {
   const teamMember = useSelector(state => state.members.yourTeam)
   const thisTeamMembers = useSelector(state => state.members.ourTeam)
   const [hidden, setHidden] = useState(false)
-
-
+  const [button1, setButton1] = useState(true)
+  const [button2, setButton2] = useState(true)
+  const [button3, setButton3] = useState(true)
+  const [makePost, setMakePost] = useState(false)
+  const [upload, setUpload] = useState(false)
 
   const dispatch = useDispatch();
 
@@ -42,7 +45,7 @@ function App() {
 
         <div className='teamlistnewdiv'>
 
-          {sessionUser && <TeamList teamMember={teamMember} sessionUser={sessionUser} setHidden={setHidden} setCurrentTeam={setCurrentTeam} />}
+          {sessionUser && <TeamList upload={upload} setUpload={setUpload} makePost={makePost} setMakePost={setMakePost} teamMember={teamMember} sessionUser={sessionUser} setHidden={setHidden} setCurrentTeam={setCurrentTeam} button1={button1} setButton1={setButton1} button2={button2} setButton2={setButton2} button3={button3} setButton3={setButton3} />}
 
         </div>
         <div id='length'>
@@ -58,8 +61,8 @@ function App() {
             <NavBar currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} />
 
           </Switch>
-          <Home currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} sessionUser={sessionUser} teamMember={teamMember}
-            thisTeamMembers={thisTeamMembers} hidden={hidden} setHidden={setHidden} loaded={loaded} setLoaded={setLoaded}
+          <Home upload={upload} setUpload={setUpload} makePost={makePost} setMakePost={setMakePost} currentTeam={currentTeam} setCurrentTeam={setCurrentTeam} sessionUser={sessionUser} teamMember={teamMember}
+            thisTeamMembers={thisTeamMembers} button1={button1} setButton1={setButton1} button2={button2} setButton2={setButton2} button3={button3} setButton3={setButton3} hidden={hidden} setHidden={setHidden} loaded={loaded} setLoaded={setLoaded}
           />
         </div>
         <div className='lastdiv'>
