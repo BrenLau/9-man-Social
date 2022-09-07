@@ -86,9 +86,9 @@ function App() {
                   await dispatch(getPostsThunk((currentTeam)))
 
                 }}>Leave Team</button></ProtectedRoute>}
-              {sessionUser && teamMember && teamMember.teamId &&
+              {/* {sessionUser && teamMember && teamMember.teamId &&
                 <NavLink className='leaveteam' to={`/teams/${teamMember.teamId}`}>Your Team</NavLink>
-              }
+              } */}
               <ProtectedRoute path='/teams/:teamId'>
                 {sessionUser && teamMember && teamMember === 'none' && <button className='leaveteam' onClick={async (e) => {
                   await dispatch(applyTeamThunk(sessionUser.id, currentTeam))
