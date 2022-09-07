@@ -39,7 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1400px;
+    /* max-width: 1400px; */
     min-width: 690px;
     height: 30vh;
     min-height: 30vh;
