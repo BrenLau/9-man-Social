@@ -19,6 +19,10 @@ body {
 
 }
 
+input {
+    width: 90%;
+}
+
 .leaveteam {
     margin: 6px;
     padding: 3px;

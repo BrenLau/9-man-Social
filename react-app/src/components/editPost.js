@@ -57,6 +57,11 @@ const EditPostForm = ({ titl, conten, setHidden }) => {
             <div><label>Title*<input value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
             <div><label>Content*<input value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
             <button disabled={errors.length > 0} className='teampagebuttons'>Post</button>
+            <button className='teampagebuttons' onClick={() => {
+                setHidden(false)
+                setTitle(post.title)
+                setContent(post.content)
+            }}>Cancel</button>
         </form>
     )
 }
