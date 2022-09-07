@@ -21,7 +21,7 @@ const Home = ({ upload, setUpload, currentTeam, setCurrentTeam, sessionUser, tea
 
     useEffect(() => {
         if (currentTeam) {
-            dispatch(ourTeamThunk(currentTeam))
+            dispatch(ourTeamThunk(currentTeam.id))
         }
     }, [dispatch, currentTeam])
 
