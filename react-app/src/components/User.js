@@ -28,14 +28,14 @@ function User({ setCurrentTeam }) {
     }} >
 
       <ul className='ulBox'>
-        <li>
-          <strong>User Id</strong> {userId}
+        <li className='userli'>
+          <strong>User Id: </strong> {userId}
         </li>
-        <li>
-          <strong>Username</strong> {user.username}
+        <li className='userli'>
+          <strong>Username: </strong> {user.username}
         </li>
-        <li>
-          <strong>Email</strong> {user.email}
+        <li className='userli'>
+          <strong>Email: </strong> {user.email}
         </li>
         {user.team && <li className='teamli'><NavLink className='teamname' onClick={() => { setCurrentTeam(user.team.id) }} to={`/teams/${user.team.id}`}>{user.team.name}</NavLink></li>}
       </ul>
