@@ -177,6 +177,7 @@ body {
     max-height: 10vh;
     width: 9.7vw;
     min-width: 75px;
+    max-width: 99%;
     height: 24px;
     display: flex;
     align-items: center;

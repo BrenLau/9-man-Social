@@ -22,8 +22,6 @@ function App() {
   const [hidden, setHidden] = useState(false)
 
 
-  console.log(teamMember)
-  console.log(currentTeam)
   const dispatch = useDispatch();
 
   useEffect(() => {
