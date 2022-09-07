@@ -14,8 +14,6 @@ const TeamPage = ({ upload, setUpload, makePost, setMakePost, setCurrentTeam, hi
     const { teamId } = useParams()
     const history = useHistory()
 
-    // const [upload, setUpload] = useState(false)
-
     const user = useSelector(state => state.session.user)
     const teams = useSelector(state => state.teams)
     const teamMember = useSelector(state => state.members.yourTeam)
@@ -93,15 +91,16 @@ const TeamPage = ({ upload, setUpload, makePost, setMakePost, setCurrentTeam, hi
 
             }} >Cancel</button>}
 
-            {makePost && <PostForm setMakePost={setMakePost} />}
+            {makePost && <PostForm setMakePost={setMakePost} setHidden={setHidden} setButton1={setButton1} setButton2={setButton2} setButton3={setButton3} />}
             {team.image && <div className='postListId' style={{
                 backgroundImage: `url(${team.image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
             }}>
                 {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => {
-                    setMakePost(!makePost)
-                    setButton1(!button1)
-                    setButton2(!button2)
-                    setButton3(!button3)
+                    setMakePost(true)
+                    setButton1(false)
+                    setButton2(false)
+                    setButton3(false)
+                    setHidden(false)
                 }}>Make Post</button>}
                 <PostList thisTeamMembers={thisTeamMembers} teamMember={teamMember} />
             </div>}
@@ -109,10 +108,11 @@ const TeamPage = ({ upload, setUpload, makePost, setMakePost, setCurrentTeam, hi
                 backgroundImage: 'none', backgroundRepeat: 'no-repeat'
             }}>
                 {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => {
-                    setMakePost(!makePost)
-                    setButton1(!button1)
-                    setButton2(!button2)
-                    setButton3(!button3)
+                    setMakePost(true)
+                    setButton1(false)
+                    setButton2(false)
+                    setButton3(false)
+                    setHidden(false)
 
                 }}>Make Post</button>}
                 <PostList teamMember={teamMember} />

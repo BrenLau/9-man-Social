@@ -5,7 +5,7 @@ import { makePostThunk } from "../store/post"
 import './teamList.css'
 import './postList.css'
 import './Home.css'
-const PostForm = ({ setMakePost }) => {
+const PostForm = ({ setMakePost, upload, setUpload, setCurrentTeam, makePost, setHidden, teamMember, sessionUser, button1, setButton1, button2, setButton2, button3, setButton3 }) => {
     const dispatch = useDispatch()
     const { teamId } = useParams()
     const [title, setTitle] = useState('')
@@ -56,6 +56,15 @@ const PostForm = ({ setMakePost }) => {
             <div><label>Content*<input className='inputcreate' value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
             <div><label>Private<input onChange={(e) => { setPublicc(e.target.checked) }} type='checkbox'></input></label></div>
             <button className='teampagebuttons' disabled={submitted && errors.length > 0}  >Post</button>
+            <button className='teampagebuttons' onClick={() => {
+                setMakePost(false)
+                setHidden(false)
+                setButton1(true)
+                setButton2(true)
+                setButton3(true)
+                setMakePost(false)
+            }}>Cancel</button>
+
         </form>
     )
 }
