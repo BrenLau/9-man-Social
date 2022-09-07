@@ -79,11 +79,11 @@ function App() {
           <div id='linkedindiv'>
             <Switch>
 
-              {sessionUser && teamMember && currentTeam.captainId != sessionUser.id && currentTeam.id == teamMember.teamId && <ProtectedRoute path='/teams/:teamId'>
+              {sessionUser && teamMember && currentTeam.captainId != sessionUser.id && currentTeam.id == teamMember.teamId && teamMember != 'none' && <ProtectedRoute path='/teams/:teamId'>
                 <button className='leaveteam' onClick={async (e) => {
-                  await dispatch(leaveTeamThunk(sessionUser.id, currentTeam))
-                  await dispatch(ourTeamThunk(currentTeam))
-                  await dispatch(getPostsThunk((currentTeam)))
+                  await dispatch(leaveTeamThunk(sessionUser.id, currentTeam.id))
+                  await dispatch(ourTeamThunk(currentTeam.id))
+                  await dispatch(getPostsThunk((currentTeam.id)))
 
                 }}>Leave Team</button></ProtectedRoute>}
               {/* {sessionUser && teamMember && teamMember.teamId &&
@@ -91,9 +91,9 @@ function App() {
               } */}
               <ProtectedRoute path='/teams/:teamId'>
                 {sessionUser && teamMember && teamMember === 'none' && <button className='leaveteam' onClick={async (e) => {
-                  await dispatch(applyTeamThunk(sessionUser.id, currentTeam))
-                  await dispatch(ourTeamThunk(currentTeam))
-                  await dispatch(getPostsThunk(currentTeam))
+                  await dispatch(applyTeamThunk(sessionUser.id, currentTeam.id))
+                  await dispatch(ourTeamThunk(currentTeam.id))
+                  await dispatch(getPostsThunk(currentTeam.id))
                 }}>Join Team</button>}
               </ProtectedRoute>
 

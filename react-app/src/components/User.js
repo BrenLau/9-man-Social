@@ -41,6 +41,21 @@ function User({ setCurrentTeam }) {
           {user.team && <li className='teamli'><NavLink className='teamname' onClick={() => { setCurrentTeam(user.team.id) }} to={`/teams/${user.team.id}`}>{user.team.name}</NavLink></li>}
         </ul>
       </div>}
+      {user && !user.team && <div className='ulBoxdiv'>
+
+        <ul className='ulBox'>
+          <li className='userli'>
+            <strong>User Id: </strong> {userId}
+          </li>
+          <li className='userli'>
+            <strong>Username: </strong> {user.username}
+          </li>
+          <li className='userli'>
+            <strong>Email: </strong> {user.email}
+          </li>
+          {user.team && <li className='teamli'><NavLink className='teamname' onClick={() => { setCurrentTeam(user.team.id) }} to={`/teams/${user.team.id}`}>{user.team.name}</NavLink></li>}
+        </ul>
+      </div>}
       {user && user.team && !user.team.image && <div className='ulBoxdiv'>
 
         <ul className='ulBox'>

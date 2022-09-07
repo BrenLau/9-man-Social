@@ -35,7 +35,7 @@ const TeamPage = ({ upload, setUpload, makePost, setMakePost, setCurrentTeam, hi
     useEffect(() => {
         dispatch(getTeamsThunk())
         if (teamId) {
-            setCurrentTeam(teamId)
+            setCurrentTeam(teams[teamId])
         }
         if (sessionUser) {
             dispatch(yourTeamThunk(user.id))

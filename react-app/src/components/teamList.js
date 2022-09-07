@@ -46,26 +46,26 @@ const TeamList = ({ upload, setUpload, setCurrentTeam, makePost, setMakePost, se
                                 backgroundImage: `url(${team.image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
                             }} onClick={async (e) => {
                                 await setCurrentTeam(team)
-                                setButton1(true)
-                                setButton2(true)
-                                setButton3(true)
-                                setMakePost(false)
-                                setUpload(false)
-
                                 await dispatch(getPostsThunk(team.id))
+                                await setButton1(true)
+                                await setButton2(true)
+                                await setButton3(true)
+                                await setMakePost(false)
+                                await setUpload(false)
+
                                 await setHidden(false)
                             }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsules"></NavLink>
                         )
                         if (team) return (
                             <NavLink onClick={async (e) => {
                                 await setCurrentTeam(team)
-                                setButton1(true)
-                                setButton2(true)
-                                setButton3(true)
-                                setMakePost(false)
-                                setUpload(false)
-
                                 await dispatch(getPostsThunk(team.id))
+                                await setButton1(true)
+                                await setButton2(true)
+                                await setButton3(true)
+                                await setMakePost(false)
+                                await setUpload(false)
+
                                 await setHidden(false)
                             }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{team.name.split(' ').length < 2 && team.name.split(' ')[0][0] || team.name.split(' ')[0][0] + team.name.split(' ')[1][0]}</NavLink>
                         )
