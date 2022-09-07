@@ -9,7 +9,6 @@ const Post = ({ teamMember }) => {
     const history = useHistory()
     const dispatch = useDispatch()
     const { postId } = useParams()
-
     const [hidden, setHidden] = useState(false)
 
     const user = useSelector(state => state.session.user)

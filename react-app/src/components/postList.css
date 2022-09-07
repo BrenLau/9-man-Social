@@ -13,6 +13,8 @@
     color: black;
     height: fit-content;
     opacity: .8;
+    word-break: break-all;
+    max-width: 50vw;
 }
 
 .eachPost:hover {
@@ -85,17 +87,22 @@
     min-height: 36px;
     align-items: center;
     box-shadow: 0 0 9px rgba(0, 0, 0, .5);
+
 }
 
 .divpost {
-    padding: 5px;
+
+    padding: 5vw;
     overflow-wrap: break-word;
-    width: 98.5%;
+    width: 60vw;
+    max-width: 60vw;
+    min-width: 85%;
     overflow-y: scroll;
     overflow-x: hidden;
+    word-break: break-all;
     box-shadow: inset 0 0 10px #000000;
     background-color: darkgray;
-    height: 90%;
+    height: 40%;
 }
 
 .postContainer {

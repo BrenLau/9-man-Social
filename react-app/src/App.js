@@ -22,6 +22,7 @@ function App() {
   const [hidden, setHidden] = useState(false)
 
 
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -81,7 +82,6 @@ function App() {
                 await dispatch(applyTeamThunk(sessionUser.id, currentTeam))
                 await dispatch(ourTeamThunk(currentTeam))
                 await dispatch(getPostsThunk(currentTeam))
-                console.log('helo')
               }}>Join Team</button>}
             </ProtectedRoute>
             <a id="linkedin" href="https://www.linkedin.com/in/brendan-lau-b6952919a/"><img className="linkedinimg" src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png'></img></a>
