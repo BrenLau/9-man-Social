@@ -25,7 +25,9 @@ function App() {
   const [button3, setButton3] = useState(true)
   const [makePost, setMakePost] = useState(false)
   const [upload, setUpload] = useState(false)
-
+  console.log(sessionUser)
+  console.log(currentTeam)
+  console.log(teamMember)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -75,18 +77,28 @@ function App() {
             </ul>}
           </ProtectedRoute>
           <div id='linkedindiv'>
-            {sessionUser && teamMember && currentTeam.captainId !== sessionUser.id && currentTeam == teamMember.teamId && teamMember !== 'none' && <button className='leaveteam' onClick={async (e) => {
-              await dispatch(leaveTeamThunk(sessionUser.id, currentTeam))
-              await dispatch(ourTeamThunk(currentTeam))
-              await dispatch(getPostsThunk((currentTeam)))
-            }}>Leave Team</button>}
-            <ProtectedRoute path='/teams/:teamId'>
-              {sessionUser && teamMember && teamMember === 'none' && <button className='leaveteam' onClick={async (e) => {
-                await dispatch(applyTeamThunk(sessionUser.id, currentTeam))
-                await dispatch(ourTeamThunk(currentTeam))
-                await dispatch(getPostsThunk(currentTeam))
-              }}>Join Team</button>}
-            </ProtectedRoute>
+            <Switch>
+
+              {sessionUser && teamMember && currentTeam.captainId != sessionUser.id && currentTeam.id == teamMember.teamId && <ProtectedRoute path='/teams/:teamId'>
+                <button className='leaveteam' onClick={async (e) => {
+                  await dispatch(leaveTeamThunk(sessionUser.id, currentTeam))
+                  await dispatch(ourTeamThunk(currentTeam))
+                  await dispatch(getPostsThunk((currentTeam)))
+
+                }}>Leave Team</button></ProtectedRoute>}
+              {sessionUser && teamMember && teamMember.teamId &&
+                <NavLink className='leaveteam' to={`/teams/${teamMember.teamId}`}>Your Team</NavLink>
+              }
+              <ProtectedRoute path='/teams/:teamId'>
+                {sessionUser && teamMember && teamMember === 'none' && <button className='leaveteam' onClick={async (e) => {
+                  await dispatch(applyTeamThunk(sessionUser.id, currentTeam))
+                  await dispatch(ourTeamThunk(currentTeam))
+                  await dispatch(getPostsThunk(currentTeam))
+                }}>Join Team</button>}
+              </ProtectedRoute>
+
+            </Switch>
+
             <a id="linkedin" href="https://www.linkedin.com/in/brendan-lau-b6952919a/"><img className="linkedinimg" src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png'></img></a>
             <a id="linkedin" href="https://github.com/BrenLau"><img className="linkedinimg" src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'></img></a>
           </div>

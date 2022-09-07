@@ -28,7 +28,7 @@ const TeamList = ({ upload, setUpload, setCurrentTeam, makePost, setMakePost, se
             </NavLink>}
             {
                 sessionUser && teamMember && teamMember !== 'none' && <NavLink className='createteam' to={`/teams/${teamMember.teamId}`} onClick={(e) => {
-                    setCurrentTeam(teamMember.teamId)
+                    setCurrentTeam(teams[teamMember.teamId])
                     setButton1(true)
                     setButton2(true)
                     setButton3(true)
@@ -45,7 +45,7 @@ const TeamList = ({ upload, setUpload, setCurrentTeam, makePost, setMakePost, se
                             <NavLink style={{
                                 backgroundImage: `url(${team.image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
                             }} onClick={async (e) => {
-                                await setCurrentTeam(team.id)
+                                await setCurrentTeam(team)
                                 setButton1(true)
                                 setButton2(true)
                                 setButton3(true)
@@ -58,7 +58,7 @@ const TeamList = ({ upload, setUpload, setCurrentTeam, makePost, setMakePost, se
                         )
                         if (team) return (
                             <NavLink onClick={async (e) => {
-                                await setCurrentTeam(team.id)
+                                await setCurrentTeam(team)
                                 setButton1(true)
                                 setButton2(true)
                                 setButton3(true)

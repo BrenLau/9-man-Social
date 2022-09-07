@@ -8,8 +8,7 @@ import ProtectedRoute from './auth/ProtectedRoute';
 import User from './User';
 import CreateTeam from "./createATeam";
 import { authenticate } from '../store/session';
-import { useSelector } from "react-redux";
-import TeamList from "./teamList";
+
 import TeamPage from "./TeamPage";
 import UpdateTeam from "./updateTeam";
 import { yourTeamThunk, ourTeamThunk } from "../store/teammember";

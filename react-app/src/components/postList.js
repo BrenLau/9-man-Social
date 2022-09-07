@@ -38,7 +38,6 @@ const PostList = ({ teamMember }) => {
                 <div className="desc">{post.content}</div>
                 {currentMems && currentMems.includes(post.userId) && <div className="desc">Posted by: {post.user.username}</div>}
                 {currentMems && !currentMems.includes(post.userId) && <div className="desc">Posted by former member: {post.user.username}</div>}
-
             </NavLink>
         ))
         }
