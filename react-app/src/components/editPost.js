@@ -35,7 +35,7 @@ const EditPostForm = ({ titl, conten, setHidden }) => {
         if (!reg.length) err.push('Title must not be empty')
         if (title.length > 40) err.push('Title must not contain over 40 characters')
         if (!content.replaceAll(' ', '').length) err.push('Content must not be empty')
-        if (content.length > 10000) err.push('*Content must not exceed 10000 characters')
+        if (content.length > 1000) err.push('*Content must not exceed 1000 characters')
 
         setErrors(err)
     }, [title, content, publicc])

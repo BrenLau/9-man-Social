@@ -6,7 +6,7 @@ from ..models.db import Team
 
 class CreatePostForm(FlaskForm):
     title = StringField('title', validators=[DataRequired(), Length(1, 40)])
-    content = StringField('content', validators=[DataRequired(), Length(1, 10000)])
+    content = StringField('content', validators=[DataRequired(), Length(1, 1000)])
     userId = IntegerField('userId')
     teamId = IntegerField('teamId')
     private = BooleanField('private')
