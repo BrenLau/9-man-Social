@@ -22,9 +22,10 @@ const PostForm = ({ setMakePost, upload, setUpload, setCurrentTeam, makePost, se
         const err = []
         const reg = title.replaceAll(' ', '')
 
-        if (!reg.length) err.push('Title must not be empty')
-        if (title.length > 40) err.push('Title must not contain over 40 characters')
-        if (!content.replaceAll(' ', '').length) err.push('Content must not be empty')
+        if (!reg.length) err.push('*Title must not be empty')
+        if (title.length > 40) err.push('*Title must not contain over 40 characters')
+        if (!content.replaceAll(' ', '').length) err.push('*Content must not be empty')
+        if (content.length > 10000) err.push('*Content must not exceed 10000 characters')
         setErrors(err)
     }, [title, content, publicc])
 
@@ -52,9 +53,9 @@ const PostForm = ({ setMakePost, upload, setUpload, setCurrentTeam, makePost, se
             {submitted && errors.length > 0 && errors.map(error => (
                 <div className='errorsdivs' key={error}>{error}</div>
             ))}
-            <div><label>Title*<input className='inputcreate' value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
-            <div><label>Content*<input className='inputcreate' value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
-            <div><label>Private<input onChange={(e) => { setPublicc(e.target.checked) }} type='checkbox'></input></label></div>
+            <div className="formdivpost"><label>Title*<input className='inputcreate' value={title} onChange={(e) => { setTitle(e.target.value) }} type='text'></input></label></div>
+            <div className="formdivpost"><label>Content*<input className='inputcreate' value={content} onChange={(e) => { setContent(e.target.value) }} type='text'></input></label></div>
+            <div className="formdivpost"><label>Private<input onChange={(e) => { setPublicc(e.target.checked) }} type='checkbox'></input></label></div>
             <div className="postbuttons">
 
                 <button className='teampagebuttons' disabled={submitted && errors.length > 0}  >Post</button>

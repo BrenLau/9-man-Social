@@ -40,8 +40,8 @@ const Post = ({ teamMember }) => {
             {post && <h1 className="h1post">{post.title}</h1>}
             {post && <div className="divpost">
                 <div className="divforposts">
-                    <NavLink className='backlink' to={`/teams/${post.team.id}`}>Back</NavLink>
-                    <h3 className="h3fordesc">posted by: {post.user.username}</h3>
+                    <NavLink className='backlink' to={`/teams/${post.team?.id}`}>Back</NavLink>
+                    <h3 className="h3fordesc">posted by: {post.user?.username}</h3>
                 </div>
                 {post.content}</div>}
         </div>

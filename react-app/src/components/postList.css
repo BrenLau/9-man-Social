@@ -97,20 +97,6 @@
     justify-content: center;
 }
 
-.divpost {
-
-    padding: 10px 2.5vw;
-    overflow-wrap: break-word;
-    width: 60vw;
-    max-width: 60vw;
-    min-width: 93%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    word-break: break-all;
-    box-shadow: inset 0 0 10px #000000;
-    background-color: darkgray;
-    height: 35%;
-}
 
 .divforposts {
     display: flex;
@@ -151,6 +137,21 @@
     height: 70.5vh;
     box-shadow: inset 0 0 10px #000000;
 
+}
+
+.divpost {
+    padding: 10px 2.5vw;
+    width: 60vw;
+    max-width: 60vw;
+    min-width: 93%;
+
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    word-break: break-all;
+    box-shadow: inset 0 0 10px #000000;
+    background-color: darkgray;
+    height: 35%;
 }
 
 .divpost::-webkit-scrollbar {
@@ -205,6 +206,7 @@
     border-radius: 12px;
     padding: 12px;
     box-shadow: 0 0 10px #000000;
+    background-color: rgb(128, 125, 125);
 
 }
 
