@@ -41,12 +41,28 @@
     padding: 5px;
 }
 
+.pubpriv {
+    width: 100%;
+}
+
 .desc {
     overflow: hidden;
     width: 90%;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     margin: 5px;
+}
+
+.descb {
+    overflow: hidden;
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 20px;
+    font-style: italic;
+
 }
 
 .postListId {

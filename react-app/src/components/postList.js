@@ -33,11 +33,11 @@ const PostList = ({ teamMember }) => {
     return (
         <>{posts && teamMember.teamId === parseInt(teamId) && Object.values(posts).map(post => (
             <NavLink to={`/post/${post.id}`} key={post.id} className="eachPost">
-                <div>{post.private ? 'Private' : 'Public'}</div>
+                <div className="pubpriv">{post.private ? 'Private' : 'Public'}</div>
                 <h3 className='posttitle'>{post.title}</h3>
                 <div className="desc">{post.content}</div>
                 {currentMems && currentMems.includes(post.userId) && <div className="desc">Posted by: {post.user?.username}</div>}
-                {currentMems && !currentMems.includes(post.userId) && <div className="desc">Posted by former member: {post.user?.username}</div>}
+                {currentMems && !currentMems.includes(post.userId) && <div className="descb">Posted by former member: {post.user?.username}</div>}
             </NavLink>
         ))
         }
@@ -45,11 +45,11 @@ const PostList = ({ teamMember }) => {
                 posts && teamMember.teamId !== parseInt(teamId) && Object.values(posts).map(post => {
                     if (!post.private) {
                         return <NavLink to={`/post/${post.id}`} key={post.id} className="eachPost">
-                            <div>{post.private ? 'Private' : 'Public'}</div>
+                            <div className="pubpriv">{post.private ? 'Private' : 'Public'}</div>
                             <h3 className='posttitle'>{post.title}</h3>
                             <div className="desc">{post.content}</div>
                             {currentMems && currentMems.includes(post.userId) && <div className="desc">Posted by: {post.user?.username}</div>}
-                            {currentMems && !currentMems.includes(post.userId) && <div className="desc">Posted by former member: {post.user?.username}</div>}
+                            {currentMems && !currentMems.includes(post.userId) && <div className="descb">Posted by former member: {post.user?.username}</div>}
 
                         </NavLink>
                     }
