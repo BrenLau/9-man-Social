@@ -95,7 +95,7 @@ const TeamPage = ({ upload, setUpload, makePost, setMakePost, setCurrentTeam, hi
             {team.image && <div className='postListId' style={{
                 backgroundImage: `url(${team.image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
             }}>
-                {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttons' onClick={() => {
+                {team && team.id === teamMember.teamId && teamMember !== 'none' && <button className='teampagebuttonsmakepost' onClick={() => {
                     setMakePost(true)
                     setButton1(false)
                     setButton2(false)

@@ -25,9 +25,7 @@ function App() {
   const [button3, setButton3] = useState(true)
   const [makePost, setMakePost] = useState(false)
   const [upload, setUpload] = useState(false)
-  console.log(sessionUser)
-  console.log(currentTeam)
-  console.log(teamMember)
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -79,7 +77,7 @@ function App() {
           <div id='linkedindiv'>
             <Switch>
 
-              {sessionUser && teamMember && currentTeam.captainId != sessionUser.id && currentTeam.id == teamMember.teamId && teamMember != 'none' && <ProtectedRoute path='/teams/:teamId'>
+              {sessionUser && teamMember && currentTeam?.captainId != sessionUser?.id && currentTeam?.id == teamMember?.teamId && teamMember != 'none' && <ProtectedRoute path='/teams/:teamId'>
                 <button className='leaveteam' onClick={async (e) => {
                   await dispatch(leaveTeamThunk(sessionUser.id, currentTeam.id))
                   await dispatch(ourTeamThunk(currentTeam.id))

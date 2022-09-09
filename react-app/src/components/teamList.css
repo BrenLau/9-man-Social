@@ -108,6 +108,31 @@
     margin: 4px;
 }
 
+.teampagebuttonsmakepost {
+    position: sticky;
+    border-radius: 20px;
+    top: 2px;
+    right: 2px;
+    width: 80px;
+    background-color: whitesmoke;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    padding: 3px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 36px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 4px;
+    z-index: 20;
+}
+
+.teampagebuttonsmakepost:hover {
+    cursor: pointer;
+    background-color: #ccc;
+}
+
 #teamlistind {
     display: flex;
     flex-direction: column;
