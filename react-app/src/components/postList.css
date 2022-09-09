@@ -46,6 +46,7 @@
     width: 90%;
     display: flex;
     justify-content: center;
+    margin: 5px;
 }
 
 .postListId {
@@ -149,7 +150,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     word-break: break-all;
-    box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 15px #000000;
     background-color: darkgray;
     height: 35%;
 }
