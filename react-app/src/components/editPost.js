@@ -48,6 +48,8 @@ const EditPostForm = ({ titl, conten, setHidden }) => {
         }
         await dispatch(editPostThunk(data, post.id))
         setHidden(false)
+        await dispatch(getOnePostThunk(postId))
+        await dispatch(getPostsThunk())
         // setMakePost(false)
     }
 
