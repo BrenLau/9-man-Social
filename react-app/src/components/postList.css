@@ -14,7 +14,7 @@
     height: fit-content;
     opacity: .8;
     word-break: break-all;
-    max-width: 70vw;
+    max-width: 95%;
 }
 
 .eachPost:hover {
@@ -28,6 +28,9 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    max-width: 68vw;
+    min-width: 670px;
+    margin: 0;
 }
 
 .posttitle {
@@ -47,7 +50,7 @@
 
 .desc {
     overflow: hidden;
-    width: 90%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -72,8 +75,9 @@
     margin-top: 30px;
     align-items: center;
     height: 100%;
-    width: 95.2%;
-    /* max-width: 79vw; */
+    width: 80%;
+    max-width: 100%;
+    min-width: 690px;
     padding: 20px;
     overflow-y: scroll;
     overflow-x: hidden;

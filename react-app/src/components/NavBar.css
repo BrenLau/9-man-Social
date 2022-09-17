@@ -31,6 +31,8 @@
     height: 30vh;
     min-height: 30vh;
     width: 100%;
+    max-width: 100%;
+    min-width: 690px;
 
 }
 

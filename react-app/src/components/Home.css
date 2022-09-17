@@ -1,7 +1,7 @@
 .poles {
     /* border: solid 1px; */
     height: 70vh;
-    width: 2, 5vw;
+    width: 1vw;
     background: linear-gradient(to right, rgba(2, 0, 36, 1) 0%, rgba(187, 187, 187, 1) 0%, rgba(97, 102, 103, 1) 50%);
     display: flex;
     align-items: center;
@@ -30,6 +30,7 @@ body {
     background-color: #a9a9a9;
     height: 70vh;
     min-width: 70vw;
+    max-width: 70vw;
 }
 
 

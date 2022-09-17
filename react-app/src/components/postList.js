@@ -22,7 +22,7 @@ const PostList = ({ teamMember }) => {
             return mem.id
         })
     }
-    console.log(currentMems)
+
 
     if (Object.values(posts).length === 0) {
         return (
@@ -38,8 +38,8 @@ const PostList = ({ teamMember }) => {
                 <div className="pubpriv">{post.private ? 'Private' : 'Public'}</div>
                 <h3 className='posttitle'>{post.title}</h3>
                 <div className="desc">{post.content}</div>
-                {currentMems && currentMems.includes(post.userId) && <div className="descb">Posted by: {post.user?.username}</div>}
-                {currentMems && !currentMems.includes(post.userId) && <div className="descb">Posted by former member: {post.user?.username}</div>}
+                {currentMems && currentMems.includes(post.userId) && <div className="descb">Posted by: {post?.user?.username}</div>}
+                {currentMems && !currentMems.includes(post.userId) && <div className="descb">Posted by former member: {post?.user?.username}</div>}
             </NavLink>
         ))
         }
@@ -50,8 +50,8 @@ const PostList = ({ teamMember }) => {
                             <div className="pubpriv">{post.private ? 'Private' : 'Public'}</div>
                             <h3 className='posttitle'>{post.title}</h3>
                             <div className="desc">{post.content}</div>
-                            {currentMems && currentMems.includes(post.userId) && <div className="descb">Posted by: {post.user?.username}</div>}
-                            {currentMems && !currentMems.includes(post.userId) && <div className="descb">Posted by former member: {post.user?.username}</div>}
+                            {currentMems && currentMems.includes(post.userId) && <div className="descb">Posted by: {post?.user?.username}</div>}
+                            {currentMems && !currentMems.includes(post.userId) && <div className="descb">Posted by former member: {post?.user?.username}</div>}
 
                         </NavLink>
                     }
