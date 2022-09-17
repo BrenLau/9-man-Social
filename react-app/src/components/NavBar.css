@@ -53,6 +53,7 @@
     max-width: 70vw;
     height: 10%;
     display: flex;
+    min-width: 690px;
     padding: 0px;
     top: 0px;
     /* left: 30px; */
