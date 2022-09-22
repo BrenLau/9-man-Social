@@ -75,7 +75,8 @@ class Post(db.Model):
             "teamId": self.teamId,
             "title": self.title,
             "content": self.content,
-            "private": self.private
+            "private": self.private,
+            "comments": self.comments
         }
 
 class Comment(db.Model):
@@ -85,6 +86,8 @@ class Comment(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     content = db.Column(db.Text, nullable=False)
     postId = db.Column(db.Integer, db.ForeignKey("posts.id"), nullable=False)
+    title = db.Column(db.Text, nullable=False)
+
 
     post = db.relationship("Post", back_populates="comments")
     user = db.relationship("User", back_populates="comments", lazy='joined')

@@ -15,6 +15,7 @@ const Post = ({ teamMember }) => {
 
     const posts = useSelector(state => state.posts)
     const post = posts[postId]
+    console.log(post)
 
     useEffect(() => {
         dispatch(getOnePostThunk(postId))
