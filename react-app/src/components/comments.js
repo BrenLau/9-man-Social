@@ -18,12 +18,18 @@ const Comments = ({ teamMember, post }) => {
         dispatch(getOnePostThunk(postId))
     }, [dispatch])
 
-    if (!post) return (<div>No comments</div>)
+    // if (!post) return (<div>No comments</div>)
 
     return (
         <div className="commentsContainer">
-            <h2>Comments</h2>
+            <h2 id='commentsh2'>Comments</h2>
+            <ul className="thecomments">
 
+            </ul>
+            <form className="commentform">
+                <input placeholder="Type Comment Here" className='commentinput'></input>
+                <button>Submit</button>
+            </form>
 
         </div>
     )

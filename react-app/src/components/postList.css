@@ -98,7 +98,7 @@
 }
 
 .h1post {
-    width: 99%;
+    width: 100%;
     overflow-wrap: break-word;
     display: flex;
     justify-content: center;
@@ -107,7 +107,7 @@
     height: 10%;
     min-height: 36px;
     align-items: center;
-    box-shadow: 0 0 9px rgba(0, 0, 0, .5);
+    box-shadow: inset 0 0 9px rgba(0, 0, 0, .5);
 
 }
 
@@ -130,7 +130,7 @@
     text-decoration: none;
     color: red;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 13px;
     text-align: center;
     background-color: whitesmoke;
     border-radius: 12px;
@@ -157,7 +157,8 @@
     align-items: center;
     height: 70.5vh;
     box-shadow: inset 0 0 10px #000000;
-
+    min-width: 670px;
+    margin: 0;
 }
 
 .divpost {
@@ -249,4 +250,51 @@
     bottom: -20px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+}
+
+.commentsContainer {
+    width: 100%;
+    margin: 0;
+    height: 50%;
+}
+
+#commentsh2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+    background-color: rgb(122, 122, 122);
+    box-shadow: inset 0 0 9px rgba(0, 0, 0, .5);
+    margin: 0;
+    font-size: 18px;
+}
+
+.thecomments {
+    margin: 0;
+    /* border: solid 1px black; */
+    height: 70%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, .7);
+
+}
+
+.commentform {
+    display: flex;
+    flex-direction: row;
+    height: 20%;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, .7);
+
+}
+
+.commentinput {
+    border-radius: 0;
+    background-color: rgb(149, 147, 147);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    word-break: break-all;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
