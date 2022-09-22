@@ -4,6 +4,7 @@ import { NavLink, useParams, useHistory } from "react-router-dom"
 import { getOnePostThunk, deletePostThunk } from "../store/post"
 import './postList.css'
 import EditPostForm from "./editPost"
+import Comments from "./comments"
 
 const Post = ({ teamMember }) => {
     const history = useHistory()
@@ -15,7 +16,7 @@ const Post = ({ teamMember }) => {
 
     const posts = useSelector(state => state.posts)
     const post = posts[postId]
-    console.log(post)
+
 
     useEffect(() => {
         dispatch(getOnePostThunk(postId))
@@ -44,6 +45,7 @@ const Post = ({ teamMember }) => {
                     <h3 className="h3fordesc">posted by: {post?.user?.username}</h3>
                 </div>
                 {post.content}</div>}
+            <Comments />
         </div>
     )
 }

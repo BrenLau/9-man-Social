@@ -98,6 +98,7 @@ class Comment(db.Model):
             "userId": self.userId,
             "teamId": self.postId,
             "content": self.content,
+            "user":self.user
         }
 
 class Tournament(db.Model):
