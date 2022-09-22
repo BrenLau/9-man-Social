@@ -4,12 +4,14 @@ import session from './session'
 import teams from './teams'
 import members from './teammember';
 import posts from './post';
+import comments from './comments';
 
 const rootReducer = combineReducers({
   session,
   teams,
   members,
-  posts
+  posts,
+  comments
 });
 
 

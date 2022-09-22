@@ -75,8 +75,7 @@ class Post(db.Model):
             "teamId": self.teamId,
             "title": self.title,
             "content": self.content,
-            "private": self.private,
-            "comments": self.comments
+            "private": self.private
         }
 
 class Comment(db.Model):
@@ -86,7 +85,6 @@ class Comment(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     content = db.Column(db.Text, nullable=False)
     postId = db.Column(db.Integer, db.ForeignKey("posts.id"), nullable=False)
-    title = db.Column(db.Text, nullable=False)
 
 
     post = db.relationship("Post", back_populates="comments")
@@ -98,7 +96,7 @@ class Comment(db.Model):
             "userId": self.userId,
             "teamId": self.postId,
             "content": self.content,
-            "user":self.user
+            "user":self.user.to_dict()
         }
 
 class Tournament(db.Model):
