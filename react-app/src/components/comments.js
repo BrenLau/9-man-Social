@@ -51,6 +51,7 @@ const Comments = ({ teamMember, post }) => {
                         <div className="commentuser">{comment.user.username}</div>
                     </div>)
                 )}
+                {comments && !Object.values(comments).length && <h2 id='commentsh2'>No comments yet</h2>}
             </ul>
             <form onSubmit={onSubmit} className="commentform">
                 <input value={comment} onChange={(e) => { setComment(e.target.value) }} placeholder="Type Comment Here" className='commentinput'></input>
