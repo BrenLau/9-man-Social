@@ -34,13 +34,13 @@ const TeamPage = ({ upload, setUpload, makePost, setMakePost, setCurrentTeam, hi
 
     useEffect(() => {
         dispatch(getTeamsThunk())
+        dispatch(getPostsThunk(parseInt(teamId)))
         if (teamId) {
             setCurrentTeam(teams[teamId])
         }
         if (sessionUser) {
             dispatch(yourTeamThunk(user.id))
         }
-        dispatch(getPostsThunk(parseInt(teamId)))
     }, [dispatch])
     if (!team) return null
 

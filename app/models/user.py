@@ -19,6 +19,8 @@ class User(db.Model, UserMixin):
         "Post", back_populates="user", cascade="all, delete")
     tournaments = db.relationship(
         "Tournament", back_populates="user", cascade="all, delete")
+    comments = db.relationship("Comment", back_populates="user", cascade="all, delete")
+
 
     @property
     def password(self):

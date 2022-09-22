@@ -2,14 +2,14 @@ const GET_TEAMS = "getallteamspls"
 const MAKE_TEAMS = "makeanewteampls"
 const UPDATE_TEAMS = "changeteamspls"
 const DELETE_TEAMS = "thisteam,imout"
-const UPLOADTEAMIMG = 'uploadteamimg'
+// const UPLOADTEAMIMG = 'uploadteamimg'
 
-const uploadImage = (team) => {
-    return {
-        type: UPLOADTEAMIMG,
-        team
-    }
-}
+// const uploadImage = (team) => {
+//     return {
+//         type: UPLOADTEAMIMG,
+//         team
+//     }
+// }
 
 const getTeams = (teams) => {
     return {

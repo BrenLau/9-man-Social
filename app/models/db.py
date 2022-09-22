@@ -66,6 +66,7 @@ class Post(db.Model):
 
     user = db.relationship("User", back_populates="posts", lazy='joined')
     team = db.relationship("Team", back_populates="posts")
+    comments = db.relationship("Comment", back_populates="post", cascade="all, delete")
 
     def to_dict(self):
         return{
@@ -77,6 +78,24 @@ class Post(db.Model):
             "private": self.private
         }
 
+class Comment(db.Model):
+    __tablename__="comments"
+
+    id = db.Column(db.Integer, primary_key=True)
+    userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    postId = db.Column(db.Integer, db.ForeignKey("posts.id"), nullable=False)
+
+    post = db.relationship("Post", back_populates="comments")
+    user = db.relationship("User", back_populates="comments", lazy='joined')
+
+    def to_dict(self):
+        return{
+            "id": self.id,
+            "userId": self.userId,
+            "teamId": self.postId,
+            "content": self.content,
+        }
 
 class Tournament(db.Model):
     __tablename__ = "tournaments"
