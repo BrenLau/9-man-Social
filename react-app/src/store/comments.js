@@ -95,7 +95,7 @@ const comments = (state = {}, action) => {
     let newState = {}
     switch (action.type) {
         case GET_COMMENTS:
-            newState = { ...state }
+            newState = {}
             action.comments.forEach(comment => {
                 newState[comment.id] = comment
             })

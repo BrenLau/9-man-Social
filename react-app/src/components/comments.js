@@ -14,7 +14,6 @@ const Comments = ({ teamMember, post }) => {
 
     const user = useSelector(state => state.session.user)
     const comments = useSelector(state => state.comments)
-    console.log(Object.values(comments))
 
 
     useEffect(() => {
@@ -45,11 +44,11 @@ const Comments = ({ teamMember, post }) => {
             <h2 id='commentsh2'>Comments</h2>
             <ul className="thecomments">
                 {comments && Object.values(comments).map(comment => (
-                    <div>
-                        <div>
+                    <div className="eachCommentDiv">
+                        <div className="commentcontent">
                             {comment.content}
                         </div>
-                        <div>{comment.user.username}</div>
+                        <div className="commentuser">{comment.user.username}</div>
                     </div>)
                 )}
             </ul>
