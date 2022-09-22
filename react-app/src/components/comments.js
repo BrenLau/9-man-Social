@@ -22,6 +22,7 @@ const Comments = ({ teamMember, post }) => {
 
     useEffect(() => {
         const reg = comment.replaceAll(' ', '')
+        if (comment.length > 300) setDisabled(true)
         if (reg.length < 1) setDisabled(true)
         else setDisabled(false)
 
@@ -55,7 +56,7 @@ const Comments = ({ teamMember, post }) => {
             </ul>
             <form onSubmit={onSubmit} className="commentform">
                 <input value={comment} onChange={(e) => { setComment(e.target.value) }} placeholder="Type Comment Here" className='commentinput'></input>
-                <button disabled={disabled}>Submit</button>
+                <button className='commentbutton' disabled={disabled}>Submit<div>({comment.length}/500)</div></button>
             </form>
 
         </div>
