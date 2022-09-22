@@ -67,7 +67,7 @@ const TeamList = ({ upload, setUpload, setCurrentTeam, makePost, setMakePost, se
                                 await setUpload(false)
 
                                 await setHidden(false)
-                            }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{team.name.split(' ').length < 2 && (team.name.split(' ')[0][0] || team.name.split(' ')[0][0] + team.name.split(' ')[1][0])}</NavLink>
+                            }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{team.name.split(' ').length < 2 && team.name.split(' ')[0][0] || team.name.split(' ')[0][0] + team.name.split(' ')[1][0]}</NavLink>
                         )
                     })}
                 </div>
