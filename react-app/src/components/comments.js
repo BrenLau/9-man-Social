@@ -47,16 +47,16 @@ const Comments = ({ teamMember, post }) => {
                 {comments && Object.values(comments).map(comment => (
                     <div className="eachCommentDiv">
                         <div className="commentcontent">
-                            {comment.content}
+                            {comment?.content}
                         </div>
-                        <div className="commentuser">{comment.user.username}</div>
+                        <div className="commentuser">{comment?.user?.username}</div>
                     </div>)
                 )}
                 {comments && !Object.values(comments).length && <h2 id='commentsh2'>No comments yet</h2>}
             </ul>
             <form onSubmit={onSubmit} className="commentform">
                 <input value={comment} onChange={(e) => { setComment(e.target.value) }} placeholder="Type Comment Here" className='commentinput'></input>
-                <button className='commentbutton' disabled={disabled}>Submit<div>({comment.length}/500)</div></button>
+                <button className='commentbutton' disabled={disabled}>Submit<div>({comment?.length}/500)</div></button>
             </form>
 
         </div>
