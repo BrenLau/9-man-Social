@@ -49,6 +49,11 @@ const Comments = ({ teamMember, post }) => {
                         <div className="commentcontent">
                             {comment?.content}
                         </div>
+                        {user.id === comment.userId && <button className="xbutton" onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            console.log('clicked')
+                        }}>x</button>}
                         <div className="commentuser">{comment?.user?.username}</div>
                     </div>)
                 )}

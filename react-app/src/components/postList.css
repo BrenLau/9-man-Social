@@ -351,3 +351,19 @@
     cursor: pointer;
     z-index: 4;
 }
+
+.xbutton {
+    color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: black;
+    width: 15px;
+    padding: 3px;
+    height: 15px;
+}
+
+.xbutton:hover {
+    cursor: pointer;
+}
