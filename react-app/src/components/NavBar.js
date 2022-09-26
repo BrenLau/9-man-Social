@@ -13,6 +13,7 @@ const NavBar = () => {
   const teams = useSelector((state) => state.teams)
   const team = teams[parseInt(teamId)]
 
+
   const posts = useSelector((state) => state.posts)
   const post = posts[parseInt(postId)]
 
@@ -29,6 +30,8 @@ const NavBar = () => {
             <Route exact path='/'><><img className='logo' src={logo}></img><h2 id='splashh2'>A place where the nineman community can get together to organize and communicate amongst each other in one centralized location.</h2></></Route>
             <Route exact path='/teams/:teamId'>{team && <><h1 id='h1title'>{team.name}</h1><div id='descriptionid'>{team.description}</div></>}</Route>
             <Route exact path='/post/:postId'>{post && <><h1 id='h1title'>{post.team ? post.team.name : 'l'}</h1><div id='descriptionid'>{post.team ? post.team.description : 'l'}</div></>}</Route>
+            <Route exact path='/users/:userId'>{<><h1 id='h1title'>User Profile</h1></>}</Route>
+
           </Switch>
         </div>
       </div>
