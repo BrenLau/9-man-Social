@@ -4,7 +4,7 @@ import { NavLink, useParams, useHistory } from "react-router-dom"
 import { getOnePostThunk, deletePostThunk } from "../store/post"
 import './postList.css'
 import EditPostForm from "./editPost"
-import { getCommentsThunk, makeCommentThunk } from "../store/comments"
+import { getCommentsThunk, makeCommentThunk, deleteCommentThunk } from "../store/comments"
 
 const Comments = ({ teamMember, post }) => {
     const dispatch = useDispatch()
@@ -49,10 +49,10 @@ const Comments = ({ teamMember, post }) => {
                         <div className="commentcontent">
                             {comment?.content}
                         </div>
-                        {user.id === comment.userId && <button className="xbutton" onClick={(e) => {
+                        {user.id === comment.userId && <button className="xbutton" onClick={async (e) => {
                             e.preventDefault()
                             e.stopPropagation()
-                            console.log('clicked')
+                            await dispatch(deleteCommentThunk(comment.id))
                         }}>x</button>}
                         <div className="commentuser">{comment?.user?.username}</div>
                     </div>)

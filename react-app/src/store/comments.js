@@ -1,7 +1,7 @@
 const GET_COMMENTS = "getallCOMMENTSpls"
 const MAKE_COMMENTS = "makeanewCOMMENTpls"
-const UPDATE_COMMENTS = "changeteamspls"
-const DELETE_COMMENT = "thisteam,imout"
+const UPDATE_COMMENTS = "changeghfsdteamspls"
+const DELETE_COMMENT = "thisteamhgfd,imout"
 
 const getComments = (comments) => {
     return {
@@ -33,17 +33,17 @@ const deleteComment = (comment) => {
 
 
 
-// export const deleteCommentThunk = (teamId) => async (dispatch) => {
-//     const res = await fetch(`/api/teams/${teamId}`, {
-//         method: 'DELETE'
-//     })
+export const deleteCommentThunk = (commentId) => async (dispatch) => {
+    const res = await fetch(`/api/comments/${commentId}`, {
+        method: 'DELETE'
+    })
 
-//     if (res.ok) {
-//         const data = await res.json()
-//         dispatch(deleteTeam(data))
-//         return data
-//     }
-// }
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(deleteComment(data))
+        return data
+    }
+}
 
 // export const editCommentThunk = (data, teamId) => async (dispatch) => {
 //     const res = await fetch(`/api/teams/${teamId}`, {
@@ -69,7 +69,6 @@ export const makeCommentThunk = (data) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(makeComment(data))
-        console.log(data)
         return null
     } else if (res.status < 500) {
         const data = await res.json()
@@ -110,7 +109,7 @@ const comments = (state = {}, action) => {
             return newState
         case DELETE_COMMENT:
             newState = { ...state }
-            delete newState[action.team.id]
+            delete newState[action.comment.id]
             return newState
         default:
             return state

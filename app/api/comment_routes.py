@@ -24,5 +24,12 @@ def makeComment(postId):
 @login_required
 def getComments(postId):
     comments = Comment.query.filter(Comment.postId == postId)
-    print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@',comments)
     return {'comments': [comment.to_dict() for comment in comments]}
+
+@comment_routes.route('/<int:commentId>', methods=['DELETE'])
+@login_required
+def deleteComment(commentId):
+    comment = Comment.query.get(commentId)
+    db.session.delete(comment)
+    db.session.commit()
+    return comment.to_dict()
