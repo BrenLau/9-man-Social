@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { getTeamsThunk } from "../store/teams"
 import { NavLink } from "react-router-dom"
 import "./teamList.css"
@@ -8,7 +8,8 @@ import { getPostsThunk } from "../store/post"
 const TeamList = ({ upload, setUpload, setCurrentTeam, makePost, setMakePost, setHidden, teamMember, sessionUser, button1, setButton1, button2, setButton2, button3, setButton3 }) => {
     const dispatch = useDispatch()
     const teams = useSelector(state => state.teams)
-
+    const [hover, setHover] = useState(false)
+    const [currentHover, setCurrentHover] = useState('')
 
     useEffect(() => {
         dispatch(getTeamsThunk())
@@ -42,7 +43,13 @@ const TeamList = ({ upload, setUpload, setCurrentTeam, makePost, setMakePost, se
                     {Object.values(teams).map(team => {
                         if (team.image) return (
 
-                            <NavLink style={{
+                            <NavLink onMouseOver={() => {
+                                setCurrentHover(team.id)
+                                setHover(true)
+                            }} onMouseLeave={() => {
+                                setCurrentHover('')
+                                setHover(false)
+                            }} style={{
                                 backgroundImage: `url(${team.image})`, backgroundRepeat: 'no-repeat', backgroundSize: '100% 100%'
                             }} onClick={async (e) => {
                                 await setCurrentTeam(team)
@@ -54,7 +61,7 @@ const TeamList = ({ upload, setUpload, setCurrentTeam, makePost, setMakePost, se
                                 await setUpload(false)
 
                                 await setHidden(false)
-                            }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsules"></NavLink>
+                            }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsules">{hover && currentHover === team.id ? team.name.split(' ').length < 2 && team.name.split(' ')[0][0] || team.name.split(' ')[0][0] + team.name.split(' ')[1][0] : ''}</NavLink>
                         )
                         if (team) return (
                             <NavLink onClick={async (e) => {

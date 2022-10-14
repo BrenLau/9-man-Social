@@ -38,14 +38,13 @@ const Comments = ({ teamMember, post }) => {
         await dispatch(makeCommentThunk(data))
         await setComment('')
     }
-    // if (!post) return (<div>No comments</div>)
 
     return (
         <div className="commentsContainer">
             <h2 id='commentsh2'>Comments</h2>
             <ul className="thecomments">
                 {comments && Object.values(comments).map(comment => (
-                    <div className="eachCommentDiv">
+                    <div key={comment.id} className="eachCommentDiv">
                         <div className="commentcontent">
                             {comment?.content}
                         </div>

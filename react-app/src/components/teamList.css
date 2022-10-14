@@ -76,12 +76,16 @@
     background-color: lightgrey;
     color: black;
     box-shadow: 0 0 3px red;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .teamcapsules:hover {
     background-color: lightgrey;
-    color: black;
+    color: rgb(255, 255, 255);
     box-shadow: 0 0 3px red;
+    font-weight: bold;
+    font-size: 20px;
 
 }
 
