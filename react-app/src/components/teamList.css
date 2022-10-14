@@ -74,6 +74,7 @@
 }
 
 .teamcapsule:hover {
+    background-color: lightgrey;
     color: black;
     box-shadow: 0 0 3px red;
     font-weight: bold;
@@ -81,6 +82,7 @@
 }
 
 .teamcapsules:hover {
+    background-color: lightgrey;
     color: rgb(0, 0, 0);
     box-shadow: 0 0 3px red;
     font-weight: bold;
