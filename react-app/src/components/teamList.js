@@ -61,7 +61,7 @@ const TeamList = ({ upload, setUpload, setCurrentTeam, makePost, setMakePost, se
                                 await setUpload(false)
 
                                 await setHidden(false)
-                            }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsules">{hover && currentHover == team.id ? <div className="hoverdiv">{team.name}</div> : ''}</NavLink>
+                            }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsules">{hover && currentHover == team.id ? <div className="hoverdiv"><div className="bubblediv">{team.name}</div></div> : ''}</NavLink>
                         )
                         if (team) return (
                             <NavLink onMouseOver={() => {
@@ -80,7 +80,7 @@ const TeamList = ({ upload, setUpload, setCurrentTeam, makePost, setMakePost, se
                                 await setUpload(false)
 
                                 await setHidden(false)
-                            }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{team.name.split(' ').length < 2 && team.name.split(' ')[0][0] || team.name.split(' ')[0][0] + team.name.split(' ')[1][0]}{hover && currentHover == team.id ? <div><div className="hoverdiv">{team.name}</div></div> : ''}</NavLink>
+                            }} key={team.id} to={`/teams/${team.id}`} activeClassName='activeteam' className="teamcapsule">{team.name.split(' ').length < 2 && team.name.split(' ')[0][0] || team.name.split(' ')[0][0] + team.name.split(' ')[1][0]}{hover && currentHover == team.id ? <div className="hoverdiv"><div className="bubblediv">{team.name}</div></div> : ''}</NavLink>
                         )
                     })}
                 </div>
