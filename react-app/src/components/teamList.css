@@ -204,8 +204,9 @@
     position: absolute;
     /* left: 60px; */
     z-index: 555;
-    width: 90px;
-    opacity: .7;
+    min-width: 90px;
+    width: fit-content;
+    opacity: 1;
     border-radius: 50px;
     /* padding: 5px; */
 }
@@ -214,6 +215,8 @@
     position: absolute;
     display: flex;
     align-items: center;
+    width: fit-content;
+    min-width: 200px;
     justify-content: center;
     left: 75px;
     background-color: rgb(247, 247, 247);
@@ -221,5 +224,7 @@
     padding: 5px;
     border-radius: 20px;
     width: 90px;
-    opacity: .96;
+    opacity: .9;
+    font-size: 12px;
+    overflow: hidden;
 }
