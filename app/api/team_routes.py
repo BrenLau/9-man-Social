@@ -29,10 +29,6 @@ def allTeams():
 @team_routes.route('', methods=['POST'])
 @login_required
 def createTeam():
-    # data = request.json
-    # name = data['name']
-    # description = data['description']
-    # captainId = data['captainId']
 
     form = CreateTeamForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -56,7 +52,6 @@ def createTeam():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-    # newTeam = Team(name=name, description=description, captainId=captainId)
 
 
 
